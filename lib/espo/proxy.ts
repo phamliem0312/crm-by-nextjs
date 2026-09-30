@@ -5,7 +5,14 @@ import { getEspoApiUrl } from "./config";
 const TIMEOUT_MS = 60_000;
 
 /** Header của trình duyệt được chuyển tiếp sang Espo. Auth do BFF tự gắn, không lấy từ trình duyệt. */
-const FORWARDED_REQUEST_HEADERS = ["accept", "accept-language", "content-type"];
+const FORWARDED_REQUEST_HEADERS = [
+  "accept",
+  "accept-language",
+  "content-type",
+  // Lưu bất chấp bản ghi trùng (sau khi người dùng xác nhận), khoá lạc quan theo versionNumber.
+  "x-skip-duplicate-check",
+  "x-version-number",
+];
 
 /**
  * Header của Espo được trả lại cho trình duyệt. Không trả `WWW-Authenticate`,

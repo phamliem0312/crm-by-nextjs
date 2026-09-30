@@ -1,0 +1,842 @@
+{
+  "Account": {
+    "list": [
+      {
+        "name": "name",
+        "link": true
+      },
+      {
+        "name": "website",
+        "notSortable": true,
+        "width": 25
+      },
+      {
+        "name": "emailAddress",
+        "notSortable": true,
+        "width": 20,
+        "hidden": true
+      },
+      {
+        "name": "type",
+        "width": 16
+      },
+      {
+        "name": "billingAddressCountry",
+        "width": 18
+      }
+    ],
+    "detail": [
+      {
+        "label": "Overview",
+        "rows": [
+          [
+            {
+              "name": "name"
+            },
+            {
+              "name": "website"
+            }
+          ],
+          [
+            {
+              "name": "emailAddress"
+            },
+            {
+              "name": "phoneNumber"
+            }
+          ],
+          [
+            {
+              "name": "billingAddress"
+            },
+            {
+              "name": "shippingAddress"
+            }
+          ]
+        ]
+      },
+      {
+        "label": "Details",
+        "rows": [
+          [
+            {
+              "name": "type"
+            },
+            {
+              "name": "industry"
+            }
+          ],
+          [
+            {
+              "name": "description",
+              "fullWidth": true
+            }
+          ]
+        ]
+      }
+    ],
+    "filters": [
+      "assignedUser",
+      "teams",
+      "createdAt",
+      "createdBy",
+      "modifiedAt",
+      "streamUpdatedAt",
+      "type",
+      "industry",
+      "description",
+      "emailAddress",
+      "phoneNumber",
+      "targetLists",
+      "billingAddressCountry",
+      "billingAddress",
+      "shippingAddress",
+      "website",
+      "campaign"
+    ],
+    "massUpdate": [
+      "assignedUser",
+      "teams"
+    ],
+    "bottomPanelsDetail": {
+      "_tabBreak_0": {
+        "index": 0,
+        "tabBreak": true,
+        "tabLabel": "$Stream"
+      },
+      "stream": {
+        "sticked": false,
+        "index": 1
+      },
+      "_tabBreak_1": {
+        "index": 2,
+        "tabBreak": true,
+        "tabLabel": "$Account"
+      },
+      "contacts": {
+        "index": 3
+      },
+      "opportunities": {
+        "index": 4
+      },
+      "documents": {
+        "index": 5
+      },
+      "_tabBreak_2": {
+        "index": 6,
+        "tabBreak": true,
+        "tabLabel": "$Support"
+      },
+      "cases": {
+        "index": 7
+      }
+    },
+    "defaultSidePanel": [
+      {
+        "name": ":assignedUser"
+      },
+      {
+        "name": "teams"
+      }
+    ],
+    "listSmall": [
+      {
+        "name": "name",
+        "link": true
+      },
+      {
+        "name": "billingAddressCountry",
+        "width": 50
+      }
+    ]
+  },
+  "Contact": {
+    "list": [
+      {
+        "name": "name",
+        "link": true
+      },
+      {
+        "name": "account",
+        "width": 25
+      },
+      {
+        "name": "emailAddress",
+        "notSortable": true,
+        "width": 20
+      },
+      {
+        "name": "phoneNumber",
+        "notSortable": true,
+        "width": 18
+      },
+      {
+        "name": "assignedUser",
+        "width": 18,
+        "hidden": true
+      }
+    ],
+    "detail": [
+      {
+        "label": "",
+        "rows": [
+          [
+            {
+              "name": "name"
+            },
+            {
+              "name": "accounts"
+            }
+          ],
+          [
+            {
+              "name": "emailAddress"
+            },
+            {
+              "name": "phoneNumber"
+            }
+          ],
+          [
+            {
+              "name": "address"
+            },
+            false
+          ],
+          [
+            {
+              "name": "description",
+              "fullWidth": true
+            }
+          ]
+        ]
+      }
+    ],
+    "filters": [
+      "assignedUser",
+      "teams",
+      "createdAt",
+      "createdBy",
+      "modifiedAt",
+      "streamUpdatedAt",
+      "accounts",
+      "address",
+      "emailAddress",
+      "phoneNumber",
+      "title",
+      "targetLists",
+      "campaign"
+    ],
+    "massUpdate": [
+      "assignedUser",
+      "teams"
+    ],
+    "bottomPanelsDetail": {
+      "opportunities": {
+        "name": "opportunities",
+        "index": 5
+      },
+      "cases": {
+        "name": "cases",
+        "index": 5.001
+      },
+      "targetLists": {
+        "name": "targetLists",
+        "index": 5.002
+      }
+    },
+    "defaultSidePanel": [
+      {
+        "name": ":assignedUser"
+      },
+      {
+        "name": "teams"
+      },
+      {
+        "name": "portalUser"
+      }
+    ],
+    "listSmall": [
+      {
+        "name": "name",
+        "link": true
+      },
+      {
+        "name": "account",
+        "width": 35
+      },
+      {
+        "name": "emailAddress",
+        "notSortable": true,
+        "width": 30
+      }
+    ]
+  },
+  "Lead": {
+    "list": [
+      {
+        "name": "name",
+        "link": true
+      },
+      {
+        "name": "status",
+        "width": 15
+      },
+      {
+        "name": "emailAddress",
+        "notSortable": true,
+        "width": 20
+      },
+      {
+        "name": "phoneNumber",
+        "notSortable": true,
+        "width": 20,
+        "hidden": true
+      },
+      {
+        "name": "source",
+        "notSortable": true,
+        "width": 15,
+        "hidden": true
+      },
+      {
+        "name": "assignedUser",
+        "width": 18
+      },
+      {
+        "name": "createdAt",
+        "width": 13
+      }
+    ],
+    "detail": [
+      {
+        "label": "Overview",
+        "rows": [
+          [
+            {
+              "name": "name"
+            },
+            {
+              "name": "accountName"
+            }
+          ],
+          [
+            {
+              "name": "emailAddress"
+            },
+            {
+              "name": "phoneNumber"
+            }
+          ],
+          [
+            {
+              "name": "title"
+            },
+            {
+              "name": "website"
+            }
+          ],
+          [
+            {
+              "name": "address"
+            },
+            false
+          ]
+        ]
+      },
+      {
+        "label": "Details",
+        "rows": [
+          [
+            {
+              "name": "status"
+            },
+            {
+              "name": "source"
+            }
+          ],
+          [
+            {
+              "name": "opportunityAmount"
+            },
+            {
+              "name": "campaign"
+            }
+          ],
+          [
+            {
+              "name": "industry"
+            },
+            false
+          ],
+          [
+            {
+              "name": "description",
+              "fullWidth": true
+            }
+          ]
+        ]
+      }
+    ],
+    "filters": [
+      "assignedUser",
+      "teams",
+      "createdAt",
+      "createdBy",
+      "modifiedAt",
+      "streamUpdatedAt",
+      "address",
+      "accountName",
+      "campaign",
+      "emailAddress",
+      "phoneNumber",
+      "status",
+      "source",
+      "opportunityAmountConverted",
+      "industry",
+      "targetLists",
+      "createdAccount"
+    ],
+    "massUpdate": [
+      "status",
+      "assignedUser",
+      "teams"
+    ],
+    "bottomPanelsDetail": {
+      "targetLists": {
+        "name": "targetLists",
+        "index": 5
+      }
+    },
+    "defaultSidePanel": [
+      {
+        "name": ":assignedUser"
+      },
+      {
+        "name": "teams"
+      },
+      {
+        "name": "convertedAt"
+      }
+    ],
+    "listSmall": [
+      {
+        "name": "name",
+        "link": true
+      },
+      {
+        "name": "status",
+        "width": 22
+      },
+      {
+        "name": "emailAddress",
+        "notSortable": true,
+        "width": 30
+      }
+    ]
+  },
+  "Opportunity": {
+    "list": [
+      {
+        "name": "name",
+        "link": true
+      },
+      {
+        "name": "account",
+        "width": 22
+      },
+      {
+        "name": "stage",
+        "width": 15
+      },
+      {
+        "name": "assignedUser",
+        "width": 12
+      },
+      {
+        "name": "createdAt",
+        "width": 12
+      },
+      {
+        "name": "closeDate",
+        "width": 9,
+        "hidden": true
+      },
+      {
+        "name": "amount",
+        "align": "right",
+        "width": 10
+      }
+    ],
+    "detail": [
+      {
+        "rows": [
+          [
+            {
+              "name": "name"
+            },
+            {
+              "name": "account"
+            }
+          ],
+          [
+            {
+              "name": "stage"
+            },
+            {
+              "name": "amount"
+            }
+          ],
+          [
+            {
+              "name": "probability"
+            },
+            {
+              "name": "closeDate"
+            }
+          ],
+          [
+            {
+              "name": "contacts"
+            },
+            {
+              "name": "leadSource"
+            }
+          ],
+          [
+            {
+              "name": "description"
+            }
+          ]
+        ]
+      }
+    ],
+    "filters": [
+      "assignedUser",
+      "teams",
+      "createdAt",
+      "createdBy",
+      "modifiedAt",
+      "streamUpdatedAt",
+      "account",
+      "amountConverted",
+      "amountWeightedConverted",
+      "campaign",
+      "closeDate",
+      "contacts",
+      "leadSource",
+      "probability",
+      "stage",
+      "description"
+    ],
+    "massUpdate": [
+      "stage",
+      "assignedUser",
+      "teams"
+    ],
+    "bottomPanelsDetail": {
+      "documents": {
+        "name": "documents",
+        "index": 5
+      }
+    },
+    "defaultSidePanel": [
+      {
+        "name": ":assignedUser"
+      },
+      {
+        "name": "teams"
+      }
+    ],
+    "listSmall": [
+      {
+        "name": "name",
+        "link": true
+      },
+      {
+        "name": "account",
+        "width": 25
+      },
+      {
+        "name": "stage",
+        "width": 20
+      },
+      {
+        "name": "amount",
+        "width": 20,
+        "align": "right"
+      }
+    ]
+  },
+  "Case": {
+    "list": [
+      {
+        "name": "name",
+        "link": true
+      },
+      {
+        "name": "number",
+        "widthPx": 100
+      },
+      {
+        "name": "status",
+        "width": 11
+      },
+      {
+        "name": "priority",
+        "width": 11
+      },
+      {
+        "name": "account",
+        "width": 18
+      },
+      {
+        "name": "assignedUser",
+        "width": 14
+      }
+    ],
+    "detail": [
+      {
+        "label": "",
+        "rows": [
+          [
+            {
+              "name": "name"
+            },
+            {
+              "name": "number"
+            }
+          ],
+          [
+            {
+              "name": "status"
+            },
+            {
+              "name": "account"
+            }
+          ],
+          [
+            {
+              "name": "priority"
+            },
+            {
+              "name": "contacts"
+            }
+          ],
+          [
+            {
+              "name": "type"
+            },
+            false
+          ],
+          [
+            {
+              "name": "description",
+              "fullWidth": true
+            }
+          ],
+          [
+            {
+              "name": "attachments",
+              "fullWidth": true
+            }
+          ]
+        ]
+      }
+    ],
+    "filters": [
+      "assignedUser",
+      "teams",
+      "collaborators",
+      "status",
+      "priority",
+      "account",
+      "contact",
+      "number",
+      "name",
+      "description",
+      "isInternal",
+      "createdAt",
+      "createdBy",
+      "modifiedAt",
+      "streamUpdatedAt"
+    ],
+    "massUpdate": [
+      "priority",
+      "status",
+      "assignedUser",
+      "teams"
+    ],
+    "bottomPanelsDetail": {
+      "articles": {
+        "name": "articles",
+        "index": 5
+      }
+    },
+    "defaultSidePanel": [
+      {
+        "name": ":assignedUser"
+      },
+      {
+        "name": "teams"
+      },
+      {
+        "name": "collaborators"
+      },
+      {
+        "name": "isInternal"
+      }
+    ],
+    "listSmall": [
+      {
+        "name": "name",
+        "link": true
+      },
+      {
+        "name": "number",
+        "width": 14
+      },
+      {
+        "name": "status",
+        "width": 14
+      },
+      {
+        "name": "priority",
+        "width": 14
+      },
+      {
+        "name": "account",
+        "width": 22
+      }
+    ]
+  },
+  "Task": {
+    "list": [
+      {
+        "name": "name",
+        "link": true
+      },
+      {
+        "name": "status",
+        "width": 14
+      },
+      {
+        "name": "priority",
+        "width": 12
+      },
+      {
+        "name": "dateEnd",
+        "width": 15
+      },
+      {
+        "name": "assignedUser",
+        "width": 15
+      },
+      {
+        "name": "createdAt",
+        "width": 15,
+        "hidden": true
+      }
+    ],
+    "detail": [
+      {
+        "label": "",
+        "rows": [
+          [
+            {
+              "name": "name"
+            },
+            {
+              "name": "parent"
+            }
+          ],
+          [
+            {
+              "name": "status"
+            },
+            {
+              "name": "priority"
+            }
+          ],
+          [
+            {
+              "name": "dateStart"
+            },
+            {
+              "name": "dateCompleted"
+            }
+          ],
+          [
+            {
+              "name": "dateEnd"
+            },
+            {
+              "name": "reminders"
+            }
+          ],
+          [
+            {
+              "name": "description",
+              "fullWidth": true
+            }
+          ],
+          [
+            {
+              "name": "attachments",
+              "fullWidth": true
+            }
+          ]
+        ]
+      }
+    ],
+    "filters": [
+      "assignedUser",
+      "teams",
+      "collaborators",
+      "status",
+      "priority",
+      "parent",
+      "account",
+      "dateStart",
+      "dateEnd",
+      "dateCompleted",
+      "createdAt",
+      "createdBy",
+      "modifiedAt"
+    ],
+    "massUpdate": [
+      "status",
+      "priority",
+      "assignedUser"
+    ],
+    "bottomPanelsDetail": {},
+    "defaultSidePanel": [
+      {
+        "name": ":assignedUser"
+      },
+      {
+        "name": "teams"
+      },
+      {
+        "name": "collaborators"
+      }
+    ],
+    "listSmall": [
+      {
+        "name": "name",
+        "link": "true"
+      },
+      {
+        "name": "status",
+        "width": 20
+      },
+      {
+        "name": "priority",
+        "width": 20
+      },
+      {
+        "name": "dateEnd",
+        "width": 20
+      }
+    ]
+  }
+}

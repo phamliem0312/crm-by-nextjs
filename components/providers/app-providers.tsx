@@ -26,7 +26,8 @@ function notify(error: unknown) {
 
 function createQueryClient(): QueryClient {
   return new QueryClient({
-    queryCache: new QueryCache({ onError: notify }),
+    // `meta.silent`: query tự xử lý lỗi (ví dụ layout dự phòng khi layout riêng không có).
+    queryCache: new QueryCache({ onError: (error, query) => !query.meta?.silent && notify(error) }),
     mutationCache: new MutationCache({ onError: notify }),
     defaultOptions: {
       queries: { retry: shouldRetry, refetchOnWindowFocus: false, staleTime: 30_000 },

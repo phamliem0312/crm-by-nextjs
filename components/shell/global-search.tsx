@@ -66,7 +66,7 @@ export function GlobalSearch() {
 
   function go(result: SearchResult) {
     setOpen(false);
-    window.location.assign(recordViewHref(result._scope, result.id));
+    window.location.assign(recordViewHref(result._scope, result.id, metadata.data));
   }
 
   function onKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {

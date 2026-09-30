@@ -32,7 +32,11 @@ const PREFERENCES_KEYS = [
   "useCustomTabList", "addCustomTabs", "tabList",
 ];
 
-const USER_KEYS = ["id", "userName", "name", "type", "isActive", "teamsIds", "avatarColor"];
+const RECORD_SCOPES = ["Account", "Contact", "Lead", "Opportunity", "Case", "Task"];
+
+const LAYOUT_TYPES = ["list", "detail", "filters", "massUpdate", "bottomPanelsDetail", "defaultSidePanel", "listSmall"];
+
+const USER_KEYS =["id", "userName", "name", "type", "isActive", "teamsIds", "avatarColor"];
 
 const pick = (object, keys) =>
   Object.fromEntries(keys.filter((key) => object && key in object).map((key) => [key, object[key]]));
@@ -102,8 +106,36 @@ for (const [kind, credentials] of Object.entries(accounts)) {
     const language = await get(headers, `I18n?language=${encodeURIComponent(data.language)}`);
 
     write("i18n.json", {
-      Global: pick(language.Global, ["labels", "messages", "scopeNames", "scopeNamesPlural", "navbarTabs", "lists"]),
+      Global: pick(language.Global, ["labels", "messages", "scopeNames", "scopeNamesPlural", "navbarTabs", "lists", "options"]),
       User: pick(language.User, ["labels", "messages"]),
+      ...Object.fromEntries(RECORD_SCOPES.map((scope) => [scope, language[scope]])),
     });
+
+    // Engine bản ghi (giai đoạn 2): metadata + layout của các entity mục tiêu.
+    write("metadata-records.json", {
+      scopes: pick(metadata.scopes, RECORD_SCOPES),
+      entityDefs: pick(metadata.entityDefs, RECORD_SCOPES),
+      clientDefs: pick(metadata.clientDefs, RECORD_SCOPES),
+      logicDefs: pick(metadata.logicDefs, RECORD_SCOPES),
+      entityAcl: pick(metadata.entityAcl, RECORD_SCOPES),
+      fields: metadata.fields,
+      app: { regExpPatterns: metadata.app?.regExpPatterns, currency: { symbolMap: pick(metadata.app?.currency?.symbolMap, ["USD", "EUR", "VND"]) } },
+    });
+
+    const layouts = {};
+
+    for (const scope of RECORD_SCOPES) {
+      layouts[scope] = {};
+
+      for (const type of LAYOUT_TYPES) {
+        const response = await fetch(`${apiUrl}/${scope}/layout/${type}`, { headers });
+
+        if (response.ok) {
+          layouts[scope][type] = await response.json();
+        }
+      }
+    }
+
+    write("layouts.json", layouts);
   }
 }

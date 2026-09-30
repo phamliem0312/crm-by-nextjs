@@ -1,14 +1,7 @@
 // Định dạng ngày giờ và số theo settings/preferences. Port từ `date-time` (@956) và `number-util` (@37581)
 // của UI classic; moment → dayjs (cùng token định dạng: YYYY, MM, DD, HH, hh, mm, A…).
-import dayjs, { type Dayjs } from "dayjs";
-import customParseFormat from "dayjs/plugin/customParseFormat";
-import timezone from "dayjs/plugin/timezone";
-import utc from "dayjs/plugin/utc";
+import dayjs, { type Dayjs } from "./dayjs";
 import type { Preferences, Settings } from "./types";
-
-dayjs.extend(utc);
-dayjs.extend(timezone);
-dayjs.extend(customParseFormat);
 
 export const INTERNAL_DATE_FORMAT = "YYYY-MM-DD";
 export const INTERNAL_DATE_TIME_FORMAT = "YYYY-MM-DD HH:mm";

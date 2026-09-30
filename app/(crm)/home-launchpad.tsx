@@ -28,7 +28,15 @@ export function HomeLaunchpad() {
       return null;
     }
 
-    const tabs = buildNavTabs({ settings, preferences, user, acl, metadata: metadata.data, t, scopeHref: scopeListHref });
+    const tabs = buildNavTabs({
+      settings,
+      preferences,
+      user,
+      acl,
+      metadata: metadata.data,
+      t,
+      scopeHref: (scope) => scopeListHref(scope, metadata.data),
+    });
 
     return flatten([...tabs.main, ...tabs.more]);
   }, [metadata.data, settings, preferences, user, acl, t]);

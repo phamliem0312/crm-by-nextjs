@@ -40,6 +40,7 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  // Bỏ qua tài nguyên build và file ảnh tĩnh trong public/ (không cần đăng nhập mới xem được).
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|[^/]+\\.(?:svg|png|jpe?g|gif|webp|avif|ico)$).*)"],
+  // Bỏ qua tài nguyên build, file ảnh tĩnh trong public/ và `/api/*`. API tự kiểm tra session; loại khỏi proxy
+  // để body (upload file) không bị Next buffer rồi cắt ở giới hạn `proxyClientMaxBodySize`.
+  matcher: ["/((?!api/|_next/static|_next/image|favicon.ico|[^/]+\\.(?:svg|png|jpe?g|gif|webp|avif|ico)$).*)"],
 };

@@ -10,6 +10,12 @@ const nextConfig: NextConfig = {
   // UI classic tự chuyển `/espocrm-10-0-9` sang `/espocrm-10-0-9/`; nếu Next.js bỏ dấu "/" ở cuối thì sẽ lặp vô hạn.
   skipTrailingSlashRedirect: true,
 
+  experimental: {
+    // Request đi qua proxy.ts (gồm upload của UI classic qua rewrite) bị Next buffer body và CẮT ÂM THẦM
+    // khi vượt giới hạn (mặc định 10MB). File gửi dạng base64 (+33%), nên để dư so với maxUploadSize của Espo.
+    proxyClientMaxBodySize: "64mb",
+  },
+
   async rewrites() {
     if (!classicBasePath) {
       return [];

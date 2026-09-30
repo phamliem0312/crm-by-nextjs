@@ -598,6 +598,180 @@
         "Fr",
         "Sa"
       ]
+    },
+    "options": {
+      "salutationName": {
+        "Mr.": "Mr.",
+        "Mrs.": "Mrs.",
+        "Ms.": "Ms.",
+        "Dr.": "Dr."
+      },
+      "language": {
+        "ar_AR": "Arabic",
+        "af_ZA": "Afrikaans",
+        "az_AZ": "Azerbaijani",
+        "be_BY": "Belarusian",
+        "bg_BG": "Bulgarian",
+        "bn_IN": "Bengali",
+        "bs_BA": "Bosnian",
+        "ca_ES": "Catalan",
+        "cs_CZ": "Czech",
+        "cy_GB": "Welsh",
+        "da_DK": "Danish",
+        "de_DE": "German",
+        "el_GR": "Greek",
+        "en_GB": "English (UK)",
+        "es_MX": "Spanish (Mexico)",
+        "en_US": "English (US)",
+        "es_ES": "Spanish (Spain)",
+        "et_EE": "Estonian",
+        "eu_ES": "Basque",
+        "fa_IR": "Persian",
+        "fi_FI": "Finnish",
+        "fo_FO": "Faroese",
+        "fr_CA": "French (Canada)",
+        "fr_FR": "French (France)",
+        "ga_IE": "Irish",
+        "gl_ES": "Galician",
+        "gn_PY": "Guarani",
+        "he_IL": "Hebrew",
+        "hi_IN": "Hindi",
+        "hr_HR": "Croatian",
+        "hu_HU": "Hungarian",
+        "hy_AM": "Armenian",
+        "id_ID": "Indonesian",
+        "is_IS": "Icelandic",
+        "it_IT": "Italian",
+        "ja_JP": "Japanese",
+        "ka_GE": "Georgian",
+        "km_KH": "Khmer",
+        "ko_KR": "Korean",
+        "ku_TR": "Kurdish",
+        "lt_LT": "Lithuanian",
+        "lv_LV": "Latvian",
+        "mk_MK": "Macedonian",
+        "ml_IN": "Malayalam",
+        "ms_MY": "Malay",
+        "nb_NO": "Norwegian Bokmål",
+        "nn_NO": "Norwegian Nynorsk",
+        "ne_NP": "Nepali",
+        "nl_NL": "Dutch",
+        "pa_IN": "Punjabi",
+        "pl_PL": "Polish",
+        "ps_AF": "Pashto",
+        "pt_BR": "Portuguese (Brazil)",
+        "pt_PT": "Portuguese (Portugal)",
+        "ro_RO": "Romanian",
+        "ru_RU": "Russian",
+        "sk_SK": "Slovak",
+        "sl_SI": "Slovene",
+        "sq_AL": "Albanian",
+        "sr_RS": "Serbian",
+        "sv_SE": "Swedish",
+        "sw_KE": "Swahili",
+        "ta_IN": "Tamil",
+        "te_IN": "Telugu",
+        "th_TH": "Thai",
+        "tl_PH": "Tagalog",
+        "tr_TR": "Turkish",
+        "uk_UA": "Ukrainian",
+        "ur_PK": "Urdu",
+        "ur_IN": "Urdu (India)",
+        "vi_VN": "Vietnamese",
+        "zh_CN": "Simplified Chinese (China)",
+        "zh_HK": "Traditional Chinese (Hong Kong)",
+        "zh_TW": "Traditional Chinese (Taiwan)"
+      },
+      "dateSearchRanges": {
+        "on": "On",
+        "notOn": "Not On",
+        "after": "After",
+        "before": "Before",
+        "between": "Between",
+        "today": "Today",
+        "past": "Past",
+        "future": "Future",
+        "currentMonth": "Current Month",
+        "lastMonth": "Last Month",
+        "nextMonth": "Next Month",
+        "currentQuarter": "Current Quarter",
+        "lastQuarter": "Last Quarter",
+        "currentYear": "Current Year",
+        "lastYear": "Last Year",
+        "lastSevenDays": "Last 7 Days",
+        "lastXDays": "Last X Days",
+        "nextXDays": "Next X Days",
+        "ever": "Ever",
+        "isEmpty": "Is Empty",
+        "olderThanXDays": "Older Than X Days",
+        "afterXDays": "After X Days",
+        "currentFiscalYear": "Current Fiscal Year",
+        "lastFiscalYear": "Last Fiscal Year",
+        "currentFiscalQuarter": "Current Fiscal Quarter",
+        "lastFiscalQuarter": "Last Fiscal Quarter"
+      },
+      "searchRanges": {
+        "is": "Is",
+        "isEmpty": "Is Empty",
+        "isNotEmpty": "Is Not Empty",
+        "isOneOf": "Any Of",
+        "isFromTeams": "Is From Team",
+        "isNot": "Is Not",
+        "isNotOneOf": "None Of",
+        "anyOf": "Any Of",
+        "allOf": "All Of",
+        "noneOf": "None Of",
+        "any": "Any"
+      },
+      "varcharSearchRanges": {
+        "equals": "Equals",
+        "like": "Is Like (%)",
+        "notLike": "Is Not Like (%)",
+        "startsWith": "Starts With",
+        "endsWith": "Ends With",
+        "contains": "Contains",
+        "notContains": "Not Contains",
+        "isEmpty": "Is Empty",
+        "isNotEmpty": "Is Not Empty",
+        "notEquals": "Not Equals",
+        "anyOf": "Any Of",
+        "noneOf": "None Of"
+      },
+      "intSearchRanges": {
+        "equals": "Equals",
+        "notEquals": "Not Equals",
+        "greaterThan": "Greater Than",
+        "lessThan": "Less Than",
+        "greaterThanOrEquals": "Greater Than or Equals",
+        "lessThanOrEquals": "Less Than or Equals",
+        "between": "Between",
+        "isEmpty": "Is Empty",
+        "isNotEmpty": "Is Not Empty"
+      },
+      "autorefreshInterval": {
+        "0": "None",
+        "1": "1 minute",
+        "2": "2 minutes",
+        "5": "5 minutes",
+        "10": "10 minutes",
+        "0.5": "30 seconds"
+      },
+      "phoneNumber": {
+        "Mobile": "Mobile",
+        "Office": "Office",
+        "Fax": "Fax",
+        "Home": "Home",
+        "Other": "Other"
+      },
+      "saveConflictResolution": {
+        "current": "Current",
+        "actual": "Actual",
+        "original": "Original"
+      },
+      "reminderTypes": {
+        "Popup": "Popup",
+        "Email": "Email"
+      }
     }
   },
   "User": {
@@ -667,6 +841,420 @@
       "ldapUserInEspoNotFound": "User is not found in EspoCRM. Contact your administrator to create the user.",
       "passwordChangeRequestNotFound": "The password change request is not found. It might be expired. Try to initiate a new password recovery from the [login page]({url}).",
       "defaultTeamIsNotUsers": "Default Team should be one of user's Teams"
+    }
+  },
+  "Account": {
+    "fields": {
+      "name": "Name",
+      "emailAddress": "Email",
+      "website": "Website",
+      "phoneNumber": "Phone",
+      "billingAddress": "Billing Address",
+      "shippingAddress": "Shipping Address",
+      "description": "Description",
+      "sicCode": "Sic Code",
+      "industry": "Industry",
+      "type": "Type",
+      "contactRole": "Title",
+      "contactIsInactive": "Inactive",
+      "campaign": "Campaign",
+      "targetLists": "Target Lists",
+      "targetList": "Target List",
+      "originalLead": "Original Lead"
+    },
+    "links": {
+      "contacts": "Contacts",
+      "contactsPrimary": "Contacts (primary)",
+      "opportunities": "Opportunities",
+      "cases": "Cases",
+      "documents": "Documents",
+      "meetingsPrimary": "Meetings (expanded)",
+      "callsPrimary": "Calls (expanded)",
+      "tasksPrimary": "Tasks (expanded)",
+      "emailsPrimary": "Emails (expanded)",
+      "targetLists": "Target Lists",
+      "campaignLogRecords": "Campaign Log",
+      "campaign": "Campaign",
+      "portalUsers": "Portal Users",
+      "originalLead": "Original Lead"
+    },
+    "options": {
+      "type": {
+        "Customer": "Customer",
+        "Investor": "Investor",
+        "Partner": "Partner",
+        "Reseller": "Reseller"
+      },
+      "industry": {
+        "Aerospace": "Aerospace",
+        "Agriculture": "Agriculture",
+        "Advertising": "Advertising",
+        "Apparel & Accessories": "Apparel & Accessories",
+        "Architecture": "Architecture",
+        "Automotive": "Automotive",
+        "Banking": "Banking",
+        "Biotechnology": "Biotechnology",
+        "Building Materials & Equipment": "Building Materials & Equipment",
+        "Chemical": "Chemical",
+        "Construction": "Construction",
+        "Computer": "Computer",
+        "Defense": "Defense",
+        "Creative": "Creative",
+        "Culture": "Culture",
+        "Consulting": "Consulting",
+        "Education": "Education",
+        "Electronics": "Electronics",
+        "Electric Power": "Electric Power",
+        "Energy": "Energy",
+        "Entertainment & Leisure": "Entertainment & Leisure",
+        "Finance": "Finance",
+        "Food & Beverage": "Food & Beverage",
+        "Grocery": "Grocery",
+        "Hospitality": "Hospitality",
+        "Healthcare": "Healthcare",
+        "Insurance": "Insurance",
+        "Legal": "Legal",
+        "Manufacturing": "Manufacturing",
+        "Mass Media": "Mass Media",
+        "Mining": "Mining",
+        "Music": "Music",
+        "Marketing": "Marketing",
+        "Publishing": "Publishing",
+        "Petroleum": "Petroleum",
+        "Real Estate": "Real Estate",
+        "Retail": "Retail",
+        "Shipping": "Shipping",
+        "Service": "Service",
+        "Support": "Support",
+        "Sports": "Sports",
+        "Software": "Software",
+        "Technology": "Technology",
+        "Telecommunications": "Telecommunications",
+        "Television": "Television",
+        "Testing, Inspection & Certification": "Testing, Inspection & Certification",
+        "Transportation": "Transportation",
+        "Travel": "Travel",
+        "Venture Capital": "Venture Capital",
+        "Wholesale": "Wholesale",
+        "Water": "Water"
+      }
+    },
+    "labels": {
+      "Create Account": "Create Account",
+      "Copy Billing": "Copy Billing",
+      "Set Primary": "Set Primary"
+    },
+    "presetFilters": {
+      "customers": "Customers",
+      "partners": "Partners",
+      "recentlyCreated": "Recently Created"
+    },
+    "tabs": {
+      "Account": "Account",
+      "Support": "Support"
+    }
+  },
+  "Contact": {
+    "fields": {
+      "name": "Name",
+      "emailAddress": "Email",
+      "title": "Account Title",
+      "account": "Account",
+      "accounts": "Accounts",
+      "phoneNumber": "Phone",
+      "accountType": "Account Type",
+      "doNotCall": "Do Not Call",
+      "address": "Address",
+      "opportunityRole": "Opportunity Role",
+      "accountRole": "Title",
+      "description": "Description",
+      "campaign": "Campaign",
+      "targetLists": "Target Lists",
+      "targetList": "Target List",
+      "portalUser": "Portal User",
+      "hasPortalUser": "Has Portal User",
+      "originalLead": "Original Lead",
+      "acceptanceStatus": "Acceptance Status",
+      "accountIsInactive": "Account Inactive",
+      "acceptanceStatusMeetings": "Acceptance Status (Meetings)",
+      "acceptanceStatusCalls": "Acceptance Status (Calls)",
+      "originalEmail": "Original Email"
+    },
+    "links": {
+      "opportunities": "Opportunities",
+      "cases": "Cases",
+      "targetLists": "Target Lists",
+      "campaignLogRecords": "Campaign Log",
+      "campaign": "Campaign",
+      "account": "Account (Primary)",
+      "accounts": "Accounts",
+      "casesPrimary": "Cases (Primary)",
+      "tasksPrimary": "Tasks (expanded)",
+      "opportunitiesPrimary": "Opportunities (Primary)",
+      "portalUser": "Portal User",
+      "originalLead": "Original Lead",
+      "documents": "Documents"
+    },
+    "labels": {
+      "Create Contact": "Create Contact"
+    },
+    "options": {
+      "opportunityRole": {
+        "": "",
+        "Decision Maker": "Decision Maker",
+        "Evaluator": "Evaluator",
+        "Influencer": "Influencer"
+      }
+    },
+    "presetFilters": {
+      "portalUsers": "Portal Users",
+      "notPortalUsers": "Not Portal Users",
+      "accountActive": "Active Relation"
+    }
+  },
+  "Lead": {
+    "labels": {
+      "Converted To": "Converted To",
+      "Create Lead": "Create Lead",
+      "Convert": "Convert",
+      "convert": "convert"
+    },
+    "fields": {
+      "name": "Name",
+      "emailAddress": "Email",
+      "title": "Title",
+      "website": "Website",
+      "phoneNumber": "Phone",
+      "accountName": "Account Name",
+      "doNotCall": "Do Not Call",
+      "address": "Address",
+      "status": "Status",
+      "source": "Source",
+      "opportunityAmount": "Opportunity Amount",
+      "opportunityAmountConverted": "Opportunity Amount (converted)",
+      "description": "Description",
+      "createdAccount": "Account",
+      "createdContact": "Contact",
+      "createdOpportunity": "Opportunity",
+      "convertedAt": "Converted At",
+      "campaign": "Campaign",
+      "targetLists": "Target Lists",
+      "targetList": "Target List",
+      "industry": "Industry",
+      "acceptanceStatus": "Acceptance Status",
+      "opportunityAmountCurrency": "Opportunity Amount Currency",
+      "acceptanceStatusMeetings": "Acceptance Status (Meetings)",
+      "acceptanceStatusCalls": "Acceptance Status (Calls)",
+      "originalEmail": "Original Email",
+      "pipeline": "Pipeline"
+    },
+    "links": {
+      "targetLists": "Target Lists",
+      "campaignLogRecords": "Campaign Log",
+      "campaign": "Campaign",
+      "createdAccount": "Account",
+      "createdContact": "Contact",
+      "createdOpportunity": "Opportunity",
+      "cases": "Cases",
+      "documents": "Documents",
+      "pipeline": "Pipeline"
+    },
+    "options": {
+      "status": {
+        "New": "New",
+        "Assigned": "Assigned",
+        "In Process": "In Process",
+        "Converted": "Converted",
+        "Recycled": "Recycled",
+        "Dead": "Dead"
+      },
+      "source": {
+        "Call": "Call",
+        "Email": "Email",
+        "Existing Customer": "Existing Customer",
+        "Partner": "Partner",
+        "Public Relations": "Public Relations",
+        "Web Site": "Web Site",
+        "Campaign": "Campaign",
+        "Other": "Other"
+      }
+    },
+    "presetFilters": {
+      "active": "Active",
+      "actual": "Open",
+      "converted": "Converted"
+    }
+  },
+  "Opportunity": {
+    "fields": {
+      "name": "Name",
+      "account": "Account",
+      "stage": "Stage",
+      "amount": "Amount",
+      "probability": "Probability, %",
+      "leadSource": "Lead Source",
+      "doNotCall": "Do Not Call",
+      "closeDate": "Close Date",
+      "contacts": "Contacts",
+      "contact": "Contact (Primary)",
+      "description": "Description",
+      "amountConverted": "Amount (converted)",
+      "amountWeightedConverted": "Amount Weighted",
+      "campaign": "Campaign",
+      "originalLead": "Original Lead",
+      "amountCurrency": "Amount Currency",
+      "contactRole": "Contact Role",
+      "lastStage": "Last Stage"
+    },
+    "links": {
+      "contacts": "Contacts",
+      "contact": "Contact (Primary)",
+      "documents": "Documents",
+      "campaign": "Campaign",
+      "originalLead": "Original Lead"
+    },
+    "options": {
+      "stage": {
+        "Prospecting": "Prospecting",
+        "Qualification": "Qualification",
+        "Proposal": "Proposal",
+        "Negotiation": "Negotiation",
+        "Needs Analysis": "Needs Analysis",
+        "Value Proposition": "Value Proposition",
+        "Id. Decision Makers": "Id. Decision Makers",
+        "Perception Analysis": "Perception Analysis",
+        "Proposal/Price Quote": "Proposal/Price Quote",
+        "Negotiation/Review": "Negotiation/Review",
+        "Closed Won": "Closed Won",
+        "Closed Lost": "Closed Lost"
+      }
+    },
+    "labels": {
+      "Create Opportunity": "Create Opportunity"
+    },
+    "presetFilters": {
+      "open": "Open",
+      "won": "Won",
+      "lost": "Lost"
+    }
+  },
+  "Case": {
+    "fields": {
+      "name": "Name",
+      "number": "Number",
+      "status": "Status",
+      "account": "Account",
+      "contact": "Contact",
+      "contacts": "Contacts",
+      "priority": "Priority",
+      "type": "Type",
+      "description": "Description",
+      "inboundEmail": "Group Email Account",
+      "lead": "Lead",
+      "attachments": "Attachments",
+      "originalEmail": "Original Email",
+      "isInternal": "Hidden from Portal"
+    },
+    "links": {
+      "inboundEmail": "Group Email Account",
+      "account": "Account",
+      "contact": "Contact (Primary)",
+      "Contacts": "Contacts",
+      "meetings": "Meetings",
+      "calls": "Calls",
+      "tasks": "Tasks",
+      "emails": "Emails",
+      "articles": "Knowledge Base Articles",
+      "lead": "Lead",
+      "attachments": "Attachments"
+    },
+    "options": {
+      "status": {
+        "New": "New",
+        "Assigned": "Assigned",
+        "Pending": "Pending",
+        "Closed": "Closed",
+        "Rejected": "Rejected",
+        "Duplicate": "Duplicate"
+      },
+      "priority": {
+        "Low": "Low",
+        "Normal": "Normal",
+        "High": "High",
+        "Urgent": "Urgent"
+      },
+      "type": {
+        "Question": "Question",
+        "Incident": "Incident",
+        "Problem": "Problem"
+      }
+    },
+    "labels": {
+      "Create Case": "Create Case",
+      "Close": "Close",
+      "Reject": "Reject",
+      "Closed": "Closed",
+      "Rejected": "Rejected"
+    },
+    "presetFilters": {
+      "open": "Open",
+      "closed": "Closed"
+    }
+  },
+  "Task": {
+    "fields": {
+      "name": "Name",
+      "parent": "Parent",
+      "status": "Status",
+      "dateStart": "Date Start",
+      "dateEnd": "Date Due",
+      "dateStartDate": "Date Start (all day)",
+      "dateEndDate": "Date End (all day)",
+      "priority": "Priority",
+      "description": "Description",
+      "isOverdue": "Is Overdue",
+      "account": "Account",
+      "dateCompleted": "Date Completed",
+      "attachments": "Attachments",
+      "reminders": "Reminders",
+      "contact": "Contact",
+      "originalEmail": "Original Email"
+    },
+    "links": {
+      "attachments": "Attachments",
+      "account": "Account",
+      "contact": "Contact",
+      "email": "Email"
+    },
+    "options": {
+      "status": {
+        "Not Started": "Not Started",
+        "Started": "Started",
+        "Completed": "Completed",
+        "Canceled": "Canceled",
+        "Deferred": "Deferred"
+      },
+      "priority": {
+        "Low": "Low",
+        "Normal": "Normal",
+        "High": "High",
+        "Urgent": "Urgent"
+      }
+    },
+    "labels": {
+      "Create Task": "Create Task",
+      "Complete": "Complete",
+      "overdue": "overdue"
+    },
+    "presetFilters": {
+      "actual": "Open",
+      "completed": "Completed",
+      "deferred": "Deferred",
+      "todays": "Today's",
+      "overdue": "Overdue"
+    },
+    "nameOptions": {
+      "replyToEmail": "Reply to email"
     }
   }
 }

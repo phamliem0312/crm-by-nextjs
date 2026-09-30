@@ -101,7 +101,7 @@ export function UserMenu() {
             <p className="truncate text-sm font-semibold text-slate-900">{displayName}</p>
             <p className="truncate text-xs text-slate-500">{user.userName}</p>
           </div>
-          <a role="menuitem" href={classicHref(`#User/view/${user.id}`)} className={menuItemClass}>
+          <a role="menuitem" href={classicHref(`#User/view/${encodeURIComponent(user.id)}`)} className={menuItemClass}>
             <i className="fas fa-user w-4 text-center text-slate-400" aria-hidden />
             {t("User", "scopeNames")}
           </a>

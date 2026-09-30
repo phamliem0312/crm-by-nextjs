@@ -1,4 +1,4 @@
-﻿import { describe, expect, it } from "vitest";
+import { describe, expect, it } from "vitest";
 import adminFixture from "./__fixtures__/app-user-admin.json";
 import limitedFixture from "./__fixtures__/app-user-limited.json";
 import i18nFixture from "./__fixtures__/i18n.json";
@@ -28,7 +28,7 @@ function context(fixture: Fixture, metadata: Metadata, overrides: Partial<TabsCo
 
 const scopes = (entries: NavEntry[]) => entries.filter((e) => e.kind === "scope").map((e) => (e.kind === "scope" ? e.scope : ""));
 
-describe("buildNavTabs (fixture tháº­t)", () => {
+describe("buildNavTabs (fixture thật)", () => {
   it("shows every tab scope to admin, split at _delimiter_", () => {
     const tabs = buildNavTabs(context(adminFixture, adminMetadata as Metadata));
 

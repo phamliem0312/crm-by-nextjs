@@ -18,25 +18,35 @@ export class EspoApiError extends Error {
     readonly status: number,
     readonly statusReason: string | null,
     readonly body: EspoErrorBody | null = null,
+    /** Body dạng mảng, ví dụ danh sách bản ghi trùng của lỗi 409 `duplicate`. */
+    readonly list: Record<string, unknown>[] | null = null,
   ) {
     super(`Espo API error ${status}${statusReason ? `: ${statusReason}` : ""}`);
     this.name = "EspoApiError";
   }
 
+  /** 409 do có bản ghi trùng (`DuplicateConflict` phía Espo). */
+  get isDuplicate(): boolean {
+    return this.status === 409 && this.statusReason === "duplicate";
+  }
+
   static async fromResponse(response: Response): Promise<EspoApiError> {
     let body: EspoErrorBody | null = null;
+    let list: Record<string, unknown>[] | null = null;
 
     try {
       const text = await response.text();
 
       if (text.startsWith("{")) {
         body = JSON.parse(text) as EspoErrorBody;
+      } else if (text.startsWith("[")) {
+        list = JSON.parse(text) as Record<string, unknown>[];
       }
     } catch {
       body = null;
     }
 
-    return new EspoApiError(response.status, response.headers.get("X-Status-Reason"), body);
+    return new EspoApiError(response.status, response.headers.get("X-Status-Reason"), body, list);
   }
 }
 

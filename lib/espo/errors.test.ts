@@ -19,6 +19,18 @@ describe("EspoApiError.fromResponse", () => {
     expect(error.body).toEqual({ messageTranslation: { label: "x" } });
   });
 
+  it("reads the duplicate list of a 409", async () => {
+    const error = await EspoApiError.fromResponse(
+      new Response(JSON.stringify([{ id: "1", name: "Acme" }]), {
+        status: 409,
+        headers: { "X-Status-Reason": "duplicate" },
+      }),
+    );
+
+    expect(error.isDuplicate).toBe(true);
+    expect(error.list).toEqual([{ id: "1", name: "Acme" }]);
+  });
+
   it("ignores non-JSON bodies", async () => {
     const error = await EspoApiError.fromResponse(new Response("<h1>Error</h1>", { status: 500 }));
 

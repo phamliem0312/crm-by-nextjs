@@ -184,7 +184,15 @@ export function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
   const tabs = useMemo(
     () =>
       metadata.data
-        ? buildNavTabs({ settings, preferences, user, acl, metadata: metadata.data, t, scopeHref: scopeListHref })
+        ? buildNavTabs({
+            settings,
+            preferences,
+            user,
+            acl,
+            metadata: metadata.data,
+            t,
+            scopeHref: (scope) => scopeListHref(scope, metadata.data),
+          })
         : null,
     [metadata.data, settings, preferences, user, acl, t],
   );
