@@ -1,0 +1,735 @@
+{
+  "user": {
+    "id": "6abcb000e93d22792",
+    "userName": "next-limited",
+    "name": "Next Limited",
+    "type": "regular",
+    "isActive": true,
+    "teamsIds": [],
+    "avatarColor": null
+  },
+  "acl": {
+    "table": {
+      "ActionHistoryRecord": {
+        "read": "own",
+        "stream": "no",
+        "edit": "no",
+        "delete": "no",
+        "create": "no"
+      },
+      "Attachment": {
+        "read": "own",
+        "stream": "no",
+        "edit": "own",
+        "delete": "own",
+        "create": "yes"
+      },
+      "EmailAccount": {
+        "read": "own",
+        "stream": "no",
+        "edit": "own",
+        "delete": "own",
+        "create": "yes"
+      },
+      "EmailFilter": {
+        "read": "own",
+        "stream": "no",
+        "edit": "own",
+        "delete": "own",
+        "create": "yes"
+      },
+      "EmailFolder": {
+        "read": "own",
+        "stream": "no",
+        "edit": "own",
+        "delete": "own",
+        "create": "yes"
+      },
+      "GroupEmailFolder": {
+        "read": "team",
+        "stream": "no",
+        "edit": "no",
+        "delete": "no",
+        "create": "no"
+      },
+      "Note": {
+        "read": "own",
+        "stream": "no",
+        "edit": "own",
+        "delete": "own",
+        "create": "yes"
+      },
+      "Notification": {
+        "read": "own",
+        "stream": "no",
+        "edit": "no",
+        "delete": "own",
+        "create": "no"
+      },
+      "Pipeline": true,
+      "PipelineStage": true,
+      "Preferences": {
+        "read": "own",
+        "stream": "no",
+        "edit": "own",
+        "delete": "no",
+        "create": "no"
+      },
+      "Stream": true,
+      "Team": {
+        "read": "team",
+        "stream": "no",
+        "edit": "no",
+        "delete": "no",
+        "create": "no"
+      },
+      "User": {
+        "read": "own",
+        "stream": "no",
+        "edit": "no",
+        "delete": "no",
+        "create": "no"
+      },
+      "Account": {
+        "read": "own",
+        "stream": "own",
+        "edit": "own",
+        "delete": "no",
+        "create": "yes"
+      },
+      "Lead": {
+        "read": "all",
+        "stream": "all",
+        "edit": "no",
+        "delete": "no",
+        "create": "no"
+      }
+    },
+    "fieldTable": {
+      "ActionHistoryRecord": {
+        "authToken": {
+          "read": "no",
+          "edit": "no"
+        },
+        "authLogRecord": {
+          "read": "no",
+          "edit": "no"
+        }
+      },
+      "Attachment": {},
+      "EmailAccount": {
+        "assignedUser": {
+          "read": "yes",
+          "edit": "no"
+        }
+      },
+      "EmailFilter": {},
+      "EmailFolder": {
+        "assignedUser": {
+          "read": "yes",
+          "edit": "no"
+        }
+      },
+      "GroupEmailFolder": {},
+      "Note": {},
+      "Notification": {},
+      "Pipeline": {},
+      "PipelineStage": {},
+      "Preferences": {},
+      "Team": {},
+      "User": {
+        "password": {
+          "read": "no",
+          "edit": "no"
+        },
+        "passwordConfirm": {
+          "read": "no",
+          "edit": "no"
+        },
+        "authMethod": {
+          "read": "no",
+          "edit": "no"
+        },
+        "apiKey": {
+          "read": "no",
+          "edit": "no"
+        },
+        "secretKey": {
+          "read": "no",
+          "edit": "no"
+        },
+        "token": {
+          "read": "no",
+          "edit": "no"
+        },
+        "avatarColor": {
+          "read": "yes",
+          "edit": "no"
+        },
+        "gender": {
+          "read": "no",
+          "edit": "no"
+        },
+        "dashboardTemplate": {
+          "read": "no",
+          "edit": "no"
+        },
+        "workingTimeCalendar": {
+          "read": "yes",
+          "edit": "no"
+        },
+        "auth2FA": {
+          "read": "no",
+          "edit": "no"
+        }
+      },
+      "Account": {
+        "website": {
+          "read": "yes",
+          "edit": "no"
+        },
+        "sicCode": {
+          "read": "no",
+          "edit": "no"
+        }
+      },
+      "Lead": {}
+    },
+    "assignmentPermission": "no",
+    "messagePermission": "no",
+    "mentionPermission": "no",
+    "userCalendarPermission": "no",
+    "auditPermission": "no",
+    "exportPermission": "no",
+    "massUpdatePermission": "no",
+    "userPermission": "no",
+    "portalPermission": "no",
+    "groupEmailAccountPermission": "no",
+    "followerManagementPermission": "no",
+    "dataPrivacyPermission": "no",
+    "lockPermission": "no",
+    "fieldTableQuickAccess": {
+      "ActionHistoryRecord": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": [
+              "authTokenId",
+              "authTokenName",
+              "authLogRecordId",
+              "authLogRecordName"
+            ]
+          },
+          "edit": {
+            "yes": [],
+            "no": [
+              "authTokenId",
+              "authTokenName",
+              "authLogRecordId",
+              "authLogRecordName"
+            ]
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": [
+              "authToken",
+              "authLogRecord"
+            ]
+          },
+          "edit": {
+            "yes": [],
+            "no": [
+              "authToken",
+              "authLogRecord"
+            ]
+          }
+        }
+      },
+      "Attachment": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "EmailAccount": {
+        "attributes": {
+          "read": {
+            "yes": [
+              "assignedUserId",
+              "assignedUserName"
+            ],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": [
+              "assignedUserId",
+              "assignedUserName"
+            ]
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [
+              "assignedUser"
+            ],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": [
+              "assignedUser"
+            ]
+          }
+        }
+      },
+      "EmailFilter": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "EmailFolder": {
+        "attributes": {
+          "read": {
+            "yes": [
+              "assignedUserId",
+              "assignedUserName"
+            ],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": [
+              "assignedUserId",
+              "assignedUserName"
+            ]
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [
+              "assignedUser"
+            ],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": [
+              "assignedUser"
+            ]
+          }
+        }
+      },
+      "GroupEmailFolder": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Note": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Notification": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Pipeline": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "PipelineStage": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Preferences": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Team": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "User": {
+        "attributes": {
+          "read": {
+            "yes": [
+              "avatarColor",
+              "workingTimeCalendarId",
+              "workingTimeCalendarName"
+            ],
+            "no": [
+              "password",
+              "passwordConfirm",
+              "authMethod",
+              "apiKey",
+              "secretKey",
+              "token",
+              "gender",
+              "dashboardTemplateId",
+              "dashboardTemplateName",
+              "auth2FA"
+            ]
+          },
+          "edit": {
+            "yes": [],
+            "no": [
+              "password",
+              "passwordConfirm",
+              "authMethod",
+              "apiKey",
+              "secretKey",
+              "token",
+              "avatarColor",
+              "gender",
+              "dashboardTemplateId",
+              "dashboardTemplateName",
+              "workingTimeCalendarId",
+              "workingTimeCalendarName",
+              "auth2FA"
+            ]
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [
+              "avatarColor",
+              "workingTimeCalendar"
+            ],
+            "no": [
+              "password",
+              "passwordConfirm",
+              "authMethod",
+              "apiKey",
+              "secretKey",
+              "token",
+              "gender",
+              "dashboardTemplate",
+              "auth2FA"
+            ]
+          },
+          "edit": {
+            "yes": [],
+            "no": [
+              "password",
+              "passwordConfirm",
+              "authMethod",
+              "apiKey",
+              "secretKey",
+              "token",
+              "avatarColor",
+              "gender",
+              "dashboardTemplate",
+              "workingTimeCalendar",
+              "auth2FA"
+            ]
+          }
+        }
+      },
+      "Account": {
+        "attributes": {
+          "read": {
+            "yes": [
+              "website"
+            ],
+            "no": [
+              "sicCode"
+            ]
+          },
+          "edit": {
+            "yes": [],
+            "no": [
+              "website",
+              "sicCode"
+            ]
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [
+              "website"
+            ],
+            "no": [
+              "sicCode"
+            ]
+          },
+          "edit": {
+            "yes": [],
+            "no": [
+              "website",
+              "sicCode"
+            ]
+          }
+        }
+      },
+      "Lead": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      }
+    }
+  },
+  "preferences": {
+    "weekStart": -1,
+    "thousandSeparator": ",",
+    "decimalMark": ".",
+    "useCustomTabList": false,
+    "addCustomTabs": false
+  },
+  "settings": {
+    "applicationName": "EspoCRM",
+    "language": "en_US",
+    "timeZone": "UTC",
+    "dateFormat": "DD.MM.YYYY",
+    "timeFormat": "HH:mm",
+    "weekStart": 0,
+    "thousandSeparator": ",",
+    "decimalMark": ".",
+    "currencyList": [
+      "USD"
+    ],
+    "defaultCurrency": "USD",
+    "baseCurrency": "USD",
+    "currencyFormat": 2,
+    "currencyDecimalPlaces": 2,
+    "tabList": [
+      {
+        "type": "divider",
+        "id": "342567",
+        "text": "$CRM"
+      },
+      "Account",
+      "Lead",
+      {
+        "type": "divider",
+        "text": "$Activities",
+        "id": "219419"
+      },
+      "Calendar",
+      {
+        "type": "divider",
+        "id": "655187",
+        "text": "$Support"
+      },
+      {
+        "type": "divider",
+        "text": null,
+        "id": "137994"
+      },
+      "_delimiter_",
+      {
+        "type": "divider",
+        "text": "$Marketing",
+        "id": "463280"
+      },
+      {
+        "type": "divider",
+        "text": "$Business",
+        "id": "518202"
+      },
+      {
+        "type": "divider",
+        "text": "$Organization",
+        "id": "566592"
+      },
+      "User",
+      "Team",
+      {
+        "type": "divider",
+        "text": null,
+        "id": "898671"
+      }
+    ],
+    "quickCreateList": [
+      "Account",
+      "Lead"
+    ],
+    "globalSearchEntityList": [
+      "Account",
+      "Lead"
+    ],
+    "tabColorsDisabled": false,
+    "aclAllowDeleteCreated": false,
+    "cacheTimestamp": 1790750720,
+    "appTimestamp": 1790668147,
+    "recordsPerPage": 20,
+    "recordsPerPageSmall": 5
+  },
+  "language": "en_US"
+}

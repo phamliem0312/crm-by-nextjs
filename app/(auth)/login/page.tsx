@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 import { EspoFooter } from "@/components/espo-footer";
@@ -8,12 +7,6 @@ import { translate } from "@/lib/espo/i18n";
 import { fetchDefaultLanguage, fetchPublicSettings, getCustomLogoUrl } from "@/lib/espo/public-data";
 import { getCredentials, getSession } from "@/lib/espo/session";
 import { LoginForm, type LoginLabels } from "./login-form";
-
-// Inter: font phổ biến của giao diện SaaS/CRM, dễ đọc ở cỡ nhỏ, có đủ dấu tiếng Việt.
-const inter = Inter({
-  subsets: ["latin", "latin-ext", "vietnamese"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Login · EspoCRM",
@@ -57,7 +50,7 @@ export default async function LoginPage({ searchParams }: PageProps<"/login">) {
 
   return (
     // Trang login luôn dùng nền sáng như mẫu thiết kế, kể cả khi hệ điều hành ở chế độ tối.
-    <div className={`${inter.className} flex min-h-dvh flex-1 bg-white text-slate-900`}>
+    <div className="flex min-h-dvh flex-1 bg-white text-slate-900">
       <section className="flex w-full flex-col px-4 sm:px-10 lg:w-1/2">
         <main className="flex flex-1 items-center justify-center py-12">
           <LoginForm

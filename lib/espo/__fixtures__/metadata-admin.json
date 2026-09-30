@@ -1,0 +1,1134 @@
+{
+  "scopes": {
+    "ActionHistoryRecord": {
+      "entity": true
+    },
+    "AddressCountry": {
+      "entity": true,
+      "importable": true,
+      "exportFormatList": [
+        "csv"
+      ],
+      "duplicateCheckFieldList": [
+        "name",
+        "code"
+      ]
+    },
+    "AppLogRecord": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "customizable": false
+    },
+    "AppSecret": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "customizable": false,
+      "duplicateCheckFieldList": [
+        "name"
+      ]
+    },
+    "ArrayValue": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "customizable": false
+    },
+    "Attachment": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "customizable": false
+    },
+    "AuthLogRecord": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "customizable": false
+    },
+    "AuthToken": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "customizable": false
+    },
+    "AuthenticationProvider": {
+      "entity": true,
+      "exportFormatList": [
+        "csv"
+      ]
+    },
+    "Autofollow": {
+      "entity": true
+    },
+    "Currency": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": true,
+      "aclActionList": [
+        "read",
+        "edit"
+      ],
+      "aclLevelList": [
+        "yes",
+        "no"
+      ],
+      "aclHighestLevel": "yes",
+      "aclFieldLevelDisabled": true,
+      "customizable": false
+    },
+    "CurrencyRecord": {
+      "entity": true,
+      "tab": true
+    },
+    "CurrencyRecordRate": {
+      "entity": true,
+      "preserveAuditLog": true
+    },
+    "Dashboard": {
+      "entity": false,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "customizable": false
+    },
+    "DashboardTemplate": {
+      "entity": true,
+      "exportFormatList": [
+        "csv"
+      ],
+      "importable": true
+    },
+    "Email": {
+      "entity": true,
+      "layouts": true,
+      "tab": true,
+      "acl": true,
+      "aclPortal": true,
+      "aclPortalLevelList": [
+        "account",
+        "contact",
+        "own",
+        "no"
+      ],
+      "aclPortalActionList": [
+        "read"
+      ],
+      "notifications": true,
+      "object": true,
+      "customizable": true,
+      "activity": true,
+      "activityStatusList": [
+        "Draft"
+      ],
+      "historyStatusList": [
+        "Archived",
+        "Sent"
+      ]
+    },
+    "EmailAccount": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false
+    },
+    "EmailAccountScope": {
+      "entity": false,
+      "layouts": false,
+      "tab": false,
+      "acl": "boolean"
+    },
+    "EmailAddress": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "customizable": false
+    },
+    "EmailFilter": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "notifications": false,
+      "object": false,
+      "customizable": false
+    },
+    "EmailFolder": {
+      "entity": true
+    },
+    "EmailTemplate": {
+      "entity": true,
+      "layouts": false,
+      "tab": true,
+      "acl": true,
+      "aclFieldLevelDisabled": true,
+      "customizable": false,
+      "importable": true,
+      "lastViewed": true,
+      "stars": true
+    },
+    "EmailTemplateCategory": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": true,
+      "aclLevelList": [
+        "all",
+        "team",
+        "no"
+      ],
+      "aclFieldLevelDisabled": true,
+      "customizable": false,
+      "importable": false,
+      "type": "CategoryTree",
+      "notifications": false
+    },
+    "Export": {
+      "languageIsGlobal": true
+    },
+    "Extension": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "customizable": false
+    },
+    "ExternalAccount": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": "boolean",
+      "aclPortal": false,
+      "aclFieldLevelDisabled": true,
+      "customizable": false,
+      "languageIsGlobal": true
+    },
+    "Formula": {
+      "languageIsGlobal": true
+    },
+    "GlobalStream": {
+      "entity": false,
+      "layouts": false,
+      "tab": true,
+      "acl": "boolean",
+      "customizable": false
+    },
+    "GroupEmailFolder": {
+      "entity": true
+    },
+    "Import": {
+      "entity": true,
+      "layouts": false,
+      "tab": true,
+      "acl": "boolean",
+      "aclFieldLevelDisabled": true,
+      "customizable": false
+    },
+    "ImportEml": {
+      "entity": false
+    },
+    "ImportError": {
+      "entity": true
+    },
+    "InboundEmail": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false
+    },
+    "Integration": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "customizable": false,
+      "languageAclDisabled": true
+    },
+    "Job": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "customizable": false
+    },
+    "LastViewed": {
+      "entity": false,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "customizable": false
+    },
+    "LayoutRecord": {
+      "entity": true
+    },
+    "LayoutSet": {
+      "entity": true
+    },
+    "LeadCapture": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "customizable": false
+    },
+    "LeadCaptureLogRecord": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "customizable": false
+    },
+    "MassAction": {
+      "languageIsGlobal": true
+    },
+    "Note": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "customizable": true,
+      "entityManager": {
+        "edit": false,
+        "fields": true,
+        "relationships": false,
+        "formula": false,
+        "layouts": false,
+        "addField": false
+      }
+    },
+    "Notification": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "customizable": false
+    },
+    "OAuthAccount": {
+      "entity": true
+    },
+    "OAuthProvider": {
+      "entity": true,
+      "duplicateCheckFieldList": [
+        "name"
+      ]
+    },
+    "OpenApi": {
+      "acl": "boolean"
+    },
+    "PasswordChangeRequest": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "customizable": false
+    },
+    "PhoneNumber": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "customizable": false
+    },
+    "Pipeline": {
+      "entity": true,
+      "importable": true,
+      "statusField": "status",
+      "exportFormatList": [
+        "csv"
+      ],
+      "duplicateCheckFieldList": [
+        "name"
+      ]
+    },
+    "PipelineStage": {
+      "entity": true,
+      "importable": true,
+      "exportFormatList": [
+        "csv"
+      ]
+    },
+    "Portal": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "customizable": false,
+      "preserveAuditLog": true
+    },
+    "PortalRole": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "customizable": false,
+      "importable": true,
+      "exportFormatList": [
+        "csv"
+      ],
+      "preserveAuditLog": true
+    },
+    "PortalUser": {
+      "tab": true,
+      "tabAclPermission": "portalPermission"
+    },
+    "Preferences": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "customizable": false
+    },
+    "Role": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "customizable": false,
+      "importable": true,
+      "exportFormatList": [
+        "csv"
+      ],
+      "preserveAuditLog": true
+    },
+    "ScheduledJob": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "customizable": false
+    },
+    "ScheduledJobLogRecord": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "customizable": false
+    },
+    "Stream": {
+      "entity": false,
+      "layouts": false,
+      "tab": true,
+      "acl": false,
+      "customizable": false
+    },
+    "StreamSubscription": {
+      "entity": true
+    },
+    "Team": {
+      "entity": true,
+      "layouts": false,
+      "tab": true,
+      "acl": true,
+      "aclActionList": [
+        "read"
+      ],
+      "aclLevelList": [
+        "all",
+        "team",
+        "no"
+      ],
+      "importable": true,
+      "customizable": false,
+      "preserveAuditLog": true
+    },
+    "Template": {
+      "entity": true,
+      "layouts": false,
+      "tab": true,
+      "acl": true,
+      "aclLevelList": [
+        "all",
+        "team",
+        "no"
+      ],
+      "aclPortal": true,
+      "aclPortalLevelList": [
+        "all",
+        "no"
+      ],
+      "aclPortalActionList": [
+        "read"
+      ],
+      "aclFieldLevelDisabled": true,
+      "aclPortalFieldLevelDisabled": true,
+      "customizable": false,
+      "importable": true,
+      "disabled": false,
+      "lastViewed": true
+    },
+    "UniqueId": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "customizable": false
+    },
+    "User": {
+      "entity": true,
+      "layouts": true,
+      "tab": true,
+      "acl": true,
+      "aclActionList": [
+        "read",
+        "edit"
+      ],
+      "aclActionLevelListMap": {
+        "edit": [
+          "own",
+          "no"
+        ]
+      },
+      "customizable": true,
+      "object": true,
+      "preserveAuditLog": true
+    },
+    "UserData": {
+      "entity": true
+    },
+    "UserReaction": {
+      "entity": true
+    },
+    "Webhook": {
+      "entity": true,
+      "acl": "boolean",
+      "aclFieldLevelDisabled": true
+    },
+    "WebhookEventQueueItem": {
+      "entity": true
+    },
+    "WebhookQueueItem": {
+      "entity": true
+    },
+    "WorkingTimeCalendar": {
+      "entity": true,
+      "acl": "boolean",
+      "aclFieldLevelDisabled": true,
+      "tab": true,
+      "layouts": false,
+      "customizable": false
+    },
+    "WorkingTimeRange": {
+      "entity": true,
+      "acl": false,
+      "tab": false,
+      "layouts": false,
+      "customizable": false
+    },
+    "Account": {
+      "entity": true,
+      "layouts": true,
+      "tab": true,
+      "acl": true,
+      "aclPortal": true,
+      "aclPortalLevelList": [
+        "all",
+        "account",
+        "no"
+      ],
+      "module": "Crm",
+      "customizable": true,
+      "stream": true,
+      "stars": true,
+      "importable": true,
+      "notifications": true,
+      "object": true,
+      "hasPersonalData": true,
+      "duplicateCheckFieldList": [
+        "name",
+        "emailAddress"
+      ],
+      "lockable": true
+    },
+    "Activities": {
+      "entity": false,
+      "layouts": false,
+      "tab": false,
+      "acl": "boolean",
+      "aclPortal": "boolean",
+      "module": "Crm",
+      "customizable": false
+    },
+    "Calendar": {
+      "entity": false,
+      "tab": true,
+      "acl": "boolean",
+      "module": "Crm"
+    },
+    "Call": {
+      "entity": true,
+      "layouts": true,
+      "tab": true,
+      "acl": true,
+      "aclPortal": true,
+      "aclPortalLevelList": [
+        "all",
+        "account",
+        "contact",
+        "own",
+        "no"
+      ],
+      "module": "Crm",
+      "customizable": true,
+      "importable": true,
+      "notifications": true,
+      "calendar": true,
+      "activity": true,
+      "object": true,
+      "activityStatusList": [
+        "Planned"
+      ],
+      "historyStatusList": [
+        "Held",
+        "Not Held"
+      ],
+      "completedStatusList": [
+        "Held"
+      ],
+      "canceledStatusList": [
+        "Not Held"
+      ],
+      "statusField": "status",
+      "statusFieldLocked": true,
+      "attendeeLinkMap": {
+        "Contact": "contacts",
+        "Lead": "leads",
+        "User": "users"
+      }
+    },
+    "Campaign": {
+      "entity": true,
+      "layouts": true,
+      "tab": true,
+      "acl": true,
+      "module": "Crm",
+      "customizable": true,
+      "stream": false,
+      "importable": false,
+      "object": true,
+      "statusField": "status"
+    },
+    "CampaignLogRecord": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "module": "Crm",
+      "customizable": false,
+      "stream": false,
+      "importable": false
+    },
+    "CampaignTrackingUrl": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "module": "Crm",
+      "customizable": false,
+      "stream": false,
+      "importable": false
+    },
+    "Case": {
+      "entity": true,
+      "layouts": true,
+      "tab": true,
+      "acl": true,
+      "aclPortal": true,
+      "aclPortalLevelList": [
+        "all",
+        "account",
+        "contact",
+        "own",
+        "no"
+      ],
+      "module": "Crm",
+      "customizable": true,
+      "stream": true,
+      "importable": true,
+      "notifications": true,
+      "object": true,
+      "statusField": "status",
+      "statusFieldLocked": true,
+      "collaborators": true
+    },
+    "Contact": {
+      "entity": true,
+      "layouts": true,
+      "tab": true,
+      "acl": true,
+      "aclPortal": true,
+      "aclPortalLevelList": [
+        "all",
+        "account",
+        "contact",
+        "no"
+      ],
+      "module": "Crm",
+      "customizable": true,
+      "stream": true,
+      "stars": true,
+      "importable": true,
+      "notifications": true,
+      "object": true,
+      "hasPersonalData": true,
+      "duplicateCheckFieldList": [
+        "name",
+        "emailAddress"
+      ]
+    },
+    "Document": {
+      "entity": true,
+      "layouts": true,
+      "tab": true,
+      "acl": true,
+      "aclPortal": true,
+      "aclPortalLevelList": [
+        "all",
+        "account",
+        "contact",
+        "own",
+        "no"
+      ],
+      "module": "Crm",
+      "customizable": true,
+      "importable": false,
+      "notifications": true,
+      "object": true
+    },
+    "DocumentFolder": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "aclLevelList": [
+        "all",
+        "team",
+        "no"
+      ],
+      "aclPortalLevelList": [
+        "all",
+        "no"
+      ],
+      "acl": true,
+      "aclPortal": true,
+      "aclPortalActionList": [
+        "read"
+      ],
+      "module": "Crm",
+      "customizable": false,
+      "importable": false,
+      "type": "CategoryTree",
+      "stream": false,
+      "notifications": false,
+      "categoryParentEntityType": "Document",
+      "categoryField": "folder"
+    },
+    "EmailQueueItem": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "notifications": false,
+      "object": false,
+      "customizable": false,
+      "module": "Crm"
+    },
+    "KnowledgeBaseArticle": {
+      "entity": true,
+      "layouts": true,
+      "tab": true,
+      "acl": true,
+      "aclPortal": true,
+      "aclPortalLevelList": [
+        "all",
+        "no"
+      ],
+      "aclPortalActionList": [
+        "read"
+      ],
+      "module": "Crm",
+      "customizable": true,
+      "importable": true,
+      "notifications": false,
+      "object": true
+    },
+    "KnowledgeBaseCategory": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "aclLevelList": [
+        "all",
+        "team",
+        "no"
+      ],
+      "aclPortalLevelList": [
+        "all",
+        "no"
+      ],
+      "acl": true,
+      "aclPortal": true,
+      "aclPortalActionList": [
+        "read"
+      ],
+      "module": "Crm",
+      "customizable": false,
+      "importable": false,
+      "type": "CategoryTree",
+      "stream": false,
+      "notifications": false,
+      "categoryParentEntityType": "KnowledgeBaseArticle",
+      "categoryField": "categories"
+    },
+    "Lead": {
+      "entity": true,
+      "layouts": true,
+      "tab": true,
+      "acl": true,
+      "aclPortal": true,
+      "aclPortalLevelList": [
+        "all",
+        "own",
+        "no"
+      ],
+      "module": "Crm",
+      "customizable": true,
+      "stream": true,
+      "importable": true,
+      "notifications": true,
+      "object": true,
+      "statusField": "status",
+      "statusFieldLocked": true,
+      "hasPersonalData": true,
+      "duplicateCheckFieldList": [
+        "name",
+        "emailAddress"
+      ]
+    },
+    "MassEmail": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "notifications": false,
+      "object": false,
+      "customizable": false,
+      "module": "Crm"
+    },
+    "Meeting": {
+      "entity": true,
+      "layouts": true,
+      "tab": true,
+      "acl": true,
+      "aclPortal": true,
+      "aclPortalLevelList": [
+        "all",
+        "account",
+        "contact",
+        "own",
+        "no"
+      ],
+      "module": "Crm",
+      "customizable": true,
+      "importable": true,
+      "notifications": true,
+      "stream": true,
+      "calendar": true,
+      "activity": true,
+      "object": true,
+      "activityStatusList": [
+        "Planned"
+      ],
+      "historyStatusList": [
+        "Held",
+        "Not Held"
+      ],
+      "completedStatusList": [
+        "Held"
+      ],
+      "canceledStatusList": [
+        "Not Held"
+      ],
+      "statusField": "status",
+      "statusFieldLocked": true,
+      "attendeeLinkMap": {
+        "Contact": "contacts",
+        "Lead": "leads",
+        "User": "users"
+      }
+    },
+    "Opportunity": {
+      "entity": true,
+      "layouts": true,
+      "tab": true,
+      "acl": true,
+      "aclPortal": true,
+      "aclPortalLevelList": [
+        "all",
+        "account",
+        "contact",
+        "own",
+        "no"
+      ],
+      "module": "Crm",
+      "customizable": true,
+      "stream": true,
+      "importable": true,
+      "notifications": true,
+      "object": true,
+      "statusField": "stage",
+      "statusFieldLocked": true,
+      "kanbanStatusIgnoreList": [
+        "Closed Lost"
+      ],
+      "currencyConversionAccessRequiredFieldList": [
+        "amount"
+      ]
+    },
+    "Reminder": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "module": "Crm",
+      "customizable": false,
+      "importable": false
+    },
+    "Target": {
+      "entity": false,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "module": "Crm",
+      "customizable": false,
+      "importable": false,
+      "notifications": false,
+      "object": true,
+      "disabled": true
+    },
+    "TargetList": {
+      "entity": true,
+      "layouts": true,
+      "tab": true,
+      "acl": true,
+      "module": "Crm",
+      "customizable": true,
+      "stream": false,
+      "importable": false,
+      "notifications": true,
+      "object": true,
+      "targetLinkList": [
+        "accounts",
+        "contacts",
+        "leads",
+        "users"
+      ]
+    },
+    "TargetListCategory": {
+      "entity": true,
+      "acl": true,
+      "aclLevelList": [
+        "all",
+        "team",
+        "no"
+      ],
+      "module": "Crm",
+      "customizable": false,
+      "entityManager": {
+        "fields": false,
+        "formula": false,
+        "relationships": false,
+        "addField": false,
+        "edit": false,
+        "layouts": false
+      },
+      "type": "CategoryTree",
+      "categoryParentEntityType": "TargetList",
+      "categoryField": "category"
+    },
+    "Task": {
+      "entity": true,
+      "layouts": true,
+      "tab": true,
+      "acl": true,
+      "aclPortal": true,
+      "aclPortalLevelList": [
+        "all",
+        "account",
+        "contact",
+        "own",
+        "no"
+      ],
+      "activityStatusList": [
+        "Not Started",
+        "Started"
+      ],
+      "historyStatusList": [
+        "Completed"
+      ],
+      "completedStatusList": [
+        "Completed"
+      ],
+      "canceledStatusList": [
+        "Canceled"
+      ],
+      "module": "Crm",
+      "customizable": true,
+      "importable": true,
+      "notifications": true,
+      "calendar": true,
+      "calendarOneDay": true,
+      "object": true,
+      "statusField": "status",
+      "stream": true,
+      "kanbanStatusIgnoreList": [
+        "Canceled",
+        "Deferred"
+      ],
+      "statusFieldLocked": true,
+      "collaborators": true
+    }
+  },
+  "clientDefs": {
+    "ActionHistoryRecord": {},
+    "AddressCountry": {},
+    "AddressMap": {},
+    "ApiUser": {},
+    "AppLogRecord": {},
+    "AppSecret": {},
+    "Attachment": {},
+    "AuthLogRecord": {},
+    "AuthToken": {},
+    "AuthenticationProvider": {},
+    "CurrencyRecord": {},
+    "CurrencyRecordRate": {},
+    "Dashboard": {
+      "iconClass": "fas fa-th-large"
+    },
+    "DashboardTemplate": {},
+    "DynamicLogic": {},
+    "Email": {
+      "iconClass": "fas fa-envelope"
+    },
+    "EmailAccount": {},
+    "EmailAddress": {},
+    "EmailFilter": {},
+    "EmailFolder": {},
+    "EmailTemplate": {
+      "iconClass": "fas fa-envelope-square"
+    },
+    "EmailTemplateCategory": {},
+    "ExternalAccount": {},
+    "Global": {},
+    "GlobalStream": {
+      "iconClass": "fas fa-rss-square"
+    },
+    "GroupEmailFolder": {},
+    "Home": {
+      "iconClass": "fas fa-th-large"
+    },
+    "Import": {
+      "iconClass": "fas fa-file-import"
+    },
+    "ImportError": {},
+    "InboundEmail": {},
+    "Job": {},
+    "LastViewed": {},
+    "LayoutSet": {},
+    "LeadCapture": {},
+    "LeadCaptureLogRecord": {},
+    "Note": {},
+    "Notification": {},
+    "OAuthAccount": {},
+    "OAuthProvider": {},
+    "PasswordChangeRequest": {},
+    "PhoneNumber": {},
+    "Pipeline": {},
+    "PipelineStage": {},
+    "Portal": {},
+    "PortalRole": {},
+    "PortalUser": {
+      "iconClass": "far fa-user-circle"
+    },
+    "Preferences": {},
+    "Role": {},
+    "ScheduledJob": {},
+    "ScheduledJobLogRecord": {},
+    "Stream": {
+      "iconClass": "fas fa-rss"
+    },
+    "Team": {
+      "iconClass": "fas fa-users"
+    },
+    "Template": {
+      "iconClass": "fas fa-file-pdf"
+    },
+    "User": {
+      "iconClass": "fas fa-user-circle"
+    },
+    "Webhook": {},
+    "WebhookEventQueueItem": {},
+    "WebhookQueueItem": {},
+    "WorkingTimeCalendar": {
+      "iconClass": "fas fa-calendar-week"
+    },
+    "WorkingTimeRange": {},
+    "Account": {
+      "iconClass": "fas fa-building",
+      "color": "#edc755"
+    },
+    "Activities": {},
+    "Calendar": {
+      "iconClass": "far fa-calendar-alt"
+    },
+    "Call": {
+      "iconClass": "fas fa-phone"
+    },
+    "Campaign": {
+      "iconClass": "fas fa-chart-line"
+    },
+    "CampaignLogRecord": {},
+    "CampaignTrackingUrl": {},
+    "Case": {
+      "iconClass": "fas fa-briefcase"
+    },
+    "Contact": {
+      "iconClass": "fas fa-id-badge",
+      "color": "#80b4de"
+    },
+    "Document": {
+      "iconClass": "far fa-file-alt"
+    },
+    "DocumentFolder": {},
+    "EmailQueueItem": {},
+    "KnowledgeBaseArticle": {
+      "iconClass": "fas fa-book"
+    },
+    "KnowledgeBaseCategory": {},
+    "Lead": {
+      "iconClass": "fas fa-address-card",
+      "color": "#da90c8"
+    },
+    "MassEmail": {},
+    "Meeting": {
+      "iconClass": "fas fa-calendar-check"
+    },
+    "Opportunity": {
+      "iconClass": "fas fa-dollar-sign",
+      "color": "#71ca7f"
+    },
+    "TargetList": {
+      "iconClass": "fas fa-crosshairs"
+    },
+    "TargetListCategory": {},
+    "Task": {
+      "iconClass": "fas fa-tasks"
+    }
+  }
+}

@@ -1,5 +1,22 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { BadPathError, buildEspoApiUrl } from "./proxy";
+import { BadPathError, buildEspoApiUrl, cacheControlFor } from "./proxy";
+
+describe("cacheControlFor", () => {
+  const params = (query: string) => new URLSearchParams(query);
+
+  it("caches Metadata and I18n only with a cacheKey", () => {
+    expect(cacheControlFor("GET", ["Metadata"], params("cacheKey=u1-123"), 200)).toContain("max-age=31536000");
+    expect(cacheControlFor("GET", ["I18n"], params("language=vi_VN&cacheKey=u1-123"), 200)).toContain("private");
+    expect(cacheControlFor("GET", ["Metadata"], params(""), 200)).toBe("no-store");
+  });
+
+  it("never caches other routes, other methods or errors", () => {
+    expect(cacheControlFor("GET", ["Account"], params("cacheKey=x"), 200)).toBe("no-store");
+    expect(cacheControlFor("POST", ["Metadata"], params("cacheKey=x"), 200)).toBe("no-store");
+    expect(cacheControlFor("GET", ["Metadata"], params("cacheKey=x"), 401)).toBe("no-store");
+    expect(cacheControlFor("GET", ["Metadata", "x"], params("cacheKey=x"), 200)).toBe("no-store");
+  });
+});
 
 describe("buildEspoApiUrl", () => {
   beforeEach(() => {

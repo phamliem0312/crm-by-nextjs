@@ -1,18 +1,11 @@
-import { getClassicBasePath } from "@/lib/espo/config";
+import type { Metadata } from "next";
+import { HomeLaunchpad } from "./home-launchpad";
 
-// Trang tạm của giai đoạn 0. Giai đoạn 1 thay bằng shell (navbar, auth gate) và dashboard.
-export default function Home() {
-  return (
-    <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-4 px-4 py-16">
-      <h1 className="text-2xl font-semibold">EspoCRM Next</h1>
-      <p>Giao diện mới đang được xây dựng. Trong lúc chờ, hãy dùng giao diện classic.</p>
-      <ul className="list-disc pl-6">
-        <li>
-          <a className="underline" href={`${getClassicBasePath()}/`}>
-            Mở giao diện classic
-          </a>
-        </li>
-      </ul>
-    </main>
-  );
+export const metadata: Metadata = {
+  title: "EspoCRM",
+};
+
+// Trang chủ tạm: lối tắt tới các mục trong menu. Dashboard (preferences.dashboardLayout) làm ở giai đoạn 3.
+export default function HomePage() {
+  return <HomeLaunchpad />;
 }

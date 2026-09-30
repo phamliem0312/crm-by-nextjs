@@ -2,7 +2,7 @@ import { getIronSession, type IronSession, type SessionOptions } from "iron-sess
 import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { AUTH_TOKEN_SECRET_COOKIE, type EspoCredentials, type PendingSecondStep } from "./auth";
-import { SESSION_COOKIE } from "./session-cookie";
+import { CLASSIC_AUTH_TOKEN_COOKIE, SESSION_COOKIE } from "./session-cookie";
 
 /** Bước 2FA phải xong trong khoảng này, không thì đăng nhập lại từ đầu. */
 const SECOND_STEP_TTL_MS = 10 * 60 * 1000;
@@ -119,12 +119,29 @@ export async function saveCredentials(session: EspoSession, credentials: EspoCre
   } else {
     cookieStore.delete(AUTH_TOKEN_SECRET_COOKIE);
   }
+
+  // Cookie `auth-token` giống `App.setCookieAuth` của classic: entry point (avatar, ảnh, file đính kèm)
+  // xác thực bằng nó cùng `auth-token-secret`. Không HttpOnly để UI classic còn ghi đè/xoá được khi
+  // đăng xuất hay đổi user bên classic; token lộ ra JS vẫn vô dụng nếu thiếu secret (HttpOnly).
+  cookieStore.set(CLASSIC_AUTH_TOKEN_COOKIE, credentials.token, {
+    sameSite: "lax",
+    path: "/",
+    secure: await isSecureRequest(),
+    maxAge: 1000 * 24 * 60 * 60,
+  });
 }
 
-/** Xoá session và cookie `auth-token-secret` (đăng xuất, hoặc Espo trả 401). */
+/**
+ * Xoá session, cookie `auth-token-secret` và cookie `auth-token` của UI classic
+ * (đăng xuất, hoặc Espo trả 401).
+ */
 export async function destroySession(session: EspoSession): Promise<void> {
   session.destroy();
-  (await cookies()).delete(AUTH_TOKEN_SECRET_COOKIE);
+
+  const cookieStore = await cookies();
+
+  cookieStore.delete(AUTH_TOKEN_SECRET_COOKIE);
+  cookieStore.delete(CLASSIC_AUTH_TOKEN_COOKIE);
 }
 
 function clearCredentials(session: EspoSession): void {

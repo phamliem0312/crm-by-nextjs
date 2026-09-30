@@ -22,6 +22,12 @@ const nextConfig: NextConfig = {
         source: classicBasePath,
         destination: `${espoUrl}/`,
       },
+      // `:path+` bỏ mất "/" ở cuối, mà classic gọi `api/v1/` (có "/") lúc khởi động và Espo trả 404
+      // cho `api/v1` → classic đứng ở màn hình trống. Rule này giữ nguyên "/" ở cuối.
+      {
+        source: `${classicBasePath}/:path+/`,
+        destination: `${espoUrl}/:path+/`,
+      },
       {
         source: `${classicBasePath}/:path+`,
         destination: `${espoUrl}/:path+`,

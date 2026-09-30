@@ -1,27 +1,17 @@
-import Link from "next/link";
-import { EspoFooter } from "@/components/espo-footer";
-import { requireCredentials } from "@/lib/espo/session";
-import { LogoutButton } from "./logout-button";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import { AppProviders } from "@/components/providers/app-providers";
+import { AppShell } from "@/components/shell/app-shell";
+import { getClassicBasePath } from "@/lib/espo/config";
+import { getAppUser } from "@/lib/espo/server-api";
 
-// Khung tạm cho phần cần đăng nhập. Navbar theo tabList, global search… làm ở bước App shell.
+// Phần cần đăng nhập: nạp App/user (user, acl, preferences, settings…) một lần rồi đưa vào context.
+// Metadata và I18n do client tải qua TanStack Query (cache theo user + cacheTimestamp).
 export default async function CrmLayout({ children }: LayoutProps<"/">) {
-  const { userName } = await requireCredentials();
+  const appUser = await getAppUser();
 
   return (
-    <>
-      <header className="border-b border-zinc-200 dark:border-zinc-800">
-        <div className="mx-auto flex h-12 w-full max-w-6xl items-center justify-between gap-4 px-4">
-          <Link href="/" className="font-semibold">
-            EspoCRM
-          </Link>
-          <div className="flex items-center gap-3 text-sm">
-            <span className="text-zinc-600 dark:text-zinc-400">{userName}</span>
-            <LogoutButton />
-          </div>
-        </div>
-      </header>
-      {children}
-      <EspoFooter />
-    </>
+    <AppProviders appUser={appUser} classicBasePath={getClassicBasePath()}>
+      <AppShell>{children}</AppShell>
+    </AppProviders>
   );
 }

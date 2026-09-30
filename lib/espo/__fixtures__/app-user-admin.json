@@ -1,0 +1,2491 @@
+{
+  "user": {
+    "id": "6abcaa7a4fdf24707",
+    "userName": "next-dev",
+    "name": "Next-dev",
+    "type": "admin",
+    "isActive": true,
+    "teamsIds": [],
+    "avatarColor": null
+  },
+  "acl": {
+    "table": {
+      "ActionHistoryRecord": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "AddressCountry": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "AppLogRecord": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "AppSecret": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "ArrayValue": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "Attachment": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "AuthLogRecord": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "AuthToken": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "AuthenticationProvider": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "Autofollow": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "Currency": {
+        "read": "yes",
+        "stream": "no",
+        "edit": "yes",
+        "delete": "no",
+        "create": "no"
+      },
+      "CurrencyRecord": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "CurrencyRecordRate": {
+        "read": "yes",
+        "stream": "no",
+        "edit": "yes",
+        "delete": "no",
+        "create": "no"
+      },
+      "Dashboard": false,
+      "DashboardTemplate": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "Email": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "EmailAccount": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "EmailAccountScope": true,
+      "EmailAddress": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "EmailFilter": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "EmailFolder": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "EmailTemplate": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "EmailTemplateCategory": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "Export": false,
+      "Extension": {
+        "read": "all",
+        "stream": "no",
+        "edit": "no",
+        "delete": "all",
+        "create": "no"
+      },
+      "ExternalAccount": true,
+      "Formula": false,
+      "GlobalStream": true,
+      "GroupEmailFolder": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "Import": true,
+      "ImportEml": true,
+      "ImportError": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "InboundEmail": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "Integration": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "Job": {
+        "read": "all",
+        "stream": "no",
+        "edit": "no",
+        "delete": "all",
+        "create": "no"
+      },
+      "LastViewed": false,
+      "LayoutRecord": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "LayoutSet": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "LeadCapture": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "LeadCaptureLogRecord": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "MassAction": false,
+      "Note": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "Notification": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "OAuthAccount": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "OAuthProvider": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "OpenApi": true,
+      "PasswordChangeRequest": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "PhoneNumber": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "Pipeline": true,
+      "PipelineStage": true,
+      "Portal": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "PortalRole": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "PortalUser": false,
+      "Preferences": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "Role": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "ScheduledJob": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "ScheduledJobLogRecord": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "Stream": true,
+      "StreamSubscription": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "Team": {
+        "read": "all",
+        "stream": "no",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "Template": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "UniqueId": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "User": {
+        "read": "all",
+        "stream": "no",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "UserData": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "UserReaction": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "Webhook": true,
+      "WebhookEventQueueItem": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "WebhookQueueItem": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "WorkingTimeCalendar": true,
+      "WorkingTimeRange": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "Account": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "Activities": true,
+      "Calendar": true,
+      "Call": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "Campaign": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "CampaignLogRecord": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "CampaignTrackingUrl": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "Case": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "Contact": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "Document": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "DocumentFolder": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "EmailQueueItem": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "KnowledgeBaseArticle": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "KnowledgeBaseCategory": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "Lead": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "MassEmail": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "Meeting": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "Opportunity": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "Reminder": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "Target": false,
+      "TargetList": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "TargetListCategory": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      },
+      "Task": {
+        "read": "all",
+        "stream": "all",
+        "edit": "all",
+        "delete": "all",
+        "create": "yes"
+      }
+    },
+    "fieldTable": {
+      "ActionHistoryRecord": {},
+      "AddressCountry": {},
+      "AppLogRecord": {},
+      "AppSecret": {},
+      "ArrayValue": {},
+      "Attachment": {},
+      "AuthLogRecord": {},
+      "AuthToken": {},
+      "AuthenticationProvider": {},
+      "Autofollow": {},
+      "Currency": {},
+      "CurrencyRecord": {},
+      "CurrencyRecordRate": {},
+      "DashboardTemplate": {},
+      "Email": {},
+      "EmailAccount": {},
+      "EmailAddress": {},
+      "EmailFilter": {},
+      "EmailFolder": {},
+      "EmailTemplate": {},
+      "EmailTemplateCategory": {},
+      "Extension": {},
+      "ExternalAccount": {},
+      "GroupEmailFolder": {},
+      "Import": {},
+      "ImportError": {},
+      "InboundEmail": {},
+      "Integration": {},
+      "Job": {},
+      "LayoutRecord": {},
+      "LayoutSet": {},
+      "LeadCapture": {},
+      "LeadCaptureLogRecord": {},
+      "Note": {},
+      "Notification": {},
+      "OAuthAccount": {},
+      "OAuthProvider": {},
+      "PasswordChangeRequest": {},
+      "PhoneNumber": {},
+      "Pipeline": {},
+      "PipelineStage": {},
+      "Portal": {},
+      "PortalRole": {},
+      "Preferences": {},
+      "Role": {},
+      "ScheduledJob": {},
+      "ScheduledJobLogRecord": {},
+      "StreamSubscription": {},
+      "Team": {},
+      "Template": {},
+      "UniqueId": {},
+      "User": {},
+      "UserData": {},
+      "UserReaction": {},
+      "Webhook": {},
+      "WebhookEventQueueItem": {},
+      "WebhookQueueItem": {},
+      "WorkingTimeCalendar": {},
+      "WorkingTimeRange": {},
+      "Account": {},
+      "Call": {},
+      "Campaign": {},
+      "CampaignLogRecord": {},
+      "CampaignTrackingUrl": {},
+      "Case": {},
+      "Contact": {},
+      "Document": {},
+      "DocumentFolder": {},
+      "EmailQueueItem": {},
+      "KnowledgeBaseArticle": {},
+      "KnowledgeBaseCategory": {},
+      "Lead": {},
+      "MassEmail": {},
+      "Meeting": {},
+      "Opportunity": {},
+      "Reminder": {},
+      "TargetList": {},
+      "TargetListCategory": {},
+      "Task": {}
+    },
+    "assignmentPermission": "all",
+    "messagePermission": "all",
+    "mentionPermission": "yes",
+    "userCalendarPermission": "all",
+    "auditPermission": "yes",
+    "exportPermission": "yes",
+    "massUpdatePermission": "yes",
+    "userPermission": "all",
+    "portalPermission": "yes",
+    "groupEmailAccountPermission": "all",
+    "followerManagementPermission": "all",
+    "dataPrivacyPermission": "yes",
+    "lockPermission": "yes",
+    "fieldTableQuickAccess": {
+      "ActionHistoryRecord": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "AddressCountry": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "AppLogRecord": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "AppSecret": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "ArrayValue": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Attachment": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "AuthLogRecord": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "AuthToken": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "AuthenticationProvider": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Autofollow": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Currency": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "CurrencyRecord": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "CurrencyRecordRate": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "DashboardTemplate": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Email": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "EmailAccount": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "EmailAddress": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "EmailFilter": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "EmailFolder": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "EmailTemplate": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "EmailTemplateCategory": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Extension": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "ExternalAccount": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "GroupEmailFolder": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Import": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "ImportError": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "InboundEmail": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Integration": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Job": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "LayoutRecord": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "LayoutSet": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "LeadCapture": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "LeadCaptureLogRecord": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Note": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Notification": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "OAuthAccount": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "OAuthProvider": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "PasswordChangeRequest": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "PhoneNumber": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Pipeline": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "PipelineStage": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Portal": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "PortalRole": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Preferences": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Role": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "ScheduledJob": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "ScheduledJobLogRecord": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "StreamSubscription": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Team": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Template": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "UniqueId": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "User": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "UserData": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "UserReaction": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Webhook": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "WebhookEventQueueItem": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "WebhookQueueItem": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "WorkingTimeCalendar": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "WorkingTimeRange": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Account": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Call": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Campaign": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "CampaignLogRecord": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "CampaignTrackingUrl": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Case": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Contact": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Document": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "DocumentFolder": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "EmailQueueItem": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "KnowledgeBaseArticle": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "KnowledgeBaseCategory": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Lead": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "MassEmail": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Meeting": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Opportunity": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Reminder": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "TargetList": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "TargetListCategory": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      },
+      "Task": {
+        "attributes": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        },
+        "fields": {
+          "read": {
+            "yes": [],
+            "no": []
+          },
+          "edit": {
+            "yes": [],
+            "no": []
+          }
+        }
+      }
+    }
+  },
+  "preferences": {
+    "weekStart": -1,
+    "thousandSeparator": ",",
+    "decimalMark": ".",
+    "useCustomTabList": false,
+    "addCustomTabs": false
+  },
+  "settings": {
+    "applicationName": "EspoCRM",
+    "language": "en_US",
+    "timeZone": "UTC",
+    "dateFormat": "DD.MM.YYYY",
+    "timeFormat": "HH:mm",
+    "weekStart": 0,
+    "thousandSeparator": ",",
+    "decimalMark": ".",
+    "currencyList": [
+      "USD"
+    ],
+    "defaultCurrency": "USD",
+    "baseCurrency": "USD",
+    "currencyFormat": 2,
+    "currencyDecimalPlaces": 2,
+    "tabList": [
+      {
+        "type": "divider",
+        "id": "342567",
+        "text": "$CRM"
+      },
+      "Account",
+      "Contact",
+      "Lead",
+      "Opportunity",
+      {
+        "type": "divider",
+        "text": "$Activities",
+        "id": "219419"
+      },
+      "Email",
+      "Meeting",
+      "Call",
+      "Task",
+      "Calendar",
+      {
+        "type": "divider",
+        "id": "655187",
+        "text": "$Support"
+      },
+      "Case",
+      "KnowledgeBaseArticle",
+      {
+        "type": "divider",
+        "text": null,
+        "id": "137994"
+      },
+      "_delimiter_",
+      {
+        "type": "divider",
+        "text": "$Marketing",
+        "id": "463280"
+      },
+      "Campaign",
+      "TargetList",
+      {
+        "type": "divider",
+        "text": "$Business",
+        "id": "518202"
+      },
+      "Document",
+      {
+        "type": "divider",
+        "text": "$Organization",
+        "id": "566592"
+      },
+      "User",
+      "Team",
+      "WorkingTimeCalendar",
+      {
+        "type": "divider",
+        "text": null,
+        "id": "898671"
+      },
+      "EmailTemplate",
+      "Template",
+      "Import"
+    ],
+    "quickCreateList": [
+      "Account",
+      "Contact",
+      "Lead",
+      "Opportunity",
+      "Meeting",
+      "Call",
+      "Task",
+      "Case",
+      "Email"
+    ],
+    "globalSearchEntityList": [
+      "Account",
+      "Contact",
+      "Lead",
+      "Opportunity"
+    ],
+    "tabColorsDisabled": false,
+    "aclAllowDeleteCreated": false,
+    "cacheTimestamp": 1790750720,
+    "appTimestamp": 1790668147,
+    "recordsPerPage": 20,
+    "recordsPerPageSmall": 5
+  },
+  "language": "en_US"
+}

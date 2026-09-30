@@ -1,7 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { loginUrl } from "@/lib/espo/client";
 import { getClassicBasePath } from "@/lib/espo/config";
-import { SESSION_COOKIE } from "@/lib/espo/session-cookie";
+import { PATHNAME_HEADER, SESSION_COOKIE } from "@/lib/espo/session-cookie";
 
 /** Trang không cần đăng nhập. `/api/*` tự xử lý (BFF trả 401), UI classic có màn đăng nhập riêng. */
 function isPublicPath(pathname: string, classicBasePath: string): boolean {
@@ -22,12 +22,21 @@ export function proxy(request: NextRequest) {
     return NextResponse.redirect(new URL(`${classicBasePath}/${search}`, request.url));
   }
 
+  if (isPublicPath(pathname, classicBasePath)) {
+    return NextResponse.next();
+  }
+
   // Kiểm tra sơ bộ (chỉ xem có cookie session); layout (crm) mới giải mã và kiểm tra thật.
-  if (!isPublicPath(pathname, classicBasePath) && !request.cookies.has(SESSION_COOKIE)) {
+  if (!request.cookies.has(SESSION_COOKIE)) {
     return NextResponse.redirect(new URL(loginUrl(pathname + search), request.url));
   }
 
-  return NextResponse.next();
+  // Cho layout biết trang hiện tại, để quay lại đúng trang nếu phải đăng nhập lại.
+  const requestHeaders = new Headers(request.headers);
+
+  requestHeaders.set(PATHNAME_HEADER, pathname + search);
+
+  return NextResponse.next({ request: { headers: requestHeaders } });
 }
 
 export const config = {

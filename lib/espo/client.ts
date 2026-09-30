@@ -1,12 +1,6 @@
-/** Lỗi khi gọi API Espo qua BFF, giữ lại status và `X-Status-Reason`. */
-export class EspoApiError extends Error {
-  constructor(
-    readonly status: number,
-    readonly statusReason: string | null,
-  ) {
-    super(`Espo API error ${status}${statusReason ? `: ${statusReason}` : ""}`);
-  }
-}
+import { EspoApiError } from "./errors";
+
+export { EspoApiError };
 
 /** Đường dẫn trang đăng nhập, kèm `next` để quay lại trang hiện tại sau khi đăng nhập. */
 export function loginUrl(next?: string): string {
@@ -24,6 +18,28 @@ export function safeNextPath(value: string | null | undefined): string {
   return value;
 }
 
+type AppTimestampListener = (timestamp: number) => void;
+
+const appTimestampListeners = new Set<AppTimestampListener>();
+
+/**
+ * Nhận `X-App-Timestamp` của mỗi response. Giá trị tăng nghĩa là Espo đã được cập nhật
+ * (rebuild, đổi metadata…) và nên tải lại trang, giống `setupAjax` của classic.
+ */
+export function onAppTimestamp(listener: AppTimestampListener): () => void {
+  appTimestampListeners.add(listener);
+
+  return () => appTimestampListeners.delete(listener);
+}
+
+function notifyAppTimestamp(response: Response): void {
+  const value = Number.parseInt(response.headers.get("X-App-Timestamp") ?? "", 10);
+
+  if (Number.isFinite(value)) {
+    appTimestampListeners.forEach((listener) => listener(value));
+  }
+}
+
 /**
  * Gọi REST API của Espo qua `/api/espo/*` (chỉ dùng phía trình duyệt).
  * Nhận 401 thì BFF đã xoá session, ở đây chuyển về trang đăng nhập.
@@ -34,20 +50,23 @@ export async function espoFetch(path: string, init?: RequestInit): Promise<Respo
     ...init,
   });
 
+  notifyAppTimestamp(response);
+
   if (response.status === 401) {
     window.location.assign(loginUrl(window.location.pathname + window.location.search));
 
-    throw new EspoApiError(401, response.headers.get("X-Status-Reason"));
+    throw await EspoApiError.fromResponse(response);
   }
 
   return response;
 }
 
-export async function espoGet<T>(path: string): Promise<T> {
-  const response = await espoFetch(path);
+/** `GET` và trả JSON; lỗi HTTP → `EspoApiError` (có body để dịch thông báo). */
+export async function espoGet<T>(path: string, init?: RequestInit): Promise<T> {
+  const response = await espoFetch(path, init);
 
   if (!response.ok) {
-    throw new EspoApiError(response.status, response.headers.get("X-Status-Reason"));
+    throw await EspoApiError.fromResponse(response);
   }
 
   return (await response.json()) as T;

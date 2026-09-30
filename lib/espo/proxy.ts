@@ -20,6 +20,27 @@ const FORWARDED_RESPONSE_HEADERS = [
 
 export class BadPathError extends Error {}
 
+/** Route được cache ở trình duyệt khi URL có `cacheKey` (client ghép id user + cacheTimestamp vào đó). */
+const CACHEABLE_ROUTES = new Set(["Metadata", "I18n"]);
+
+/**
+ * `Cache-Control` cho response của BFF. Mặc định không cache (dữ liệu theo từng user).
+ * Metadata/I18n kèm `cacheKey` thì cache lâu: khi Espo đổi cacheTimestamp hoặc đổi user, key đổi theo.
+ */
+export function cacheControlFor(method: string, path: string[], searchParams: URLSearchParams, status: number): string {
+  if (
+    method === "GET" &&
+    status === 200 &&
+    path.length === 1 &&
+    CACHEABLE_ROUTES.has(path[0]) &&
+    searchParams.get("cacheKey")
+  ) {
+    return "private, max-age=31536000, immutable";
+  }
+
+  return "no-store";
+}
+
 /** Ghép các đoạn path thành URL API; chặn `.`/`..` để không thoát ra ngoài `api/v1`. */
 export function buildEspoApiUrl(path: string[], search = ""): string {
   if (path.some((segment) => segment === "" || segment === "." || segment === "..")) {
@@ -89,6 +110,11 @@ export async function forwardToEspo(
       responseHeaders.set(name, value);
     }
   }
+
+  responseHeaders.set(
+    "Cache-Control",
+    cacheControlFor(request.method, path, request.nextUrl.searchParams, espoResponse.status),
+  );
 
   return new Response(espoResponse.body, {
     status: espoResponse.status,
