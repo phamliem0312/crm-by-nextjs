@@ -1,0 +1,40 @@
+{
+  "name": "espocrm-next",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "gen:api-types": "node --env-file-if-exists=.env.local scripts/fetch-openapi.mjs && openapi-typescript types/espo/openapi.json -o types/espo/openapi.d.ts",
+    "inventory:client-views": "node --env-file-if-exists=.env.local scripts/inventory-client-views.mjs"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.104.0",
+    "@tanstack/react-table": "^9.2.4",
+    "dayjs": "^1.11.23",
+    "dompurify": "^3.4.16",
+    "iron-session": "^9.0.1",
+    "next": "16.3.6",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "react-hook-form": "^7.89.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^22.20.4",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.6",
+    "openapi-typescript": "^7.13.0",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "vitest": "^5.0.2"
+  }
+}
