@@ -25,16 +25,24 @@ const SETTINGS_KEYS = [
   "currencyFormat", "currencyDecimalPlaces", "tabList", "quickCreateList", "globalSearchEntityList",
   "scopeColorsDisabled", "tabColorsDisabled", "tabIconsDisabled", "aclAllowDeleteCreated",
   "cacheTimestamp", "appTimestamp", "recordsPerPage", "recordsPerPageSmall",
+  // Giai đoạn 3: dashboard, thông báo, stream, export, hoạt động.
+  "recordsPerPageKanban", "dashboardLayout", "forcedDashboardLayout", "notificationsCheckInterval",
+  "popupNotificationsCheckInterval", "availableReactions", "notePinnedMaxCount", "exportDisabled",
+  "exportIdleCountThreshold", "activitiesEntityList", "historyEntityList", "b2cMode",
 ];
 
 const PREFERENCES_KEYS = [
   "dateFormat", "timeFormat", "timeZone", "weekStart", "language", "thousandSeparator", "decimalMark",
   "useCustomTabList", "addCustomTabs", "tabList",
+  "dashboardLayout", "dashletsOptions", "defaultReminders", "defaultRemindersTask", "followEntityOnStreamPost",
 ];
 
 const RECORD_SCOPES = ["Account", "Contact", "Lead", "Opportunity", "Case", "Task"];
 
-const LAYOUT_TYPES = ["list", "detail", "filters", "massUpdate", "bottomPanelsDetail", "defaultSidePanel", "listSmall"];
+/** Entity của giai đoạn 3 (sự kiện, stream, thông báo). */
+const EXTRA_SCOPES = ["Meeting", "Call", "Note", "Notification", "Reminder"];
+
+const LAYOUT_TYPES = ["list", "detail", "filters", "massUpdate", "bottomPanelsDetail", "defaultSidePanel", "listSmall", "sidePanelsDetail", "kanban", "detailConvert"];
 
 const USER_KEYS =["id", "userName", "name", "type", "isActive", "teamsIds", "avatarColor"];
 
@@ -106,9 +114,28 @@ for (const [kind, credentials] of Object.entries(accounts)) {
     const language = await get(headers, `I18n?language=${encodeURIComponent(data.language)}`);
 
     write("i18n.json", {
-      Global: pick(language.Global, ["labels", "messages", "scopeNames", "scopeNamesPlural", "navbarTabs", "lists", "options"]),
+      Global: pick(language.Global, [
+        "labels", "messages", "scopeNames", "scopeNamesPlural", "navbarTabs", "lists", "options",
+        "streamMessages", "streamMessagesMale", "streamMessagesFemale", "notificationMessages", "reactions",
+        "listViewModes", "durationUnits", "dashlets",
+      ]),
       User: pick(language.User, ["labels", "messages"]),
-      ...Object.fromEntries(RECORD_SCOPES.map((scope) => [scope, language[scope]])),
+      ...Object.fromEntries([...RECORD_SCOPES, "Meeting", "Call", "Note", "Notification", "Export", "Stream"].map((scope) => [scope, language[scope]])),
+    });
+
+    // Giai đoạn 3: dashlet, panel phụ, reaction, nhắc nhở, export, entity sự kiện/stream.
+    write("metadata-phase3.json", {
+      scopes: pick(metadata.scopes, [...RECORD_SCOPES, ...EXTRA_SCOPES]),
+      entityDefs: pick(metadata.entityDefs, EXTRA_SCOPES),
+      clientDefs: pick(metadata.clientDefs, [...RECORD_SCOPES, ...EXTRA_SCOPES]),
+      dashlets: metadata.dashlets,
+      streamDefs: metadata.streamDefs,
+      app: {
+        clientRecord: metadata.app?.clientRecord,
+        reactions: metadata.app?.reactions,
+        popupNotifications: metadata.app?.popupNotifications,
+        export: { formatList: metadata.app?.export?.formatList },
+      },
     });
 
     // Engine bản ghi (giai đoạn 2): metadata + layout của các entity mục tiêu.

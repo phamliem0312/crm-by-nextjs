@@ -650,7 +650,34 @@
     "thousandSeparator": ",",
     "decimalMark": ".",
     "useCustomTabList": false,
-    "addCustomTabs": false
+    "addCustomTabs": false,
+    "dashboardLayout": [
+      {
+        "name": "My Espo",
+        "layout": [
+          {
+            "id": "default-activities",
+            "name": "Activities",
+            "x": 2,
+            "y": 2,
+            "width": 2,
+            "height": 4
+          },
+          {
+            "id": "default-stream",
+            "name": "Stream",
+            "x": 0,
+            "y": 0,
+            "width": 2,
+            "height": 4
+          }
+        ]
+      }
+    ],
+    "dashletsOptions": {},
+    "defaultReminders": [],
+    "defaultRemindersTask": [],
+    "followEntityOnStreamPost": true
   },
   "settings": {
     "applicationName": "EspoCRM",
@@ -726,10 +753,45 @@
     ],
     "tabColorsDisabled": false,
     "aclAllowDeleteCreated": false,
-    "cacheTimestamp": 1790750720,
+    "cacheTimestamp": 1790758775,
     "appTimestamp": 1790668147,
     "recordsPerPage": 20,
-    "recordsPerPageSmall": 5
+    "recordsPerPageSmall": 5,
+    "recordsPerPageKanban": 5,
+    "dashboardLayout": [
+      {
+        "name": "My Espo",
+        "layout": [
+          {
+            "id": "default-activities",
+            "name": "Activities",
+            "x": 2,
+            "y": 2,
+            "width": 2,
+            "height": 4
+          },
+          {
+            "id": "default-stream",
+            "name": "Stream",
+            "x": 0,
+            "y": 0,
+            "width": 2,
+            "height": 4
+          }
+        ]
+      }
+    ],
+    "notificationsCheckInterval": 10,
+    "popupNotificationsCheckInterval": 15,
+    "availableReactions": [
+      "Like"
+    ],
+    "notePinnedMaxCount": 5,
+    "exportDisabled": false,
+    "exportIdleCountThreshold": 1000,
+    "activitiesEntityList": [],
+    "historyEntityList": [],
+    "b2cMode": false
   },
   "language": "en_US"
 }

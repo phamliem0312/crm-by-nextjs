@@ -75,4 +75,8 @@ export type FieldType = {
   onFormChange?: (name: string, defs: FieldDefs, previous: Values, next: Values) => Values;
   /** Attribute của field khác cần gửi kèm khi lưu field này (duration → `end`). */
   saveAttributes?: (name: string, defs: FieldDefs) => string[];
+  /** Giá trị mặc định khi tạo bản ghi mới, ngoài `default` của entityDefs (ví dụ nhắc nhở theo Preferences). */
+  getDefault?: (ctx: FieldContext, scope: string, name: string) => Values;
+  /** Bổ sung giá trị khi mở form tạo mới, sau khi đã có mọi giá trị ban đầu (duration → tính `end`). */
+  onInit?: (name: string, defs: FieldDefs, values: Values) => Values;
 };

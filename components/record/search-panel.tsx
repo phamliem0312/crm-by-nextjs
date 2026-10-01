@@ -82,7 +82,7 @@ export function SearchPanel({
           isFieldAvailable(ctx.metadata, scope, field) &&
           ctx.acl.checkField(scope, field) &&
           isFieldFilterable(ctx.metadata, defs.type) &&
-          !!getFieldType(defs.type).Search
+          !!getFieldType(defs).Search
         );
       }),
     [filterFields, ctx, scope],
@@ -249,7 +249,7 @@ function AdvancedFilterCard({
 }) {
   const defs = getFieldDefs(ctx.metadata, scope, field);
   const inputId = useId();
-  const Search = defs ? getFieldType(defs.type).Search : undefined;
+  const Search = defs ? getFieldType(defs).Search : undefined;
 
   if (!defs || !Search) {
     return null;

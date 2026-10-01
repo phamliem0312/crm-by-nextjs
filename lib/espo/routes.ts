@@ -3,7 +3,6 @@ import type { Metadata } from "./types";
 
 /**
  * Entity vẫn mở ở classic: có giao diện riêng (Email, Campaign…), là phần quản trị (User, Team),
- * hoặc cần hành vi riêng của giai đoạn 3 (Meeting/Call: nhắc nhở, người tham dự, Set Held).
  */
 const CLASSIC_SCOPES = new Set([
   "Email",
@@ -20,8 +19,6 @@ const CLASSIC_SCOPES = new Set([
   "Campaign",
   "TargetList",
   "MassEmail",
-  "Meeting",
-  "Call",
 ]);
 
 const SCOPE_PATTERN = /^[A-Z][A-Za-z0-9]*$/;
@@ -45,7 +42,16 @@ export function classicHref(hash = "#"): string {
   return `/classic?to=${encodeURIComponent(hash.startsWith("#") ? hash : `#${hash}`)}`;
 }
 
+/** Tab không phải entity nhưng đã có trang trên UI mới. */
+const NEW_UI_PAGES: Record<string, string> = {
+  Stream: "/stream",
+};
+
 export function scopeListHref(scope: string, metadata?: Metadata | null): string {
+  if (Object.hasOwn(NEW_UI_PAGES, scope)) {
+    return NEW_UI_PAGES[scope];
+  }
+
   return isNewUiScope(scope, metadata) ? `/${scope}` : classicHref(`#${scope}`);
 }
 

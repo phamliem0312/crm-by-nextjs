@@ -16,18 +16,23 @@ import { evaluateLogic, type LogicDefs } from "@/lib/espo/dynamic-logic";
 import { getFieldActualAttributeList, getFieldAttributeList, getFieldDefs } from "@/lib/espo/entity";
 import { EspoApiError } from "@/lib/espo/errors";
 import {
+  buildBottomPanels,
   buildDefaultSideFields,
   buildDetailPanels,
-  buildRelationshipPanels,
   type BottomPanelsLayout,
   type DetailLayoutPanel,
 } from "@/lib/espo/layout";
+import { buildExtraPanels, type PanelLayout } from "@/lib/espo/side-panels";
+import { StreamPanel } from "@/components/stream/stream-panel";
 import { deleteRecord, getRecord, setFollowed, setStarred, updateRecord, type EspoRecord } from "@/lib/espo/records";
 import { classicHref, recordEditHref, scopeListHref } from "@/lib/espo/routes";
 import { validateField } from "@/lib/espo/validation";
+import { ExtraPanel } from "./activity-panels";
+import { BottomPanels } from "./bottom-panels";
 import { useLayout } from "./hooks";
 import { FieldCell, PanelGrid } from "./panels";
 import { RelationshipPanel } from "./relationship-panel";
+import { RecordHeaderActions } from "./record-actions";
 import { LoadingBlock, PageMessage } from "./scope-gate";
 
 export function DetailView({ scope, id }: { scope: string; id: string }) {
@@ -35,6 +40,7 @@ export function DetailView({ scope, id }: { scope: string; id: string }) {
   const layout = useLayout<DetailLayoutPanel[]>(scope, "detail");
   const sideLayout = useLayout<{ name: string }[]>(scope, "defaultSidePanel", { optional: true });
   const bottomLayout = useLayout<BottomPanelsLayout>(scope, "bottomPanelsDetail", { optional: true });
+  const sidePanelsLayout = useLayout<PanelLayout>(scope, "sidePanelsDetail", { optional: true });
   const record = useQuery({
     queryKey: ["record", scope, id],
     queryFn: ({ signal }) => getRecord(scope, id, signal),
@@ -51,7 +57,7 @@ export function DetailView({ scope, id }: { scope: string; id: string }) {
     );
   }
 
-  if (!ctx || !layout.data || !record.data || sideLayout.isLoading || bottomLayout.isLoading) {
+  if (!ctx || !layout.data || !record.data || sideLayout.isLoading || bottomLayout.isLoading || sidePanelsLayout.isLoading) {
     return record.error ? <PageMessage icon="fas fa-exclamation-triangle" title={ctx?.t("Error") ?? "Error"} /> : <LoadingBlock />;
   }
 
@@ -63,6 +69,7 @@ export function DetailView({ scope, id }: { scope: string; id: string }) {
       layout={layout.data}
       sideLayout={sideLayout.data ?? null}
       bottomLayout={bottomLayout.data ?? null}
+      sidePanelsLayout={sidePanelsLayout.data ?? null}
     />
   );
 }
@@ -74,6 +81,7 @@ function DetailContent({
   layout,
   sideLayout,
   bottomLayout,
+  sidePanelsLayout,
 }: {
   ctx: FieldContext;
   scope: string;
@@ -81,6 +89,7 @@ function DetailContent({
   layout: DetailLayoutPanel[];
   sideLayout: { name: string }[] | null;
   bottomLayout: BottomPanelsLayout | null;
+  sidePanelsLayout: PanelLayout | null;
 }) {
   const { t, metadata, acl } = ctx;
   const router = useRouter();
@@ -94,9 +103,19 @@ function DetailContent({
 
   const panels = useMemo(() => buildDetailPanels(layout, { scope, metadata, acl, t }), [layout, scope, metadata, acl, t]);
   const sideFields = useMemo(() => buildDefaultSideFields(sideLayout, { scope, metadata, acl }), [sideLayout, scope, metadata, acl]);
-  const relationshipPanels = useMemo(
-    () => buildRelationshipPanels(bottomLayout, { scope, metadata, acl, t }),
-    [bottomLayout, scope, metadata, acl, t],
+  // Stream hiện khi scope bật stream và người dùng có quyền `stream` với bản ghi (như `detail-bottom`).
+  const streamAllowed = scopeDefs.stream === true && acl.checkRecord(scope, record, "stream", { hasField }) !== false;
+  const sidePanels = useMemo(
+    () => buildExtraPanels("side", { scope, type: "detail", metadata, acl, t }, sidePanelsLayout),
+    [scope, metadata, acl, t, sidePanelsLayout],
+  );
+  const extraBottomPanels = useMemo(
+    () => buildExtraPanels("bottom", { scope, type: "detail", metadata, acl, t }, bottomLayout as PanelLayout | null),
+    [scope, metadata, acl, t, bottomLayout],
+  );
+  const bottomPanels = useMemo(
+    () => buildBottomPanels(bottomLayout, { scope, metadata, acl, t }, { stream: streamAllowed, extra: extraBottomPanels }),
+    [bottomLayout, scope, metadata, acl, t, streamAllowed, extraBottomPanels],
   );
 
   const logic = useMemo(
@@ -191,6 +210,7 @@ function DetailContent({
           </h1>
         </div>
         <div className="flex flex-wrap gap-2">
+          <RecordHeaderActions ctx={ctx} scope={scope} record={record} canEdit={canEdit} onRecordChange={setRecord} />
           {scopeDefs.stream === true && (
             <Button onClick={() => toggle("follow")} aria-pressed={!!record.isFollowed}>
               <i className={`fas ${record.isFollowed ? "fa-check" : "fa-rss"} text-xs`} aria-hidden />
@@ -231,9 +251,32 @@ function DetailContent({
             isPanelVisible={(panel) => logic.panels[panel.name]?.visible !== false}
             renderCell={(cell) => renderField(cell.name, cell.label, cell.noLabel)}
           />
-          {relationshipPanels.map((panel) => (
-            <RelationshipPanel key={panel.link} ctx={ctx} scope={scope} record={record} panel={panel} canEditParent={canEdit} />
-          ))}
+          <BottomPanels
+            panels={bottomPanels}
+            t={t}
+            render={(panel) => {
+              if (panel.kind === "stream") {
+                return (
+                  <StreamPanel
+                    key="stream"
+                    ctx={ctx}
+                    scope={scope}
+                    record={record}
+                    canEditParent={canEdit}
+                    onFollowed={() => setRecord({ ...record, isFollowed: true })}
+                  />
+                );
+              }
+
+              if (panel.kind === "relationship") {
+                return <RelationshipPanel key={panel.name} ctx={ctx} scope={scope} record={record} panel={panel.panel} canEditParent={canEdit} />;
+              }
+
+              const extra = extraBottomPanels.find((item) => item.name === panel.name);
+
+              return extra ? <ExtraPanel key={panel.name} ctx={ctx} scope={scope} record={record} panel={extra} /> : null;
+            }}
+          />
         </div>
 
         <aside className="flex flex-col gap-4">
@@ -241,6 +284,16 @@ function DetailContent({
             {sideFields.filter(isFieldVisible).map((field) => renderField(field, t(field, "fields", scope)))}
             <CreatedModified ctx={ctx} scope={scope} record={record} />
           </section>
+          {sidePanels.map((panel) => (
+            <ExtraPanel
+              key={panel.name}
+              ctx={ctx}
+              scope={scope}
+              record={record}
+              panel={panel}
+              renderField={(field, label) => renderField(field, label)}
+            />
+          ))}
         </aside>
       </div>
 
@@ -321,7 +374,7 @@ function DetailField({
     return null;
   }
 
-  const Edit = getFieldType(defs.type).Edit;
+  const Edit = getFieldType(defs).Edit;
   const inlineEditable =
     canEdit &&
     !!Edit &&
@@ -344,7 +397,7 @@ function DetailField({
       return;
     }
 
-    const prepared = prepareValuesForSave([{ name: field, type: defs!.type }], values);
+    const prepared = prepareValuesForSave([{ name: field, defs: defs! }], values);
     const data: Values = {};
 
     for (const attribute of [...getFieldActualAttributeList(metadata, scope, field), ...extraSaveAttributes(field, defs!)]) {

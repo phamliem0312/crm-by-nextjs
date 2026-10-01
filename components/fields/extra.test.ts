@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { durationField, stringifyDuration } from "./extra";
-import { applyFormChange, extraSaveAttributes } from "./registry";
+import { applyFormChange, extraSaveAttributes, initNewValues } from "./registry";
 
 describe("stringifyDuration (port classic)", () => {
   it.each([
@@ -42,5 +42,22 @@ describe("duration field hooks", () => {
       applyFormChange([{ name: "duration", defs }], previous, { ...previous, dateStart: "2026-10-01 11:00:00" }).dateEnd,
     ).toBe("2026-10-01 12:00:00");
     expect(extraSaveAttributes("duration", defs)).toEqual(["dateEnd"]);
+  });
+});
+
+describe("duration onInit (new record)", () => {
+  const defs = { type: "duration", start: "dateStart", end: "dateEnd", default: 3600 };
+
+  it("computes the end from the start and the default duration", () => {
+    expect(initNewValues({ duration: defs }, { dateStart: "2026-10-01 09:00:00" })).toEqual({
+      dateStart: "2026-10-01 09:00:00",
+      dateEnd: "2026-10-01 10:00:00",
+    });
+  });
+
+  it("keeps an end that is already set", () => {
+    expect(initNewValues({ duration: defs }, { dateStart: "2026-10-01 09:00:00", dateEnd: "2026-10-01 09:30:00" }).dateEnd).toBe(
+      "2026-10-01 09:30:00",
+    );
   });
 });

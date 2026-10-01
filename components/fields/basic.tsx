@@ -5,6 +5,7 @@
 // multi-enum, array, date, datetime, datetime-optional, foreign).
 import dayjs from "@/lib/espo/dayjs";
 import { useState } from "react";
+import { Markdown } from "@/components/ui/markdown";
 import { formatCurrency } from "@/lib/espo/field-format";
 import { getLinkEntity, type FieldDefs } from "@/lib/espo/entity";
 import { BoolSearch, DateSearch, EnumSearch, NumberSearch, TextSearch } from "./search-ui";
@@ -49,18 +50,22 @@ function VarcharEdit({ name, defs, values, onChange, inputId, invalid, required,
 
 export const varcharField: FieldType = { Display: VarcharDisplay, Edit: VarcharEdit, Search: TextSearch };
 
-function TextDisplay({ name, values, mode }: FieldDisplayProps) {
+function TextDisplay({ name, defs, values, mode }: FieldDisplayProps) {
   const value = str(values[name]);
 
   if (!value) {
     return null;
   }
 
-  // Hiển thị văn bản thô (giữ xuống dòng). Classic render Markdown; để sau khi có sanitize (DOMPurify).
-  return mode === "list" ? (
-    <span className="line-clamp-2 break-words">{value}</span>
-  ) : (
+  if (mode === "list") {
+    return <span className="line-clamp-2 break-words">{value}</span>;
+  }
+
+  // Detail: Markdown như classic, trừ khi field bật `displayRawText`.
+  return defs.displayRawText ? (
     <span className="break-words whitespace-pre-wrap">{value}</span>
+  ) : (
+    <Markdown text={value} />
   );
 }
 

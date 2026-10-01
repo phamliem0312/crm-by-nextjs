@@ -5,6 +5,8 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
 import { EspoFooter } from "@/components/espo-footer";
 import { useAppUser, useTranslator } from "@/components/providers/app-context";
+import { NotificationBell } from "@/components/notifications/notification-bell";
+import { PopupReminders } from "@/components/notifications/popup-reminders";
 import { AppUpdateBanner } from "./app-update-banner";
 import { GlobalSearch } from "./global-search";
 import { SidebarNav } from "./sidebar-nav";
@@ -92,7 +94,8 @@ export function AppShell({ children }: { children: ReactNode }) {
               </svg>
             </button>
             <GlobalSearch />
-            <div className="ml-auto">
+            <div className="ml-auto flex items-center gap-1">
+              <NotificationBell />
               <UserMenu />
             </div>
           </div>
@@ -102,6 +105,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         <main className="flex-1 px-4 py-6 lg:px-8">{children}</main>
         <EspoFooter />
       </div>
+      <PopupReminders />
     </div>
   );
 }

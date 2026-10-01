@@ -1,0 +1,4497 @@
+{
+  "scopes": {
+    "Account": {
+      "entity": true,
+      "layouts": true,
+      "tab": true,
+      "acl": true,
+      "aclPortal": true,
+      "aclPortalLevelList": [
+        "all",
+        "account",
+        "no"
+      ],
+      "module": "Crm",
+      "customizable": true,
+      "stream": true,
+      "stars": true,
+      "importable": true,
+      "notifications": true,
+      "object": true,
+      "hasPersonalData": true,
+      "duplicateCheckFieldList": [
+        "name",
+        "emailAddress"
+      ],
+      "lockable": true
+    },
+    "Contact": {
+      "entity": true,
+      "layouts": true,
+      "tab": true,
+      "acl": true,
+      "aclPortal": true,
+      "aclPortalLevelList": [
+        "all",
+        "account",
+        "contact",
+        "no"
+      ],
+      "module": "Crm",
+      "customizable": true,
+      "stream": true,
+      "stars": true,
+      "importable": true,
+      "notifications": true,
+      "object": true,
+      "hasPersonalData": true,
+      "duplicateCheckFieldList": [
+        "name",
+        "emailAddress"
+      ]
+    },
+    "Lead": {
+      "entity": true,
+      "layouts": true,
+      "tab": true,
+      "acl": true,
+      "aclPortal": true,
+      "aclPortalLevelList": [
+        "all",
+        "own",
+        "no"
+      ],
+      "module": "Crm",
+      "customizable": true,
+      "stream": true,
+      "importable": true,
+      "notifications": true,
+      "object": true,
+      "statusField": "status",
+      "statusFieldLocked": true,
+      "hasPersonalData": true,
+      "duplicateCheckFieldList": [
+        "name",
+        "emailAddress"
+      ]
+    },
+    "Opportunity": {
+      "entity": true,
+      "layouts": true,
+      "tab": true,
+      "acl": true,
+      "aclPortal": true,
+      "aclPortalLevelList": [
+        "all",
+        "account",
+        "contact",
+        "own",
+        "no"
+      ],
+      "module": "Crm",
+      "customizable": true,
+      "stream": true,
+      "importable": true,
+      "notifications": true,
+      "object": true,
+      "statusField": "stage",
+      "statusFieldLocked": true,
+      "kanbanStatusIgnoreList": [
+        "Closed Lost"
+      ],
+      "currencyConversionAccessRequiredFieldList": [
+        "amount"
+      ]
+    },
+    "Case": {
+      "entity": true,
+      "layouts": true,
+      "tab": true,
+      "acl": true,
+      "aclPortal": true,
+      "aclPortalLevelList": [
+        "all",
+        "account",
+        "contact",
+        "own",
+        "no"
+      ],
+      "module": "Crm",
+      "customizable": true,
+      "stream": true,
+      "importable": true,
+      "notifications": true,
+      "object": true,
+      "statusField": "status",
+      "statusFieldLocked": true,
+      "collaborators": true
+    },
+    "Task": {
+      "entity": true,
+      "layouts": true,
+      "tab": true,
+      "acl": true,
+      "aclPortal": true,
+      "aclPortalLevelList": [
+        "all",
+        "account",
+        "contact",
+        "own",
+        "no"
+      ],
+      "activityStatusList": [
+        "Not Started",
+        "Started"
+      ],
+      "historyStatusList": [
+        "Completed"
+      ],
+      "completedStatusList": [
+        "Completed"
+      ],
+      "canceledStatusList": [
+        "Canceled"
+      ],
+      "module": "Crm",
+      "customizable": true,
+      "importable": true,
+      "notifications": true,
+      "calendar": true,
+      "calendarOneDay": true,
+      "object": true,
+      "statusField": "status",
+      "stream": true,
+      "kanbanStatusIgnoreList": [
+        "Canceled",
+        "Deferred"
+      ],
+      "statusFieldLocked": true,
+      "collaborators": true
+    },
+    "Meeting": {
+      "entity": true,
+      "layouts": true,
+      "tab": true,
+      "acl": true,
+      "aclPortal": true,
+      "aclPortalLevelList": [
+        "all",
+        "account",
+        "contact",
+        "own",
+        "no"
+      ],
+      "module": "Crm",
+      "customizable": true,
+      "importable": true,
+      "notifications": true,
+      "stream": true,
+      "calendar": true,
+      "activity": true,
+      "object": true,
+      "activityStatusList": [
+        "Planned"
+      ],
+      "historyStatusList": [
+        "Held",
+        "Not Held"
+      ],
+      "completedStatusList": [
+        "Held"
+      ],
+      "canceledStatusList": [
+        "Not Held"
+      ],
+      "statusField": "status",
+      "statusFieldLocked": true,
+      "attendeeLinkMap": {
+        "Contact": "contacts",
+        "Lead": "leads",
+        "User": "users"
+      }
+    },
+    "Call": {
+      "entity": true,
+      "layouts": true,
+      "tab": true,
+      "acl": true,
+      "aclPortal": true,
+      "aclPortalLevelList": [
+        "all",
+        "account",
+        "contact",
+        "own",
+        "no"
+      ],
+      "module": "Crm",
+      "customizable": true,
+      "importable": true,
+      "notifications": true,
+      "calendar": true,
+      "activity": true,
+      "object": true,
+      "activityStatusList": [
+        "Planned"
+      ],
+      "historyStatusList": [
+        "Held",
+        "Not Held"
+      ],
+      "completedStatusList": [
+        "Held"
+      ],
+      "canceledStatusList": [
+        "Not Held"
+      ],
+      "statusField": "status",
+      "statusFieldLocked": true,
+      "attendeeLinkMap": {
+        "Contact": "contacts",
+        "Lead": "leads",
+        "User": "users"
+      }
+    },
+    "Note": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "customizable": true,
+      "entityManager": {
+        "edit": false,
+        "fields": true,
+        "relationships": false,
+        "formula": false,
+        "layouts": false,
+        "addField": false
+      }
+    },
+    "Notification": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "customizable": false
+    },
+    "Reminder": {
+      "entity": true,
+      "layouts": false,
+      "tab": false,
+      "acl": false,
+      "module": "Crm",
+      "customizable": false,
+      "importable": false
+    }
+  },
+  "entityDefs": {
+    "Meeting": {
+      "fields": {
+        "name": {
+          "type": "varchar",
+          "required": true,
+          "pattern": "$noBadCharacters"
+        },
+        "status": {
+          "type": "enum",
+          "options": [
+            "Planned",
+            "Held",
+            "Not Held"
+          ],
+          "default": "Planned",
+          "style": {
+            "Held": "success",
+            "Not Held": "info"
+          },
+          "displayAsLabel": true,
+          "labelType": "state",
+          "audited": true,
+          "customizationOptionsReferenceDisabled": true
+        },
+        "dateStart": {
+          "type": "datetimeOptional",
+          "view": "crm:views/meeting/fields/date-start",
+          "required": true,
+          "default": "javascript: return this.dateTime.getNow(15);",
+          "audited": true
+        },
+        "dateEnd": {
+          "type": "datetimeOptional",
+          "view": "crm:views/meeting/fields/date-end",
+          "required": true,
+          "after": "dateStart",
+          "suppressValidationList": [
+            "required"
+          ]
+        },
+        "isAllDay": {
+          "type": "bool",
+          "layoutListDisabled": true,
+          "layoutDetailDisabled": true,
+          "layoutMassUpdateDisabled": true
+        },
+        "duration": {
+          "type": "duration",
+          "start": "dateStart",
+          "end": "dateEnd",
+          "options": [
+            900,
+            1800,
+            3600,
+            7200,
+            10800,
+            86400
+          ],
+          "default": 3600,
+          "notStorable": true,
+          "select": {
+            "select": "TIMESTAMPDIFF_SECOND:(dateStart, dateEnd)"
+          },
+          "order": {
+            "order": [
+              [
+                "TIMESTAMPDIFF_SECOND:(dateStart, dateEnd)",
+                "{direction}"
+              ]
+            ]
+          }
+        },
+        "reminders": {
+          "type": "jsonArray",
+          "notStorable": true,
+          "orderDisabled": true,
+          "view": "crm:views/meeting/fields/reminders",
+          "layoutListDisabled": true,
+          "validatorClassNameList": [
+            "Espo\\Modules\\Crm\\Classes\\FieldValidators\\Event\\Reminders\\Valid",
+            "Espo\\Modules\\Crm\\Classes\\FieldValidators\\Event\\Reminders\\MaxCount"
+          ],
+          "dynamicLogicDisabled": true,
+          "duplicateIgnore": true
+        },
+        "description": {
+          "type": "text"
+        },
+        "parent": {
+          "type": "linkParent",
+          "entityList": [
+            "Account",
+            "Lead",
+            "Contact",
+            "Opportunity",
+            "Case"
+          ]
+        },
+        "account": {
+          "type": "link",
+          "readOnly": true,
+          "customizationReadOnlyDisabled": true
+        },
+        "uid": {
+          "type": "varchar",
+          "maxLength": 255,
+          "index": true,
+          "readOnly": true,
+          "duplicateIgnore": true
+        },
+        "joinUrl": {
+          "type": "url",
+          "dbType": "text",
+          "maxLength": 320,
+          "readOnly": true,
+          "copyToClipboard": true,
+          "duplicateIgnore": true,
+          "default": null,
+          "customizationDefaultDisabled": true
+        },
+        "externalService": {
+          "type": "enum",
+          "maxLength": 100,
+          "readOnlyAfterCreate": true,
+          "fieldManagerParamList": [
+            "tooltipText"
+          ],
+          "isSorted": true,
+          "validatorClassNameList": [
+            "Espo\\Modules\\Crm\\Classes\\FieldValidators\\Meeting\\ExternalService\\Valid"
+          ],
+          "view": "modules/crm/views/meeting/fields/external-service",
+          "dynamicLogicDisabled": true
+        },
+        "acceptanceStatus": {
+          "type": "enum",
+          "notStorable": true,
+          "orderDisabled": true,
+          "options": [
+            "None",
+            "Accepted",
+            "Tentative",
+            "Declined"
+          ],
+          "style": {
+            "Accepted": "success",
+            "Declined": "danger",
+            "Tentative": "warning"
+          },
+          "layoutDetailDisabled": true,
+          "layoutMassUpdateDisabled": true,
+          "importDisabled": true,
+          "exportDisabled": true,
+          "customizationDefaultDisabled": true,
+          "customizationRequiredDisabled": true,
+          "customizationIsSortedDisabled": true,
+          "customizationReadOnlyDisabled": true,
+          "customizationAuditedDisabled": true,
+          "customizationOptionsReferenceDisabled": true,
+          "directAccessDisabled": true,
+          "filtersEnabled": true,
+          "where": {
+            "=": {
+              "whereClause": {
+                "OR": [
+                  {
+                    "id=s": {
+                      "from": "ContactMeeting",
+                      "select": [
+                        "meetingId"
+                      ],
+                      "whereClause": {
+                        "deleted": false,
+                        "status": "{value}"
+                      }
+                    }
+                  },
+                  {
+                    "id=s": {
+                      "from": "LeadMeeting",
+                      "select": [
+                        "meetingId"
+                      ],
+                      "whereClause": {
+                        "deleted": false,
+                        "status": "{value}"
+                      }
+                    }
+                  },
+                  {
+                    "id=s": {
+                      "from": "MeetingUser",
+                      "select": [
+                        "meetingId"
+                      ],
+                      "whereClause": {
+                        "deleted": false,
+                        "status": "{value}"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "<>": {
+              "whereClause": {
+                "AND": [
+                  {
+                    "id!=s": {
+                      "from": "ContactMeeting",
+                      "select": [
+                        "meetingId"
+                      ],
+                      "whereClause": {
+                        "deleted": false,
+                        "status": "{value}"
+                      }
+                    }
+                  },
+                  {
+                    "id!=s": {
+                      "from": "LeadMeeting",
+                      "select": [
+                        "meetingId"
+                      ],
+                      "whereClause": {
+                        "deleted": false,
+                        "status": "{value}"
+                      }
+                    }
+                  },
+                  {
+                    "id!=s": {
+                      "from": "MeetingUser",
+                      "select": [
+                        "meetingId"
+                      ],
+                      "whereClause": {
+                        "deleted": false,
+                        "status": "{value}"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "IN": {
+              "whereClause": {
+                "OR": [
+                  {
+                    "id=s": {
+                      "from": "ContactMeeting",
+                      "select": [
+                        "meetingId"
+                      ],
+                      "whereClause": {
+                        "deleted": false,
+                        "status": "{value}"
+                      }
+                    }
+                  },
+                  {
+                    "id=s": {
+                      "from": "LeadMeeting",
+                      "select": [
+                        "meetingId"
+                      ],
+                      "whereClause": {
+                        "deleted": false,
+                        "status": "{value}"
+                      }
+                    }
+                  },
+                  {
+                    "id=s": {
+                      "from": "MeetingUser",
+                      "select": [
+                        "meetingId"
+                      ],
+                      "whereClause": {
+                        "deleted": false,
+                        "status": "{value}"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "NOT IN": {
+              "whereClause": {
+                "AND": [
+                  {
+                    "id!=s": {
+                      "from": "ContactMeeting",
+                      "select": [
+                        "meetingId"
+                      ],
+                      "whereClause": {
+                        "deleted": false,
+                        "status": "{value}"
+                      }
+                    }
+                  },
+                  {
+                    "id!=s": {
+                      "from": "LeadMeeting",
+                      "select": [
+                        "meetingId"
+                      ],
+                      "whereClause": {
+                        "deleted": false,
+                        "status": "{value}"
+                      }
+                    }
+                  },
+                  {
+                    "id!=s": {
+                      "from": "MeetingUser",
+                      "select": [
+                        "meetingId"
+                      ],
+                      "whereClause": {
+                        "deleted": false,
+                        "status": "{value}"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "view": "crm:views/meeting/fields/acceptance-status"
+        },
+        "users": {
+          "type": "linkMultiple",
+          "view": "crm:views/meeting/fields/users",
+          "layoutDetailDisabled": true,
+          "layoutListDisabled": true,
+          "columns": {
+            "status": "acceptanceStatus"
+          },
+          "additionalAttributeList": [
+            "columns"
+          ],
+          "orderBy": "name",
+          "audited": true,
+          "duplicatorClassName": "Espo\\Modules\\Crm\\Classes\\FieldDuplicators\\Meeting\\Attendees"
+        },
+        "contacts": {
+          "type": "linkMultiple",
+          "layoutDetailDisabled": true,
+          "layoutListDisabled": true,
+          "view": "crm:views/meeting/fields/contacts",
+          "columns": {
+            "status": "acceptanceStatus"
+          },
+          "additionalAttributeList": [
+            "columns"
+          ],
+          "orderBy": "name",
+          "audited": true,
+          "duplicatorClassName": "Espo\\Modules\\Crm\\Classes\\FieldDuplicators\\Meeting\\Attendees"
+        },
+        "leads": {
+          "type": "linkMultiple",
+          "view": "crm:views/meeting/fields/attendees",
+          "layoutDetailDisabled": true,
+          "layoutListDisabled": true,
+          "columns": {
+            "status": "acceptanceStatus"
+          },
+          "additionalAttributeList": [
+            "columns"
+          ],
+          "orderBy": "name",
+          "audited": true,
+          "duplicatorClassName": "Espo\\Modules\\Crm\\Classes\\FieldDuplicators\\Meeting\\Attendees"
+        },
+        "sourceEmail": {
+          "type": "link",
+          "notStorable": true,
+          "orderDisabled": true,
+          "layoutDetailDisabled": true,
+          "layoutListDisabled": true,
+          "layoutMassUpdateDisabled": true,
+          "layoutFiltersDisabled": true,
+          "exportDisabled": true,
+          "importDisabled": true,
+          "entity": "Email",
+          "directAccessDisabled": true
+        },
+        "createdAt": {
+          "type": "datetime",
+          "readOnly": true,
+          "fieldManagerParamList": [
+            "useNumericFormat"
+          ]
+        },
+        "modifiedAt": {
+          "type": "datetime",
+          "readOnly": true,
+          "fieldManagerParamList": [
+            "useNumericFormat"
+          ]
+        },
+        "createdBy": {
+          "type": "link",
+          "readOnly": true,
+          "view": "views/fields/user",
+          "fieldManagerParamList": []
+        },
+        "modifiedBy": {
+          "type": "link",
+          "readOnly": true,
+          "view": "views/fields/user",
+          "fieldManagerParamList": []
+        },
+        "assignedUser": {
+          "type": "link",
+          "required": true,
+          "view": "views/fields/assigned-user"
+        },
+        "teams": {
+          "type": "linkMultiple",
+          "view": "views/fields/teams"
+        },
+        "dateStartDate": {
+          "type": "date",
+          "utility": true,
+          "detailLayoutIncompatibleFieldList": [
+            "dateStart"
+          ]
+        },
+        "dateEndDate": {
+          "type": "date",
+          "utility": true,
+          "detailLayoutIncompatibleFieldList": [
+            "dateEnd"
+          ]
+        },
+        "streamUpdatedAt": {
+          "type": "datetime",
+          "readOnly": true,
+          "customizationReadOnlyDisabled": true
+        }
+      },
+      "links": {
+        "account": {
+          "type": "belongsTo",
+          "entity": "Account"
+        },
+        "createdBy": {
+          "type": "belongsTo",
+          "entity": "User"
+        },
+        "modifiedBy": {
+          "type": "belongsTo",
+          "entity": "User"
+        },
+        "assignedUser": {
+          "type": "belongsTo",
+          "entity": "User"
+        },
+        "teams": {
+          "type": "hasMany",
+          "entity": "Team",
+          "relationName": "entityTeam",
+          "layoutRelationshipsDisabled": true
+        },
+        "users": {
+          "type": "hasMany",
+          "entity": "User",
+          "foreign": "meetings",
+          "additionalColumns": {
+            "status": {
+              "type": "varchar",
+              "len": "36",
+              "default": "None"
+            }
+          },
+          "columnAttributeMap": {
+            "status": "acceptanceStatus"
+          }
+        },
+        "contacts": {
+          "type": "hasMany",
+          "entity": "Contact",
+          "foreign": "meetings",
+          "additionalColumns": {
+            "status": {
+              "type": "varchar",
+              "len": "36",
+              "default": "None"
+            }
+          },
+          "columnAttributeMap": {
+            "status": "acceptanceStatus"
+          }
+        },
+        "leads": {
+          "type": "hasMany",
+          "entity": "Lead",
+          "foreign": "meetings",
+          "additionalColumns": {
+            "status": {
+              "type": "varchar",
+              "len": "36",
+              "default": "None"
+            }
+          },
+          "columnAttributeMap": {
+            "status": "acceptanceStatus"
+          }
+        },
+        "parent": {
+          "type": "belongsToParent",
+          "foreign": "meetings"
+        }
+      },
+      "collection": {
+        "orderBy": "dateStart",
+        "order": "desc",
+        "sortBy": "dateStart",
+        "asc": false
+      },
+      "indexes": {
+        "dateStartStatus": {
+          "columns": [
+            "dateStart",
+            "status"
+          ]
+        },
+        "dateStart": {
+          "columns": [
+            "dateStart",
+            "deleted"
+          ]
+        },
+        "status": {
+          "columns": [
+            "status",
+            "deleted"
+          ]
+        },
+        "assignedUser": {
+          "columns": [
+            "assignedUserId",
+            "deleted"
+          ]
+        },
+        "assignedUserStatus": {
+          "columns": [
+            "assignedUserId",
+            "status"
+          ]
+        }
+      },
+      "repositoryClassName": "Espo\\Core\\Repositories\\Event"
+    },
+    "Call": {
+      "fields": {
+        "name": {
+          "type": "varchar",
+          "required": true,
+          "pattern": "$noBadCharacters"
+        },
+        "status": {
+          "type": "enum",
+          "options": [
+            "Planned",
+            "Held",
+            "Not Held"
+          ],
+          "default": "Planned",
+          "style": {
+            "Held": "success",
+            "Not Held": "info"
+          },
+          "displayAsLabel": true,
+          "labelType": "state",
+          "audited": true,
+          "customizationOptionsReferenceDisabled": true
+        },
+        "dateStart": {
+          "type": "datetime",
+          "required": true,
+          "default": "javascript: return this.dateTime.getNow(15);",
+          "audited": true,
+          "view": "crm:views/call/fields/date-start"
+        },
+        "dateEnd": {
+          "type": "datetime",
+          "required": true,
+          "after": "dateStart",
+          "afterOrEqual": true,
+          "suppressValidationList": [
+            "required"
+          ]
+        },
+        "duration": {
+          "type": "duration",
+          "start": "dateStart",
+          "end": "dateEnd",
+          "options": [
+            300,
+            600,
+            900,
+            1800,
+            2700,
+            3600,
+            7200
+          ],
+          "default": 300,
+          "notStorable": true,
+          "select": {
+            "select": "TIMESTAMPDIFF_SECOND:(dateStart, dateEnd)"
+          },
+          "order": {
+            "order": [
+              [
+                "TIMESTAMPDIFF_SECOND:(dateStart, dateEnd)",
+                "{direction}"
+              ]
+            ]
+          }
+        },
+        "reminders": {
+          "type": "jsonArray",
+          "notStorable": true,
+          "orderDisabled": true,
+          "view": "crm:views/meeting/fields/reminders",
+          "layoutListDisabled": true,
+          "validatorClassNameList": [
+            "Espo\\Modules\\Crm\\Classes\\FieldValidators\\Event\\Reminders\\Valid",
+            "Espo\\Modules\\Crm\\Classes\\FieldValidators\\Event\\Reminders\\MaxCount"
+          ],
+          "dynamicLogicDisabled": true,
+          "duplicateIgnore": true
+        },
+        "direction": {
+          "type": "enum",
+          "options": [
+            "Outbound",
+            "Inbound"
+          ],
+          "default": "Outbound"
+        },
+        "description": {
+          "type": "text"
+        },
+        "parent": {
+          "type": "linkParent",
+          "entityList": [
+            "Account",
+            "Lead",
+            "Contact",
+            "Opportunity",
+            "Case"
+          ]
+        },
+        "account": {
+          "type": "link",
+          "readOnly": true,
+          "customizationReadOnlyDisabled": true
+        },
+        "uid": {
+          "type": "varchar",
+          "maxLength": 255,
+          "index": true,
+          "readOnly": true,
+          "duplicateIgnore": true
+        },
+        "acceptanceStatus": {
+          "type": "enum",
+          "notStorable": true,
+          "options": [
+            "None",
+            "Accepted",
+            "Tentative",
+            "Declined"
+          ],
+          "style": {
+            "Accepted": "success",
+            "Declined": "danger",
+            "Tentative": "warning"
+          },
+          "layoutDetailDisabled": true,
+          "layoutMassUpdateDisabled": true,
+          "orderDisabled": true,
+          "importDisabled": true,
+          "exportDisabled": true,
+          "customizationDefaultDisabled": true,
+          "customizationRequiredDisabled": true,
+          "customizationIsSortedDisabled": true,
+          "customizationReadOnlyDisabled": true,
+          "customizationAuditedDisabled": true,
+          "customizationOptionsReferenceDisabled": true,
+          "directAccessDisabled": true,
+          "filtersEnabled": true,
+          "where": {
+            "=": {
+              "whereClause": {
+                "OR": [
+                  {
+                    "id=s": {
+                      "from": "CallContact",
+                      "select": [
+                        "callId"
+                      ],
+                      "whereClause": {
+                        "deleted": false,
+                        "status": "{value}"
+                      }
+                    }
+                  },
+                  {
+                    "id=s": {
+                      "from": "CallLead",
+                      "select": [
+                        "callId"
+                      ],
+                      "whereClause": {
+                        "deleted": false,
+                        "status": "{value}"
+                      }
+                    }
+                  },
+                  {
+                    "id=s": {
+                      "from": "CallUser",
+                      "select": [
+                        "callId"
+                      ],
+                      "whereClause": {
+                        "deleted": false,
+                        "status": "{value}"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "<>": {
+              "whereClause": {
+                "AND": [
+                  {
+                    "id!=s": {
+                      "from": "CallContact",
+                      "select": [
+                        "callId"
+                      ],
+                      "whereClause": {
+                        "deleted": false,
+                        "status": "{value}"
+                      }
+                    }
+                  },
+                  {
+                    "id!=s": {
+                      "from": "CallLead",
+                      "select": [
+                        "callId"
+                      ],
+                      "whereClause": {
+                        "deleted": false,
+                        "status": "{value}"
+                      }
+                    }
+                  },
+                  {
+                    "id!=s": {
+                      "from": "CallUser",
+                      "select": [
+                        "callId"
+                      ],
+                      "whereClause": {
+                        "deleted": false,
+                        "status": "{value}"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "IN": {
+              "whereClause": {
+                "OR": [
+                  {
+                    "id=s": {
+                      "from": "CallContact",
+                      "select": [
+                        "callId"
+                      ],
+                      "whereClause": {
+                        "deleted": false,
+                        "status": "{value}"
+                      }
+                    }
+                  },
+                  {
+                    "id=s": {
+                      "from": "CallLead",
+                      "select": [
+                        "callId"
+                      ],
+                      "whereClause": {
+                        "deleted": false,
+                        "status": "{value}"
+                      }
+                    }
+                  },
+                  {
+                    "id=s": {
+                      "from": "CallUser",
+                      "select": [
+                        "callId"
+                      ],
+                      "whereClause": {
+                        "deleted": false,
+                        "status": "{value}"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "NOT IN": {
+              "whereClause": {
+                "AND": [
+                  {
+                    "id!=s": {
+                      "from": "CallContact",
+                      "select": [
+                        "callId"
+                      ],
+                      "whereClause": {
+                        "deleted": false,
+                        "status": "{value}"
+                      }
+                    }
+                  },
+                  {
+                    "id!=s": {
+                      "from": "CallLead",
+                      "select": [
+                        "callId"
+                      ],
+                      "whereClause": {
+                        "deleted": false,
+                        "status": "{value}"
+                      }
+                    }
+                  },
+                  {
+                    "id!=s": {
+                      "from": "CallUser",
+                      "select": [
+                        "callId"
+                      ],
+                      "whereClause": {
+                        "deleted": false,
+                        "status": "{value}"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "view": "crm:views/meeting/fields/acceptance-status"
+        },
+        "users": {
+          "type": "linkMultiple",
+          "layoutDetailDisabled": true,
+          "layoutListDisabled": true,
+          "view": "crm:views/meeting/fields/users",
+          "columns": {
+            "status": "acceptanceStatus"
+          },
+          "additionalAttributeList": [
+            "columns"
+          ],
+          "orderBy": "name",
+          "duplicatorClassName": "Espo\\Modules\\Crm\\Classes\\FieldDuplicators\\Meeting\\Attendees",
+          "audited": true
+        },
+        "contacts": {
+          "type": "linkMultiple",
+          "layoutDetailDisabled": true,
+          "layoutListDisabled": true,
+          "view": "crm:views/call/fields/contacts",
+          "columns": {
+            "status": "acceptanceStatus"
+          },
+          "additionalAttributeList": [
+            "columns"
+          ],
+          "orderBy": "name",
+          "duplicatorClassName": "Espo\\Modules\\Crm\\Classes\\FieldDuplicators\\Meeting\\Attendees",
+          "audited": true
+        },
+        "leads": {
+          "type": "linkMultiple",
+          "layoutDetailDisabled": true,
+          "layoutListDisabled": true,
+          "view": "crm:views/call/fields/leads",
+          "columns": {
+            "status": "acceptanceStatus"
+          },
+          "additionalAttributeList": [
+            "columns"
+          ],
+          "orderBy": "name",
+          "duplicatorClassName": "Espo\\Modules\\Crm\\Classes\\FieldDuplicators\\Meeting\\Attendees",
+          "audited": true
+        },
+        "createdAt": {
+          "type": "datetime",
+          "readOnly": true,
+          "fieldManagerParamList": [
+            "useNumericFormat"
+          ]
+        },
+        "modifiedAt": {
+          "type": "datetime",
+          "readOnly": true,
+          "fieldManagerParamList": [
+            "useNumericFormat"
+          ]
+        },
+        "createdBy": {
+          "type": "link",
+          "readOnly": true,
+          "view": "views/fields/user",
+          "fieldManagerParamList": []
+        },
+        "modifiedBy": {
+          "type": "link",
+          "readOnly": true,
+          "view": "views/fields/user",
+          "fieldManagerParamList": []
+        },
+        "phoneNumbersMap": {
+          "type": "jsonObject",
+          "notStorable": true,
+          "orderDisabled": true,
+          "utility": true,
+          "customizationDisabled": true
+        },
+        "assignedUser": {
+          "type": "link",
+          "required": true,
+          "view": "views/fields/assigned-user"
+        },
+        "teams": {
+          "type": "linkMultiple",
+          "view": "views/fields/teams"
+        }
+      },
+      "links": {
+        "account": {
+          "type": "belongsTo",
+          "entity": "Account"
+        },
+        "createdBy": {
+          "type": "belongsTo",
+          "entity": "User"
+        },
+        "modifiedBy": {
+          "type": "belongsTo",
+          "entity": "User"
+        },
+        "assignedUser": {
+          "type": "belongsTo",
+          "entity": "User"
+        },
+        "teams": {
+          "type": "hasMany",
+          "entity": "Team",
+          "relationName": "entityTeam",
+          "layoutRelationshipsDisabled": true
+        },
+        "users": {
+          "type": "hasMany",
+          "entity": "User",
+          "foreign": "calls",
+          "additionalColumns": {
+            "status": {
+              "type": "varchar",
+              "len": "36",
+              "default": "None"
+            }
+          },
+          "columnAttributeMap": {
+            "status": "acceptanceStatus"
+          }
+        },
+        "contacts": {
+          "type": "hasMany",
+          "entity": "Contact",
+          "foreign": "calls",
+          "additionalColumns": {
+            "status": {
+              "type": "varchar",
+              "len": "36",
+              "default": "None"
+            }
+          },
+          "columnAttributeMap": {
+            "status": "acceptanceStatus"
+          }
+        },
+        "leads": {
+          "type": "hasMany",
+          "entity": "Lead",
+          "foreign": "calls",
+          "additionalColumns": {
+            "status": {
+              "type": "varchar",
+              "len": "36",
+              "default": "None"
+            }
+          },
+          "columnAttributeMap": {
+            "status": "acceptanceStatus"
+          }
+        },
+        "parent": {
+          "type": "belongsToParent",
+          "foreign": "calls"
+        }
+      },
+      "collection": {
+        "orderBy": "dateStart",
+        "order": "desc",
+        "sortBy": "dateStart",
+        "asc": false
+      },
+      "indexes": {
+        "dateStartStatus": {
+          "columns": [
+            "dateStart",
+            "status"
+          ]
+        },
+        "dateStart": {
+          "columns": [
+            "dateStart",
+            "deleted"
+          ]
+        },
+        "status": {
+          "columns": [
+            "status",
+            "deleted"
+          ]
+        },
+        "assignedUser": {
+          "columns": [
+            "assignedUserId",
+            "deleted"
+          ]
+        },
+        "assignedUserStatus": {
+          "columns": [
+            "assignedUserId",
+            "status"
+          ]
+        }
+      },
+      "repositoryClassName": "Espo\\Core\\Repositories\\Event"
+    },
+    "Note": {
+      "fields": {
+        "post": {
+          "type": "text",
+          "rows": 100000,
+          "view": "views/note/fields/post",
+          "preview": true,
+          "attachmentField": "attachments",
+          "customizationDefaultDisabled": true,
+          "customizationRequiredDisabled": true,
+          "customizationInlineEditDisabledDisabled": true,
+          "customizationTooltipTextDisabled": true,
+          "customizationSeeMoreDisabledDisabled": true,
+          "customizationRowsDisabled": true,
+          "customizationDisplayRawTextDisabled": true,
+          "customizationReadOnlyDisabled": true,
+          "dynamicLogicDisabled": true
+        },
+        "data": {
+          "type": "jsonObject",
+          "readOnly": true,
+          "customizationDisabled": true
+        },
+        "type": {
+          "type": "enum",
+          "readOnly": true,
+          "view": "views/note/fields/type",
+          "options": [
+            "Post",
+            "Create",
+            "CreateRelated",
+            "Update",
+            "Assign",
+            "Relate",
+            "Unrelate",
+            "EmailReceived",
+            "EmailSent"
+          ],
+          "maxLength": 24,
+          "customizationDisabled": true,
+          "default": "Post"
+        },
+        "targetType": {
+          "type": "enum",
+          "options": [
+            "self",
+            "all",
+            "teams",
+            "users",
+            "portals"
+          ],
+          "maxLength": 7,
+          "customizationDisabled": true,
+          "readOnlyAfterCreate": true
+        },
+        "parent": {
+          "type": "linkParent",
+          "customizationDisabled": true,
+          "view": "views/note/fields/parent",
+          "readOnlyAfterCreate": true
+        },
+        "related": {
+          "type": "linkParent",
+          "readOnly": true,
+          "customizationDisabled": true,
+          "view": "views/note/fields/related"
+        },
+        "attachments": {
+          "type": "attachmentMultiple",
+          "view": "views/stream/fields/attachment-multiple",
+          "customizationRequiredDisabled": true,
+          "customizationPreviewSizeDisabled": true,
+          "customizationInlineEditDisabledDisabled": true,
+          "customizationTooltipTextDisabled": true,
+          "dynamicLogicDisabled": true
+        },
+        "number": {
+          "type": "autoincrement",
+          "index": true,
+          "dbType": "bigint",
+          "readOnly": true,
+          "customizationDisabled": true
+        },
+        "teams": {
+          "type": "linkMultiple",
+          "noLoad": true,
+          "customizationDisabled": true,
+          "readOnlyAfterCreate": true
+        },
+        "portals": {
+          "type": "linkMultiple",
+          "noLoad": true,
+          "customizationDisabled": true,
+          "readOnlyAfterCreate": true
+        },
+        "users": {
+          "type": "linkMultiple",
+          "noLoad": true,
+          "customizationDisabled": true,
+          "readOnlyAfterCreate": true
+        },
+        "isGlobal": {
+          "type": "bool",
+          "customizationDisabled": true,
+          "readOnlyAfterCreate": true
+        },
+        "createdByGender": {
+          "type": "foreign",
+          "link": "createdBy",
+          "field": "gender",
+          "customizationDisabled": true
+        },
+        "notifiedUserIdList": {
+          "type": "jsonArray",
+          "notStorable": true,
+          "utility": true,
+          "customizationDisabled": true,
+          "readOnly": true
+        },
+        "isInternal": {
+          "type": "bool",
+          "customizationDisabled": true,
+          "readOnlyAfterCreate": true
+        },
+        "isPinned": {
+          "type": "bool",
+          "customizationDisabled": true,
+          "readOnly": true
+        },
+        "reactionCounts": {
+          "type": "jsonObject",
+          "notStorable": true,
+          "readOnly": true,
+          "customizationDisabled": true,
+          "utility": true
+        },
+        "myReactions": {
+          "type": "jsonArray",
+          "notStorable": true,
+          "readOnly": true,
+          "customizationDisabled": true,
+          "utility": true
+        },
+        "createdAt": {
+          "type": "datetime",
+          "readOnly": true,
+          "customizationDisabled": true
+        },
+        "modifiedAt": {
+          "type": "datetime",
+          "readOnly": true,
+          "customizationDisabled": true
+        },
+        "createdBy": {
+          "type": "link",
+          "readOnly": true,
+          "customizationDisabled": true,
+          "view": "views/fields/user"
+        },
+        "modifiedBy": {
+          "type": "link",
+          "readOnly": true,
+          "customizationDisabled": true,
+          "view": "views/fields/user"
+        }
+      },
+      "links": {
+        "createdBy": {
+          "type": "belongsTo",
+          "entity": "User"
+        },
+        "modifiedBy": {
+          "type": "belongsTo",
+          "entity": "User"
+        },
+        "attachments": {
+          "type": "hasChildren",
+          "entity": "Attachment",
+          "relationName": "attachments",
+          "foreign": "parent"
+        },
+        "parent": {
+          "type": "belongsToParent",
+          "foreign": "notes"
+        },
+        "superParent": {
+          "type": "belongsToParent"
+        },
+        "related": {
+          "type": "belongsToParent"
+        },
+        "teams": {
+          "type": "hasMany",
+          "entity": "Team",
+          "foreign": "notes"
+        },
+        "portals": {
+          "type": "hasMany",
+          "entity": "Portal",
+          "foreign": "notes"
+        },
+        "users": {
+          "type": "hasMany",
+          "entity": "User",
+          "foreign": "notes"
+        }
+      },
+      "collection": {
+        "orderBy": "number",
+        "order": "desc",
+        "textFilterFields": [
+          "post"
+        ],
+        "fullTextSearch": true,
+        "fullTextSearchOrderType": "original",
+        "sortBy": "number",
+        "asc": false
+      },
+      "statusStyles": {
+        "Lead": {},
+        "Case": {},
+        "Opportunity": {},
+        "Task": {}
+      },
+      "indexes": {
+        "createdAt": {
+          "type": "index",
+          "columns": [
+            "createdAt"
+          ]
+        },
+        "createdByNumber": {
+          "columns": [
+            "createdById",
+            "number"
+          ]
+        },
+        "type": {
+          "type": "index",
+          "columns": [
+            "type"
+          ]
+        },
+        "targetType": {
+          "type": "index",
+          "columns": [
+            "targetType"
+          ]
+        },
+        "parentId": {
+          "type": "index",
+          "columns": [
+            "parentId"
+          ]
+        },
+        "parentType": {
+          "type": "index",
+          "columns": [
+            "parentType"
+          ]
+        },
+        "relatedId": {
+          "type": "index",
+          "columns": [
+            "relatedId"
+          ]
+        },
+        "relatedType": {
+          "type": "index",
+          "columns": [
+            "relatedType"
+          ]
+        },
+        "superParentType": {
+          "type": "index",
+          "columns": [
+            "superParentType"
+          ]
+        },
+        "superParentId": {
+          "type": "index",
+          "columns": [
+            "superParentId"
+          ]
+        }
+      }
+    },
+    "Notification": {
+      "fields": {
+        "number": {
+          "type": "autoincrement",
+          "dbType": "bigint",
+          "index": true
+        },
+        "data": {
+          "type": "jsonObject"
+        },
+        "noteData": {
+          "type": "jsonObject",
+          "notStorable": true,
+          "orderDisabled": true
+        },
+        "type": {
+          "type": "varchar"
+        },
+        "read": {
+          "type": "bool"
+        },
+        "emailIsProcessed": {
+          "type": "bool"
+        },
+        "user": {
+          "type": "link"
+        },
+        "createdAt": {
+          "type": "datetime",
+          "readOnly": true
+        },
+        "message": {
+          "type": "text"
+        },
+        "related": {
+          "type": "linkParent",
+          "readOnly": true
+        },
+        "relatedParent": {
+          "type": "linkParent",
+          "readOnly": true
+        },
+        "actionId": {
+          "type": "varchar",
+          "maxLength": 36,
+          "readOnly": true,
+          "index": true
+        },
+        "isFeatured": {
+          "type": "bool",
+          "readOnly": true
+        },
+        "groupedCount": {
+          "type": "int",
+          "notStorable": true,
+          "readOnly": true,
+          "utility": true
+        },
+        "groupType": {
+          "type": "enum",
+          "notStorable": true,
+          "readOnly": true,
+          "utility": true,
+          "options": [
+            "",
+            "Note",
+            "EmailReceived"
+          ]
+        },
+        "groupedUnreadCount": {
+          "type": "int",
+          "notStorable": true,
+          "readOnly": true,
+          "utility": true
+        },
+        "createdBy": {
+          "type": "link",
+          "readOnly": true,
+          "view": "views/fields/user"
+        }
+      },
+      "links": {
+        "createdBy": {
+          "type": "belongsTo",
+          "entity": "User",
+          "noJoin": true
+        },
+        "user": {
+          "type": "belongsTo",
+          "entity": "User"
+        },
+        "related": {
+          "type": "belongsToParent"
+        },
+        "relatedParent": {
+          "type": "belongsToParent"
+        }
+      },
+      "collection": {
+        "orderBy": "number",
+        "order": "desc",
+        "sortBy": "number",
+        "asc": false
+      },
+      "indexes": {
+        "createdAt": {
+          "type": "index",
+          "columns": [
+            "createdAt"
+          ]
+        },
+        "user": {
+          "type": "index",
+          "columns": [
+            "userId",
+            "number"
+          ]
+        },
+        "userIdReadRelatedParentType": {
+          "type": "index",
+          "columns": [
+            "userId",
+            "deleted",
+            "read",
+            "relatedParentType"
+          ]
+        }
+      }
+    },
+    "Reminder": {
+      "fields": {
+        "remindAt": {
+          "type": "datetime",
+          "index": true
+        },
+        "startAt": {
+          "type": "datetime",
+          "index": true
+        },
+        "type": {
+          "type": "enum",
+          "options": [
+            "Popup",
+            "Email"
+          ],
+          "maxLength": 36,
+          "index": true,
+          "default": "Popup"
+        },
+        "seconds": {
+          "type": "enumInt",
+          "options": [
+            0,
+            60,
+            120,
+            300,
+            600,
+            900,
+            1800,
+            3600,
+            7200,
+            18000,
+            86400,
+            604800
+          ],
+          "default": 0
+        },
+        "user": {
+          "type": "link"
+        },
+        "entity": {
+          "type": "linkParent"
+        },
+        "isSubmitted": {
+          "type": "bool"
+        }
+      },
+      "links": {
+        "user": {
+          "type": "belongsTo",
+          "entity": "User"
+        },
+        "entity": {
+          "type": "belongsToParent"
+        }
+      },
+      "collection": {
+        "orderBy": "remindAt",
+        "order": "desc",
+        "sortBy": "remindAt",
+        "asc": false
+      }
+    }
+  },
+  "clientDefs": {
+    "Account": {
+      "controller": "controllers/record",
+      "aclPortal": "crm:acl-portal/account",
+      "views": {
+        "detail": "crm:views/account/detail"
+      },
+      "sidePanels": {
+        "detail": [
+          {
+            "name": "activities",
+            "reference": "activities"
+          },
+          {
+            "name": "history",
+            "reference": "history"
+          },
+          {
+            "name": "tasks",
+            "reference": "tasks"
+          }
+        ],
+        "detailSmall": [
+          {
+            "name": "activities",
+            "reference": "activities"
+          },
+          {
+            "name": "history",
+            "reference": "history"
+          },
+          {
+            "name": "tasks",
+            "reference": "tasks"
+          }
+        ]
+      },
+      "bottomPanels": {
+        "detail": [
+          {
+            "name": "activities",
+            "reference": "activities",
+            "disabled": true
+          },
+          {
+            "name": "history",
+            "reference": "history",
+            "disabled": true
+          }
+        ]
+      },
+      "relationshipPanels": {
+        "contacts": {
+          "filterList": [
+            "all",
+            "accountActive"
+          ],
+          "layout": "listForAccount",
+          "orderBy": "name",
+          "createAttributeMap": {
+            "billingAddressCity": "addressCity",
+            "billingAddressStreet": "addressStreet",
+            "billingAddressPostalCode": "addressPostalCode",
+            "billingAddressState": "addressState",
+            "billingAddressCountry": "addressCountry",
+            "id": "accountId",
+            "name": "accountName"
+          }
+        },
+        "opportunities": {
+          "layout": "listForAccount"
+        },
+        "campaignLogRecords": {
+          "rowActionsView": "views/record/row-actions/empty",
+          "select": false,
+          "create": false
+        },
+        "targetLists": {
+          "rowActionsView": "crm:views/record/row-actions/relationship-target",
+          "layout": "listForTarget",
+          "view": "crm:views/record/panels/target-lists"
+        },
+        "cases": {
+          "layout": "listForAccount"
+        }
+      },
+      "filterList": [
+        {
+          "name": "recentlyCreated"
+        }
+      ],
+      "boolFilterList": [
+        "onlyMy"
+      ],
+      "additionalLayouts": {
+        "detailConvert": {
+          "type": "detail"
+        }
+      },
+      "color": "#edc755",
+      "iconClass": "fas fa-building",
+      "detailActionList": [],
+      "editActionList": [],
+      "modalDetailActionList": [],
+      "modalEditActionList": []
+    },
+    "Contact": {
+      "controller": "controllers/record",
+      "aclPortal": "crm:acl-portal/contact",
+      "views": {
+        "detail": "crm:views/contact/detail"
+      },
+      "recordViews": {
+        "detail": "crm:views/contact/record/detail",
+        "detailQuick": "crm:views/contact/record/detail-small"
+      },
+      "sidePanels": {
+        "detail": [
+          {
+            "name": "activities",
+            "reference": "activities"
+          },
+          {
+            "name": "history",
+            "reference": "history"
+          },
+          {
+            "name": "tasks",
+            "reference": "tasks"
+          }
+        ],
+        "detailSmall": [
+          {
+            "name": "activities",
+            "reference": "activities"
+          },
+          {
+            "name": "history",
+            "reference": "history"
+          },
+          {
+            "name": "tasks",
+            "reference": "tasks"
+          }
+        ]
+      },
+      "bottomPanels": {
+        "detail": [
+          {
+            "name": "activities",
+            "reference": "activities",
+            "disabled": true
+          },
+          {
+            "name": "history",
+            "reference": "history",
+            "disabled": true
+          }
+        ]
+      },
+      "relationshipPanels": {
+        "campaignLogRecords": {
+          "rowActionsView": "views/record/row-actions/empty",
+          "select": false,
+          "create": false
+        },
+        "opportunities": {
+          "layout": "listForContact",
+          "createAttributeMap": {
+            "accountId": "accountId",
+            "accountName": "accountName",
+            "id": "contactId",
+            "name": "contactName"
+          },
+          "selectHandler": "handlers/select-related/same-account"
+        },
+        "cases": {
+          "createAttributeMap": {
+            "accountId": "accountId",
+            "accountName": "accountName",
+            "id": "contactId",
+            "name": "contactName"
+          },
+          "selectHandler": "handlers/select-related/same-account",
+          "layout": "listForContact"
+        },
+        "targetLists": {
+          "create": false,
+          "rowActionsView": "crm:views/record/row-actions/relationship-target",
+          "layout": "listForTarget",
+          "view": "crm:views/record/panels/target-lists"
+        },
+        "meetings": {
+          "createHandler": "handlers/create-related/set-parent"
+        },
+        "calls": {
+          "createHandler": "handlers/create-related/set-parent"
+        }
+      },
+      "boolFilterList": [
+        "onlyMy"
+      ],
+      "additionalLayouts": {
+        "detailConvert": {
+          "type": "detail"
+        },
+        "listForAccount": {
+          "type": "listSmall"
+        }
+      },
+      "filterList": [
+        "portalUsers"
+      ],
+      "color": "#80b4de",
+      "iconClass": "fas fa-id-badge",
+      "detailActionList": [],
+      "editActionList": [],
+      "modalDetailActionList": [],
+      "modalEditActionList": []
+    },
+    "Lead": {
+      "controller": "crm:controllers/lead",
+      "views": {
+        "detail": "crm:views/lead/detail"
+      },
+      "recordViews": {
+        "detail": "crm:views/lead/record/detail"
+      },
+      "sidePanels": {
+        "detail": [
+          {
+            "name": "convertedTo",
+            "label": "Converted To",
+            "view": "crm:views/lead/record/panels/converted-to",
+            "notRefreshable": true,
+            "hidden": true,
+            "style": "success",
+            "isForm": true
+          },
+          {
+            "name": "activities",
+            "reference": "activities"
+          },
+          {
+            "name": "history",
+            "reference": "history"
+          },
+          {
+            "name": "tasks",
+            "reference": "tasks"
+          }
+        ],
+        "edit": [
+          {
+            "name": "convertedTo",
+            "label": "Converted To",
+            "view": "crm:views/lead/record/panels/converted-to",
+            "notRefreshable": true,
+            "hidden": true,
+            "style": "success",
+            "isForm": true
+          }
+        ],
+        "detailSmall": [
+          {
+            "name": "convertedTo",
+            "label": "Converted To",
+            "view": "crm:views/lead/record/panels/converted-to",
+            "notRefreshable": true,
+            "hidden": true,
+            "style": "success",
+            "isForm": true
+          },
+          {
+            "name": "activities",
+            "reference": "activities"
+          },
+          {
+            "name": "history",
+            "reference": "history"
+          },
+          {
+            "name": "tasks",
+            "reference": "tasks"
+          }
+        ],
+        "editSmall": [
+          {
+            "name": "convertedTo",
+            "label": "Converted To",
+            "view": "crm:views/lead/record/panels/converted-to",
+            "notRefreshable": true,
+            "hidden": true,
+            "style": "success",
+            "isForm": true
+          }
+        ]
+      },
+      "bottomPanels": {
+        "detail": [
+          {
+            "name": "activities",
+            "reference": "activities",
+            "disabled": true
+          },
+          {
+            "name": "history",
+            "reference": "history",
+            "disabled": true
+          }
+        ]
+      },
+      "relationshipPanels": {
+        "campaignLogRecords": {
+          "rowActionsView": "views/record/row-actions/empty",
+          "select": false,
+          "create": false
+        },
+        "targetLists": {
+          "create": false,
+          "rowActionsView": "crm:views/record/row-actions/relationship-target",
+          "layout": "listForTarget",
+          "view": "crm:views/record/panels/target-lists"
+        },
+        "meetings": {
+          "createHandler": "handlers/create-related/set-parent"
+        },
+        "calls": {
+          "createHandler": "handlers/create-related/set-parent"
+        }
+      },
+      "filterList": [
+        {
+          "name": "actual"
+        },
+        {
+          "name": "converted",
+          "style": "success"
+        }
+      ],
+      "boolFilterList": [
+        "onlyMy"
+      ],
+      "color": "#da90c8",
+      "iconClass": "fas fa-address-card",
+      "detailActionList": [],
+      "editActionList": [],
+      "modalDetailActionList": [],
+      "modalEditActionList": []
+    },
+    "Opportunity": {
+      "controller": "controllers/record",
+      "modelDefaultsPreparator": "crm:handlers/opportunity/defaults-preparator",
+      "views": {
+        "detail": "crm:views/opportunity/detail"
+      },
+      "recordViews": {
+        "edit": "crm:views/opportunity/record/edit",
+        "editSmall": "crm:views/opportunity/record/edit-small",
+        "list": "crm:views/opportunity/record/list",
+        "kanban": "crm:views/opportunity/record/kanban"
+      },
+      "sidePanels": {
+        "detail": [
+          {
+            "name": "activities",
+            "reference": "activities",
+            "view": "crm:views/opportunity/record/panels/activities"
+          },
+          {
+            "name": "history",
+            "reference": "history"
+          },
+          {
+            "name": "tasks",
+            "reference": "tasks"
+          }
+        ],
+        "detailSmall": [
+          {
+            "name": "activities",
+            "reference": "activities",
+            "view": "crm:views/opportunity/record/panels/activities"
+          },
+          {
+            "name": "history",
+            "reference": "history"
+          },
+          {
+            "name": "tasks",
+            "reference": "tasks"
+          }
+        ]
+      },
+      "bottomPanels": {
+        "detail": [
+          {
+            "name": "activities",
+            "reference": "activities",
+            "disabled": true,
+            "view": "crm:views/opportunity/record/panels/activities"
+          },
+          {
+            "name": "history",
+            "reference": "history",
+            "disabled": true
+          }
+        ]
+      },
+      "filterList": [
+        {
+          "name": "open"
+        },
+        {
+          "name": "won",
+          "style": "success"
+        }
+      ],
+      "boolFilterList": [
+        "onlyMy"
+      ],
+      "additionalLayouts": {
+        "detailConvert": {
+          "type": "detail"
+        },
+        "listForAccount": {
+          "type": "listSmall"
+        },
+        "listForContact": {
+          "type": "listSmall"
+        }
+      },
+      "kanbanViewMode": true,
+      "relationshipPanels": {
+        "contacts": {
+          "createAttributeMap": {
+            "accountId": "accountId",
+            "accountName": "accountName"
+          },
+          "createHandler": "crm:handlers/opportunity/contacts-create",
+          "selectHandler": "handlers/select-related/same-account-many"
+        },
+        "contact": {
+          "createAttributeMap": {
+            "accountId": "accountId",
+            "accountName": "accountName"
+          },
+          "selectHandler": "handlers/select-related/same-account-many"
+        },
+        "documents": {
+          "selectHandler": "handlers/select-related/same-account-many"
+        }
+      },
+      "color": "#71ca7f",
+      "iconClass": "fas fa-dollar-sign",
+      "detailActionList": [],
+      "editActionList": [],
+      "modalDetailActionList": [],
+      "modalEditActionList": []
+    },
+    "Case": {
+      "controller": "controllers/record",
+      "recordViews": {
+        "detail": "crm:views/case/record/detail"
+      },
+      "detailActionList": [
+        {
+          "name": "close",
+          "label": "Close",
+          "handler": "crm:handlers/case/detail-actions",
+          "actionFunction": "close",
+          "checkVisibilityFunction": "isCloseAvailable",
+          "iconClass": "fas fa-check"
+        },
+        {
+          "name": "reject",
+          "label": "Reject",
+          "handler": "crm:handlers/case/detail-actions",
+          "actionFunction": "reject",
+          "checkVisibilityFunction": "isRejectAvailable"
+        }
+      ],
+      "sidePanels": {
+        "detail": [
+          {
+            "name": "activities",
+            "reference": "activities",
+            "view": "crm:views/case/record/panels/activities"
+          },
+          {
+            "name": "history",
+            "reference": "history"
+          },
+          {
+            "name": "tasks",
+            "reference": "tasks"
+          }
+        ],
+        "detailSmall": [
+          {
+            "name": "activities",
+            "reference": "activities",
+            "view": "crm:views/case/record/panels/activities"
+          },
+          {
+            "name": "history",
+            "reference": "history"
+          },
+          {
+            "name": "tasks",
+            "reference": "tasks"
+          }
+        ]
+      },
+      "bottomPanels": {
+        "detail": [
+          {
+            "name": "activities",
+            "reference": "activities",
+            "view": "crm:views/case/record/panels/activities",
+            "disabled": true
+          },
+          {
+            "name": "history",
+            "reference": "history",
+            "disabled": true
+          }
+        ]
+      },
+      "filterList": [
+        {
+          "name": "open"
+        },
+        {
+          "name": "closed",
+          "style": "success"
+        }
+      ],
+      "relationshipPanels": {
+        "articles": {
+          "createDisabled": true,
+          "editDisabled": true,
+          "removeDisabled": true,
+          "rowActionList": [
+            "sendInEmail"
+          ]
+        },
+        "contacts": {
+          "createAttributeMap": {
+            "accountId": "accountId",
+            "accountName": "accountName"
+          },
+          "selectHandler": "handlers/select-related/same-account-many"
+        },
+        "contact": {
+          "createAttributeMap": {
+            "accountId": "accountId",
+            "accountName": "accountName"
+          },
+          "selectHandler": "handlers/select-related/same-account-many"
+        }
+      },
+      "boolFilterList": [
+        "onlyMy"
+      ],
+      "selectDefaultFilters": {
+        "filter": "open"
+      },
+      "additionalLayouts": {
+        "detailPortal": {
+          "type": "detail"
+        },
+        "detailSmallPortal": {
+          "type": "detail"
+        },
+        "listPortal": {
+          "type": "list"
+        },
+        "listForAccount": {
+          "type": "listSmall"
+        },
+        "listForContact": {
+          "type": "listSmall"
+        }
+      },
+      "iconClass": "fas fa-briefcase",
+      "editActionList": [],
+      "modalDetailActionList": [],
+      "modalEditActionList": []
+    },
+    "Task": {
+      "controller": "crm:controllers/task",
+      "recordViews": {
+        "list": "crm:views/task/record/list",
+        "detail": "crm:views/task/record/detail"
+      },
+      "views": {
+        "list": "crm:views/task/list",
+        "detail": "crm:views/task/detail"
+      },
+      "viewSetupHandlers": {
+        "record/detail": [
+          "crm:handlers/task/reminders-handler"
+        ],
+        "record/edit": [
+          "crm:handlers/task/reminders-handler"
+        ]
+      },
+      "menu": {
+        "detail": {
+          "buttons": [
+            {
+              "label": "Complete",
+              "name": "setCompletedMain",
+              "iconHtml": "<span class=\"fas fa-check fa-sm\"></span>",
+              "acl": "edit",
+              "handler": "modules/crm/handlers/task/menu",
+              "actionFunction": "complete",
+              "checkVisibilityFunction": "isCompleteAvailable"
+            }
+          ]
+        }
+      },
+      "detailActionList": [
+        {
+          "name": "complete",
+          "labelTranslation": "Task.labels.Complete",
+          "acl": "edit",
+          "handler": "modules/crm/handlers/task/detail-actions",
+          "actionFunction": "complete",
+          "checkVisibilityFunction": "isCompleteAvailable",
+          "iconClass": "fas fa-check"
+        }
+      ],
+      "modalDetailActionList": [
+        {
+          "name": "complete",
+          "labelTranslation": "Task.labels.Complete",
+          "acl": "edit",
+          "handler": "modules/crm/handlers/task/detail-actions",
+          "actionFunction": "complete",
+          "checkVisibilityFunction": "isCompleteAvailable",
+          "iconClass": "fas fa-check"
+        }
+      ],
+      "filterList": [
+        "actual",
+        {
+          "name": "completed",
+          "style": "success"
+        },
+        {
+          "name": "todays"
+        },
+        {
+          "name": "overdue",
+          "style": "danger"
+        },
+        {
+          "name": "deferred"
+        }
+      ],
+      "boolFilterList": [
+        "onlyMy"
+      ],
+      "iconClass": "fas fa-tasks",
+      "kanbanViewMode": true,
+      "editActionList": [],
+      "modalEditActionList": []
+    },
+    "Meeting": {
+      "controller": "controllers/record",
+      "acl": "crm:acl/meeting",
+      "views": {
+        "detail": "crm:views/meeting/detail"
+      },
+      "recordViews": {
+        "list": "crm:views/meeting/record/list",
+        "detail": "crm:views/meeting/record/detail",
+        "editSmall": "crm:views/meeting/record/edit-small"
+      },
+      "modalViews": {
+        "detail": "crm:views/meeting/modals/detail"
+      },
+      "viewSetupHandlers": {
+        "record/detail": [
+          "crm:handlers/event/reminders-handler",
+          "modules/crm/handlers/meeting/external-service"
+        ],
+        "record/edit": [
+          "crm:handlers/event/reminders-handler",
+          "modules/crm/handlers/meeting/external-service"
+        ]
+      },
+      "sidePanels": {
+        "detail": [
+          {
+            "name": "attendees",
+            "label": "Attendees",
+            "view": "crm:views/meeting/record/panels/attendees",
+            "options": {
+              "fieldList": [
+                "users",
+                "contacts",
+                "leads"
+              ]
+            },
+            "sticked": true,
+            "isForm": true,
+            "notRefreshable": true
+          }
+        ],
+        "detailSmall": [
+          {
+            "name": "attendees",
+            "label": "Attendees",
+            "view": "crm:views/meeting/record/panels/attendees",
+            "sticked": true,
+            "isForm": true,
+            "notRefreshable": true
+          }
+        ],
+        "edit": [
+          {
+            "name": "attendees",
+            "label": "Attendees",
+            "view": "crm:views/meeting/record/panels/attendees",
+            "sticked": true,
+            "isForm": true,
+            "notRefreshable": true
+          }
+        ],
+        "editSmall": [
+          {
+            "name": "attendees",
+            "label": "Attendees",
+            "view": "crm:views/meeting/record/panels/attendees",
+            "sticked": true,
+            "isForm": true,
+            "notRefreshable": true
+          }
+        ]
+      },
+      "bottomPanels": {
+        "detail": [
+          {
+            "name": "scheduler",
+            "label": "Scheduler",
+            "view": "crm:views/meeting/record/panels/scheduler",
+            "order": 3
+          }
+        ],
+        "edit": [
+          {
+            "name": "scheduler",
+            "label": "Scheduler",
+            "view": "crm:views/meeting/record/panels/scheduler",
+            "order": 1
+          }
+        ],
+        "editSmall": [
+          {
+            "name": "scheduler",
+            "label": "Scheduler",
+            "view": "crm:views/meeting/record/panels/scheduler",
+            "order": 1
+          }
+        ]
+      },
+      "filterList": [
+        {
+          "name": "planned"
+        },
+        {
+          "name": "held",
+          "style": "success"
+        },
+        {
+          "name": "todays"
+        }
+      ],
+      "boolFilterList": [
+        "onlyMy"
+      ],
+      "activityDefs": {
+        "link": "meetings",
+        "activitiesCreate": true,
+        "historyCreate": true
+      },
+      "forcePatchAttributeDependencyMap": {
+        "dateEnd": [
+          "dateStart"
+        ],
+        "dateEndDate": [
+          "dateStartDate"
+        ]
+      },
+      "relationshipPanels": {
+        "contacts": {
+          "selectHandler": "handlers/select-related/same-account-many"
+        }
+      },
+      "additionalLayouts": {
+        "bottomPanelsEditSmall": {
+          "type": "bottomPanelsEditSmall"
+        }
+      },
+      "iconClass": "fas fa-calendar-check",
+      "detailActionList": [],
+      "editActionList": [],
+      "modalDetailActionList": [],
+      "modalEditActionList": []
+    },
+    "Call": {
+      "controller": "controllers/record",
+      "acl": "crm:acl/call",
+      "views": {
+        "detail": "crm:views/call/detail"
+      },
+      "recordViews": {
+        "list": "crm:views/call/record/list",
+        "detail": "crm:views/call/record/detail",
+        "editSmall": "crm:views/call/record/edit-small"
+      },
+      "modalViews": {
+        "detail": "crm:views/meeting/modals/detail"
+      },
+      "viewSetupHandlers": {
+        "record/detail": [
+          "crm:handlers/event/reminders-handler"
+        ],
+        "record/edit": [
+          "crm:handlers/event/reminders-handler"
+        ]
+      },
+      "sidePanels": {
+        "detail": [
+          {
+            "name": "attendees",
+            "label": "Attendees",
+            "view": "crm:views/meeting/record/panels/attendees",
+            "sticked": true,
+            "isForm": true,
+            "notRefreshable": true
+          }
+        ],
+        "detailSmall": [
+          {
+            "name": "attendees",
+            "label": "Attendees",
+            "view": "crm:views/meeting/record/panels/attendees",
+            "sticked": true,
+            "isForm": true,
+            "notRefreshable": true
+          }
+        ],
+        "edit": [
+          {
+            "name": "attendees",
+            "label": "Attendees",
+            "view": "crm:views/meeting/record/panels/attendees",
+            "sticked": true,
+            "isForm": true,
+            "notRefreshable": true
+          }
+        ],
+        "editSmall": [
+          {
+            "name": "attendees",
+            "label": "Attendees",
+            "view": "crm:views/meeting/record/panels/attendees",
+            "sticked": true,
+            "isForm": true,
+            "notRefreshable": true
+          }
+        ]
+      },
+      "bottomPanels": {
+        "detail": [
+          {
+            "name": "scheduler",
+            "label": "Scheduler",
+            "view": "crm:views/meeting/record/panels/scheduler",
+            "disabled": false,
+            "order": 3
+          }
+        ],
+        "edit": [
+          {
+            "name": "scheduler",
+            "label": "Scheduler",
+            "view": "crm:views/meeting/record/panels/scheduler",
+            "disabled": false,
+            "order": 1
+          }
+        ],
+        "editSmall": [
+          {
+            "name": "scheduler",
+            "label": "Scheduler",
+            "view": "crm:views/meeting/record/panels/scheduler",
+            "disabled": false,
+            "order": 1
+          }
+        ]
+      },
+      "filterList": [
+        {
+          "name": "planned"
+        },
+        {
+          "name": "held",
+          "style": "success"
+        },
+        {
+          "name": "todays"
+        }
+      ],
+      "boolFilterList": [
+        "onlyMy"
+      ],
+      "activityDefs": {
+        "link": "calls",
+        "activitiesCreate": true,
+        "historyCreate": true
+      },
+      "forcePatchAttributeDependencyMap": {
+        "dateEnd": [
+          "dateStart"
+        ],
+        "dateEndDate": [
+          "dateStartDate"
+        ]
+      },
+      "relationshipPanels": {
+        "contacts": {
+          "selectHandler": "handlers/select-related/same-account-many"
+        }
+      },
+      "additionalLayouts": {
+        "bottomPanelsEditSmall": {
+          "type": "bottomPanelsEditSmall"
+        }
+      },
+      "iconClass": "fas fa-phone",
+      "detailActionList": [],
+      "editActionList": [],
+      "modalDetailActionList": [],
+      "modalEditActionList": []
+    },
+    "Note": {
+      "controller": "controllers/note",
+      "collection": "collections/note",
+      "recordViews": {
+        "edit": "views/note/record/edit",
+        "editQuick": "views/note/record/edit",
+        "listRelated": "views/stream/record/list"
+      },
+      "modalViews": {
+        "edit": "views/note/modals/edit"
+      },
+      "itemViews": {
+        "Post": "views/stream/notes/post",
+        "EventConfirmation": "crm:views/stream/notes/event-confirmation"
+      },
+      "viewSetupHandlers": {
+        "record/detail": [
+          "handlers/note/record-detail-setup"
+        ]
+      },
+      "detailActionList": [],
+      "editActionList": [],
+      "modalDetailActionList": [],
+      "modalEditActionList": []
+    },
+    "Notification": {
+      "controller": "controllers/notification",
+      "acl": "acl/notification",
+      "aclPortal": "acl-portal/notification",
+      "model": "models/notification",
+      "collection": "collections/notification",
+      "itemViews": {
+        "System": "views/notification/items/system",
+        "EmailInbox": "views/notification/items/email-inbox",
+        "EventAttendee": "crm:views/notification/items/event-attendee"
+      },
+      "detailActionList": [],
+      "editActionList": [],
+      "modalDetailActionList": [],
+      "modalEditActionList": []
+    }
+  },
+  "dashlets": {
+    "Emails": {
+      "view": "views/dashlets/emails",
+      "aclScope": "Email",
+      "entityType": "Email",
+      "options": {
+        "fields": {
+          "title": {
+            "type": "varchar",
+            "required": true
+          },
+          "autorefreshInterval": {
+            "type": "enumFloat",
+            "options": [
+              0,
+              0.5,
+              1,
+              2,
+              5,
+              10
+            ]
+          },
+          "displayRecords": {
+            "type": "int",
+            "min": 1,
+            "max": 20
+          },
+          "folder": {
+            "type": "enum",
+            "view": "views/dashlets/fields/emails/folder"
+          }
+        },
+        "defaults": {
+          "orderBy": "dateSent",
+          "order": "desc",
+          "displayRecords": 5,
+          "folder": null,
+          "expandedLayout": {
+            "rows": [
+              [
+                {
+                  "name": "subject",
+                  "link": true
+                }
+              ],
+              [
+                {
+                  "name": "dateSent",
+                  "view": "views/fields/datetime-short"
+                },
+                {
+                  "name": "personStringData",
+                  "view": "views/email/fields/person-string-data-for-expanded"
+                }
+              ]
+            ]
+          }
+        },
+        "layout": [
+          {
+            "rows": [
+              [
+                {
+                  "name": "title"
+                },
+                false
+              ],
+              [
+                {
+                  "name": "displayRecords"
+                },
+                {
+                  "name": "autorefreshInterval"
+                }
+              ],
+              [
+                {
+                  "name": "folder"
+                },
+                false
+              ]
+            ]
+          }
+        ]
+      },
+      "accessDataList": [
+        {
+          "inPortalDisabled": true
+        }
+      ]
+    },
+    "Iframe": {
+      "options": {
+        "fields": {
+          "title": {
+            "type": "varchar"
+          },
+          "autorefreshInterval": {
+            "type": "enumFloat",
+            "options": [
+              0,
+              0.5,
+              1,
+              2,
+              5,
+              10
+            ]
+          },
+          "url": {
+            "type": "url",
+            "required": true
+          }
+        },
+        "defaults": {
+          "autorefreshInterval": 0
+        },
+        "layout": [
+          {
+            "rows": [
+              [
+                {
+                  "name": "title"
+                },
+                false
+              ],
+              [
+                {
+                  "name": "url"
+                },
+                {
+                  "name": "autorefreshInterval"
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "Memo": {
+      "view": "views/dashlets/memo",
+      "options": {
+        "fields": {
+          "title": {
+            "type": "varchar"
+          },
+          "text": {
+            "type": "text"
+          }
+        },
+        "defaults": {},
+        "layout": [
+          {
+            "rows": [
+              [
+                {
+                  "name": "title"
+                },
+                false
+              ],
+              [
+                {
+                  "name": "text"
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "Records": {
+      "options": {
+        "fields": {
+          "title": {
+            "type": "varchar",
+            "required": true
+          },
+          "autorefreshInterval": {
+            "type": "enumFloat",
+            "options": [
+              0,
+              0.5,
+              1,
+              2,
+              5,
+              10
+            ]
+          },
+          "displayRecords": {
+            "type": "int",
+            "min": 1,
+            "max": 40
+          },
+          "entityType": {
+            "type": "enum",
+            "view": "views/dashlets/fields/records/entity-type",
+            "translation": "Global.scopeNames"
+          },
+          "primaryFilter": {
+            "type": "enum",
+            "view": "views/dashlets/fields/records/primary-filter"
+          },
+          "boolFilterList": {
+            "type": "multiEnum",
+            "view": "views/dashlets/fields/records/bool-filter-list"
+          },
+          "sortBy": {
+            "type": "enum",
+            "view": "views/dashlets/fields/records/sort-by"
+          },
+          "sortDirection": {
+            "type": "enum",
+            "view": "views/dashlets/fields/records/sort-direction",
+            "options": [
+              "asc",
+              "desc"
+            ],
+            "translation": "DashletOptions.options.sortDirection"
+          },
+          "expandedLayout": {
+            "type": "base",
+            "view": "views/dashlets/fields/records/expanded-layout"
+          }
+        },
+        "defaults": {
+          "displayRecords": 10,
+          "autorefreshInterval": null,
+          "expandedLayout": {
+            "rows": []
+          }
+        },
+        "layout": [
+          {
+            "rows": [
+              [
+                {
+                  "name": "title"
+                },
+                {
+                  "name": "autorefreshInterval"
+                }
+              ],
+              [
+                {
+                  "name": "entityType"
+                },
+                {
+                  "name": "displayRecords"
+                }
+              ],
+              [
+                {
+                  "name": "primaryFilter"
+                },
+                {
+                  "name": "sortBy"
+                }
+              ],
+              [
+                {
+                  "name": "boolFilterList"
+                },
+                {
+                  "name": "sortDirection"
+                }
+              ],
+              [
+                {
+                  "name": "expandedLayout"
+                },
+                false
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "Stream": {
+      "options": {
+        "fields": {
+          "title": {
+            "type": "varchar",
+            "required": true
+          },
+          "autorefreshInterval": {
+            "type": "enumFloat",
+            "options": [
+              0,
+              0.5,
+              1,
+              2,
+              5,
+              10
+            ]
+          },
+          "displayRecords": {
+            "type": "int",
+            "min": 1,
+            "max": 20
+          },
+          "skipOwn": {
+            "type": "bool",
+            "tooltip": true
+          }
+        },
+        "defaults": {
+          "displayRecords": 10,
+          "autorefreshInterval": 0.5,
+          "skipOwn": false
+        },
+        "layout": [
+          {
+            "rows": [
+              [
+                {
+                  "name": "title"
+                }
+              ],
+              [
+                {
+                  "name": "displayRecords"
+                },
+                {
+                  "name": "autorefreshInterval"
+                }
+              ],
+              [
+                {
+                  "name": "skipOwn"
+                },
+                false
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "Activities": {
+      "view": "crm:views/dashlets/activities",
+      "options": {
+        "view": "crm:views/dashlets/options/activities",
+        "fields": {
+          "title": {
+            "type": "varchar",
+            "required": true
+          },
+          "autorefreshInterval": {
+            "type": "enumFloat",
+            "options": [
+              0,
+              0.5,
+              1,
+              2,
+              5,
+              10
+            ]
+          },
+          "enabledScopeList": {
+            "type": "multiEnum",
+            "translation": "Global.scopeNamesPlural",
+            "required": true
+          },
+          "displayRecords": {
+            "type": "int",
+            "min": 1,
+            "max": 20
+          },
+          "futureDays": {
+            "type": "int",
+            "min": 0,
+            "required": true
+          },
+          "includeShared": {
+            "type": "bool"
+          }
+        },
+        "defaults": {
+          "displayRecords": 10,
+          "autorefreshInterval": 0.5,
+          "futureDays": 3,
+          "enabledScopeList": [
+            "Meeting",
+            "Call",
+            "Task"
+          ],
+          "includeShared": false
+        },
+        "layout": [
+          {
+            "rows": [
+              [
+                {
+                  "name": "title"
+                },
+                {
+                  "name": "autorefreshInterval"
+                }
+              ],
+              [
+                {
+                  "name": "displayRecords"
+                },
+                {
+                  "name": "enabledScopeList"
+                }
+              ],
+              [
+                {
+                  "name": "futureDays"
+                },
+                {
+                  "name": "includeShared"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "accessDataList": [
+        {
+          "inPortalDisabled": true
+        }
+      ]
+    },
+    "Calendar": {
+      "view": "crm:views/dashlets/calendar",
+      "aclScope": "Calendar",
+      "options": {
+        "view": "crm:views/dashlets/options/calendar",
+        "fields": {
+          "title": {
+            "type": "varchar",
+            "required": true
+          },
+          "autorefreshInterval": {
+            "type": "enumFloat",
+            "options": [
+              0,
+              0.5,
+              1,
+              2,
+              5,
+              10
+            ]
+          },
+          "enabledScopeList": {
+            "type": "multiEnum",
+            "translation": "Global.scopeNamesPlural",
+            "required": true
+          },
+          "mode": {
+            "type": "enum",
+            "options": [
+              "basicWeek",
+              "agendaWeek",
+              "timeline",
+              "month",
+              "basicDay",
+              "agendaDay"
+            ]
+          },
+          "users": {
+            "type": "linkMultiple",
+            "entity": "User",
+            "view": "crm:views/calendar/fields/users",
+            "sortable": true
+          },
+          "teams": {
+            "type": "linkMultiple",
+            "entity": "Team",
+            "view": "crm:views/calendar/fields/teams"
+          }
+        },
+        "defaults": {
+          "autorefreshInterval": 0.5,
+          "mode": "basicWeek",
+          "enabledScopeList": [
+            "Meeting",
+            "Call",
+            "Task"
+          ]
+        },
+        "layout": [
+          {
+            "rows": [
+              [
+                {
+                  "name": "title"
+                },
+                {
+                  "name": "autorefreshInterval"
+                }
+              ],
+              [
+                {
+                  "name": "mode"
+                },
+                {
+                  "name": "enabledScopeList"
+                }
+              ],
+              [
+                {
+                  "name": "users"
+                },
+                false
+              ],
+              [
+                {
+                  "name": "teams"
+                },
+                false
+              ]
+            ]
+          }
+        ]
+      },
+      "accessDataList": [
+        {
+          "inPortalDisabled": true
+        }
+      ]
+    },
+    "Calls": {
+      "view": "crm:views/dashlets/calls",
+      "aclScope": "Call",
+      "entityType": "Call",
+      "options": {
+        "fields": {
+          "title": {
+            "type": "varchar",
+            "required": true
+          },
+          "autorefreshInterval": {
+            "type": "enumFloat",
+            "options": [
+              0,
+              0.5,
+              1,
+              2,
+              5,
+              10
+            ]
+          },
+          "displayRecords": {
+            "type": "int",
+            "min": 1,
+            "max": 20
+          },
+          "expandedLayout": {
+            "type": "base",
+            "view": "views/dashlets/fields/records/expanded-layout"
+          },
+          "orderBy": {
+            "type": "enum",
+            "view": "views/dashlets/fields/records/sort-by"
+          },
+          "order": {
+            "type": "enum",
+            "view": "views/dashlets/fields/records/sort-direction",
+            "options": [
+              "asc",
+              "desc"
+            ],
+            "translation": "DashletOptions.options.sortDirection"
+          }
+        },
+        "defaults": {
+          "orderBy": "dateStart",
+          "order": "asc",
+          "displayRecords": 5,
+          "populateAssignedUser": true,
+          "expandedLayout": {
+            "rows": [
+              [
+                {
+                  "name": "name",
+                  "link": true
+                }
+              ],
+              [
+                {
+                  "name": "dateStart",
+                  "soft": true
+                },
+                {
+                  "name": "parent"
+                }
+              ]
+            ]
+          },
+          "searchData": {
+            "bool": {
+              "onlyMy": true
+            },
+            "primary": "planned",
+            "advanced": {
+              "1": {
+                "type": "or",
+                "value": {
+                  "1": {
+                    "type": "today",
+                    "field": "dateStart",
+                    "dateTime": true
+                  },
+                  "2": {
+                    "type": "future",
+                    "field": "dateEnd",
+                    "dateTime": true
+                  },
+                  "3": {
+                    "type": "lastXDays",
+                    "field": "dateStart",
+                    "value": 5,
+                    "dateTime": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "layout": [
+          {
+            "rows": [
+              [
+                {
+                  "name": "title"
+                },
+                {
+                  "name": "autorefreshInterval"
+                }
+              ],
+              [
+                {
+                  "name": "displayRecords"
+                },
+                false
+              ],
+              [
+                {
+                  "name": "orderBy",
+                  "labelTranslation": "DashletOptions.fields.sortBy"
+                },
+                {
+                  "name": "order",
+                  "labelTranslation": "DashletOptions.fields.sortDirection"
+                }
+              ],
+              [
+                {
+                  "name": "expandedLayout"
+                },
+                false
+              ]
+            ]
+          }
+        ]
+      },
+      "accessDataList": [
+        {
+          "inPortalDisabled": true
+        }
+      ]
+    },
+    "Cases": {
+      "view": "views/dashlets/abstract/record-list",
+      "aclScope": "Case",
+      "entityType": "Case",
+      "options": {
+        "view": "views/dashlets/options/record-list",
+        "fields": {
+          "title": {
+            "type": "varchar",
+            "required": true
+          },
+          "autorefreshInterval": {
+            "type": "enumFloat",
+            "options": [
+              0,
+              0.5,
+              1,
+              2,
+              5,
+              10
+            ]
+          },
+          "displayRecords": {
+            "type": "int",
+            "min": 1,
+            "max": 20
+          },
+          "expandedLayout": {
+            "type": "base",
+            "view": "views/dashlets/fields/records/expanded-layout"
+          },
+          "includeShared": {
+            "type": "bool"
+          },
+          "orderBy": {
+            "type": "enum",
+            "view": "views/dashlets/fields/records/sort-by"
+          },
+          "order": {
+            "type": "enum",
+            "view": "views/dashlets/fields/records/sort-direction",
+            "options": [
+              "asc",
+              "desc"
+            ],
+            "translation": "DashletOptions.options.sortDirection"
+          }
+        },
+        "defaults": {
+          "orderBy": "number",
+          "order": "desc",
+          "displayRecords": 5,
+          "populateAssignedUser": true,
+          "includeShared": false,
+          "expandedLayout": {
+            "rows": [
+              [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "name",
+                  "link": true
+                },
+                {
+                  "name": "type"
+                }
+              ],
+              [
+                {
+                  "name": "status"
+                },
+                {
+                  "name": "priority",
+                  "soft": true
+                },
+                {
+                  "name": "account"
+                }
+              ]
+            ]
+          },
+          "searchData": {
+            "bool": {
+              "onlyMy": true
+            },
+            "primary": "open"
+          }
+        },
+        "layout": [
+          {
+            "rows": [
+              [
+                {
+                  "name": "title"
+                },
+                {
+                  "name": "autorefreshInterval"
+                }
+              ],
+              [
+                {
+                  "name": "displayRecords"
+                },
+                {
+                  "name": "includeShared"
+                }
+              ],
+              [
+                {
+                  "name": "orderBy",
+                  "labelTranslation": "DashletOptions.fields.sortBy"
+                },
+                {
+                  "name": "order",
+                  "labelTranslation": "DashletOptions.fields.sortDirection"
+                }
+              ],
+              [
+                {
+                  "name": "expandedLayout"
+                },
+                false
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "Leads": {
+      "view": "views/dashlets/abstract/record-list",
+      "aclScope": "Lead",
+      "entityType": "Lead",
+      "options": {
+        "view": "views/dashlets/options/record-list",
+        "fields": {
+          "title": {
+            "type": "varchar",
+            "required": true
+          },
+          "autorefreshInterval": {
+            "type": "enumFloat",
+            "options": [
+              0,
+              0.5,
+              1,
+              2,
+              5,
+              10
+            ]
+          },
+          "displayRecords": {
+            "type": "int",
+            "min": 1,
+            "max": 20
+          },
+          "expandedLayout": {
+            "type": "base",
+            "view": "views/dashlets/fields/records/expanded-layout"
+          },
+          "includeShared": {
+            "type": "bool"
+          },
+          "orderBy": {
+            "type": "enum",
+            "view": "views/dashlets/fields/records/sort-by"
+          },
+          "order": {
+            "type": "enum",
+            "view": "views/dashlets/fields/records/sort-direction",
+            "options": [
+              "asc",
+              "desc"
+            ],
+            "translation": "DashletOptions.options.sortDirection"
+          }
+        },
+        "defaults": {
+          "orderBy": "createdAt",
+          "order": "desc",
+          "displayRecords": 5,
+          "populateAssignedUser": true,
+          "includeShared": false,
+          "expandedLayout": {
+            "rows": [
+              [
+                {
+                  "name": "name",
+                  "link": true
+                },
+                {
+                  "name": "accountName"
+                }
+              ],
+              [
+                {
+                  "name": "status"
+                },
+                {
+                  "name": "source",
+                  "soft": true,
+                  "small": true
+                }
+              ]
+            ]
+          },
+          "searchData": {
+            "bool": {
+              "onlyMy": true
+            },
+            "primary": "actual"
+          }
+        },
+        "layout": [
+          {
+            "rows": [
+              [
+                {
+                  "name": "title"
+                },
+                {
+                  "name": "autorefreshInterval"
+                }
+              ],
+              [
+                {
+                  "name": "displayRecords"
+                },
+                {
+                  "name": "includeShared"
+                }
+              ],
+              [
+                {
+                  "name": "orderBy",
+                  "labelTranslation": "DashletOptions.fields.sortBy"
+                },
+                {
+                  "name": "order",
+                  "labelTranslation": "DashletOptions.fields.sortDirection"
+                }
+              ],
+              [
+                {
+                  "name": "expandedLayout"
+                },
+                false
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "Meetings": {
+      "view": "crm:views/dashlets/meetings",
+      "aclScope": "Meeting",
+      "entityType": "Meeting",
+      "options": {
+        "fields": {
+          "title": {
+            "type": "varchar",
+            "required": true
+          },
+          "autorefreshInterval": {
+            "type": "enumFloat",
+            "options": [
+              0,
+              0.5,
+              1,
+              2,
+              5,
+              10
+            ]
+          },
+          "displayRecords": {
+            "type": "int",
+            "min": 1,
+            "max": 20
+          },
+          "expandedLayout": {
+            "type": "base",
+            "view": "views/dashlets/fields/records/expanded-layout"
+          },
+          "orderBy": {
+            "type": "enum",
+            "view": "views/dashlets/fields/records/sort-by"
+          },
+          "order": {
+            "type": "enum",
+            "view": "views/dashlets/fields/records/sort-direction",
+            "options": [
+              "asc",
+              "desc"
+            ],
+            "translation": "DashletOptions.options.sortDirection"
+          }
+        },
+        "defaults": {
+          "orderBy": "dateStart",
+          "order": "asc",
+          "displayRecords": 5,
+          "populateAssignedUser": true,
+          "expandedLayout": {
+            "rows": [
+              [
+                {
+                  "name": "name",
+                  "link": true
+                }
+              ],
+              [
+                {
+                  "name": "dateStart",
+                  "soft": true
+                },
+                {
+                  "name": "parent"
+                }
+              ]
+            ]
+          },
+          "searchData": {
+            "bool": {
+              "onlyMy": true
+            },
+            "primary": "planned",
+            "advanced": {
+              "1": {
+                "type": "or",
+                "value": {
+                  "1": {
+                    "type": "today",
+                    "field": "dateStart",
+                    "dateTime": true
+                  },
+                  "2": {
+                    "type": "future",
+                    "field": "dateEnd",
+                    "dateTime": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "layout": [
+          {
+            "rows": [
+              [
+                {
+                  "name": "title"
+                },
+                {
+                  "name": "autorefreshInterval"
+                }
+              ],
+              [
+                {
+                  "name": "displayRecords"
+                },
+                false
+              ],
+              [
+                {
+                  "name": "orderBy",
+                  "labelTranslation": "DashletOptions.fields.sortBy"
+                },
+                {
+                  "name": "order",
+                  "labelTranslation": "DashletOptions.fields.sortDirection"
+                }
+              ],
+              [
+                {
+                  "name": "expandedLayout"
+                },
+                false
+              ]
+            ]
+          }
+        ]
+      },
+      "accessDataList": [
+        {
+          "inPortalDisabled": true
+        }
+      ]
+    },
+    "Opportunities": {
+      "view": "views/dashlets/abstract/record-list",
+      "aclScope": "Opportunity",
+      "entityType": "Opportunity",
+      "options": {
+        "view": "views/dashlets/options/record-list",
+        "fields": {
+          "title": {
+            "type": "varchar",
+            "required": true
+          },
+          "autorefreshInterval": {
+            "type": "enumFloat",
+            "options": [
+              0,
+              0.5,
+              1,
+              2,
+              5,
+              10
+            ]
+          },
+          "displayRecords": {
+            "type": "int",
+            "min": 1,
+            "max": 20
+          },
+          "expandedLayout": {
+            "type": "base",
+            "view": "views/dashlets/fields/records/expanded-layout"
+          },
+          "includeShared": {
+            "type": "bool"
+          },
+          "orderBy": {
+            "type": "enum",
+            "view": "views/dashlets/fields/records/sort-by"
+          },
+          "order": {
+            "type": "enum",
+            "view": "views/dashlets/fields/records/sort-direction",
+            "options": [
+              "asc",
+              "desc"
+            ],
+            "translation": "DashletOptions.options.sortDirection"
+          }
+        },
+        "defaults": {
+          "orderBy": "closeDate",
+          "order": "asc",
+          "displayRecords": 5,
+          "populateAssignedUser": true,
+          "includeShared": false,
+          "expandedLayout": {
+            "rows": [
+              [
+                {
+                  "name": "name",
+                  "link": true
+                }
+              ],
+              [
+                {
+                  "name": "stage"
+                },
+                {
+                  "name": "amount"
+                },
+                {
+                  "name": "closeDate",
+                  "soft": true
+                },
+                {
+                  "name": "account"
+                }
+              ]
+            ]
+          },
+          "searchData": {
+            "bool": {
+              "onlyMy": true
+            },
+            "primary": "open"
+          }
+        },
+        "layout": [
+          {
+            "rows": [
+              [
+                {
+                  "name": "title"
+                },
+                {
+                  "name": "autorefreshInterval"
+                }
+              ],
+              [
+                {
+                  "name": "displayRecords"
+                },
+                {
+                  "name": "includeShared"
+                }
+              ],
+              [
+                {
+                  "name": "orderBy",
+                  "labelTranslation": "DashletOptions.fields.sortBy"
+                },
+                {
+                  "name": "order",
+                  "labelTranslation": "DashletOptions.fields.sortDirection"
+                }
+              ],
+              [
+                {
+                  "name": "expandedLayout"
+                },
+                false
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "OpportunitiesByLeadSource": {
+      "view": "crm:views/dashlets/opportunities-by-lead-source",
+      "aclScope": "Opportunity",
+      "options": {
+        "view": "crm:views/dashlets/options/chart",
+        "fields": {
+          "title": {
+            "type": "varchar",
+            "required": true
+          },
+          "dateFrom": {
+            "type": "date",
+            "required": true
+          },
+          "dateTo": {
+            "type": "date",
+            "required": true
+          },
+          "dateFilter": {
+            "type": "enum",
+            "options": [
+              "currentYear",
+              "currentQuarter",
+              "currentMonth",
+              "currentFiscalYear",
+              "currentFiscalQuarter",
+              "ever",
+              "between"
+            ],
+            "default": "currentYear",
+            "translation": "Global.options.dateSearchRanges"
+          }
+        },
+        "layout": [
+          {
+            "rows": [
+              [
+                {
+                  "name": "title"
+                },
+                false
+              ],
+              [
+                {
+                  "name": "dateFilter"
+                },
+                false
+              ],
+              [
+                {
+                  "name": "dateFrom"
+                },
+                {
+                  "name": "dateTo"
+                }
+              ]
+            ]
+          }
+        ],
+        "defaults": {
+          "dateFilter": "currentYear"
+        }
+      }
+    },
+    "OpportunitiesByStage": {
+      "view": "crm:views/dashlets/opportunities-by-stage",
+      "aclScope": "Opportunity",
+      "options": {
+        "view": "crm:views/dashlets/options/chart",
+        "fields": {
+          "title": {
+            "type": "varchar",
+            "required": true
+          },
+          "dateFrom": {
+            "type": "date",
+            "required": true
+          },
+          "dateTo": {
+            "type": "date",
+            "required": true
+          },
+          "dateFilter": {
+            "type": "enum",
+            "options": [
+              "currentYear",
+              "currentQuarter",
+              "currentMonth",
+              "currentFiscalYear",
+              "currentFiscalQuarter",
+              "ever",
+              "between"
+            ],
+            "default": "currentYear",
+            "translation": "Global.options.dateSearchRanges"
+          }
+        },
+        "layout": [
+          {
+            "rows": [
+              [
+                {
+                  "name": "title"
+                },
+                false
+              ],
+              [
+                {
+                  "name": "dateFilter"
+                },
+                false
+              ],
+              [
+                {
+                  "name": "dateFrom"
+                },
+                {
+                  "name": "dateTo"
+                }
+              ]
+            ]
+          }
+        ],
+        "defaults": {
+          "dateFilter": "currentYear"
+        }
+      }
+    },
+    "SalesByMonth": {
+      "view": "crm:views/dashlets/sales-by-month",
+      "aclScope": "Opportunity",
+      "options": {
+        "view": "crm:views/dashlets/options/chart",
+        "fields": {
+          "title": {
+            "type": "varchar",
+            "required": true
+          },
+          "dateFrom": {
+            "type": "date",
+            "required": true
+          },
+          "dateTo": {
+            "type": "date",
+            "required": true
+          },
+          "dateFilter": {
+            "type": "enum",
+            "options": [
+              "currentYear",
+              "currentQuarter",
+              "currentFiscalYear",
+              "currentFiscalQuarter",
+              "between"
+            ],
+            "default": "currentYear",
+            "translation": "Global.options.dateSearchRanges"
+          }
+        },
+        "layout": [
+          {
+            "rows": [
+              [
+                {
+                  "name": "title"
+                },
+                false
+              ],
+              [
+                {
+                  "name": "dateFilter"
+                },
+                false
+              ],
+              [
+                {
+                  "name": "dateFrom"
+                },
+                {
+                  "name": "dateTo"
+                }
+              ]
+            ]
+          }
+        ],
+        "defaults": {
+          "dateFilter": "currentYear"
+        }
+      }
+    },
+    "SalesPipeline": {
+      "view": "crm:views/dashlets/sales-pipeline",
+      "aclScope": "Opportunity",
+      "options": {
+        "view": "crm:views/dashlets/options/sales-pipeline",
+        "fields": {
+          "title": {
+            "type": "varchar",
+            "required": true
+          },
+          "dateFrom": {
+            "type": "date",
+            "required": true
+          },
+          "dateTo": {
+            "type": "date",
+            "required": true
+          },
+          "dateFilter": {
+            "type": "enum",
+            "options": [
+              "currentYear",
+              "currentQuarter",
+              "currentMonth",
+              "currentFiscalYear",
+              "currentFiscalQuarter",
+              "ever",
+              "between"
+            ],
+            "default": "currentYear",
+            "translation": "Global.options.dateSearchRanges"
+          },
+          "useLastStage": {
+            "type": "bool"
+          },
+          "team": {
+            "type": "link",
+            "entity": "Team",
+            "view": "crm:views/dashlets/options/sales-pipeline/fields/team"
+          }
+        },
+        "layout": [
+          {
+            "rows": [
+              [
+                {
+                  "name": "title"
+                },
+                false
+              ],
+              [
+                {
+                  "name": "dateFilter"
+                },
+                {
+                  "name": "useLastStage"
+                }
+              ],
+              [
+                {
+                  "name": "dateFrom"
+                },
+                {
+                  "name": "dateTo"
+                }
+              ],
+              [
+                {
+                  "name": "team"
+                },
+                false
+              ]
+            ]
+          }
+        ],
+        "defaults": {
+          "dateFilter": "currentYear",
+          "teamId": null,
+          "teamName": null
+        }
+      }
+    },
+    "Tasks": {
+      "view": "crm:views/dashlets/tasks",
+      "aclScope": "Task",
+      "entityType": "Task",
+      "options": {
+        "view": "views/dashlets/options/record-list",
+        "fields": {
+          "title": {
+            "type": "varchar",
+            "required": true
+          },
+          "autorefreshInterval": {
+            "type": "enumFloat",
+            "options": [
+              0,
+              0.5,
+              1,
+              2,
+              5,
+              10
+            ]
+          },
+          "displayRecords": {
+            "type": "int",
+            "min": 1,
+            "max": 20
+          },
+          "expandedLayout": {
+            "type": "base",
+            "view": "views/dashlets/fields/records/expanded-layout"
+          },
+          "includeShared": {
+            "type": "bool"
+          }
+        },
+        "defaults": {
+          "orderBy": "dateUpcoming",
+          "order": "asc",
+          "displayRecords": 5,
+          "includeShared": false,
+          "expandedLayout": {
+            "rows": [
+              [
+                {
+                  "name": "name",
+                  "link": true
+                }
+              ],
+              [
+                {
+                  "name": "status"
+                },
+                {
+                  "name": "dateEnd",
+                  "soft": true
+                },
+                {
+                  "name": "parent"
+                }
+              ]
+            ]
+          },
+          "searchData": {
+            "bool": {
+              "onlyMy": true
+            },
+            "primary": "actualStartingNotInFuture"
+          }
+        },
+        "layout": [
+          {
+            "rows": [
+              [
+                {
+                  "name": "title"
+                },
+                {
+                  "name": "autorefreshInterval"
+                }
+              ],
+              [
+                {
+                  "name": "displayRecords"
+                },
+                {
+                  "name": "includeShared"
+                }
+              ],
+              [
+                {
+                  "name": "expandedLayout"
+                },
+                false
+              ]
+            ]
+          }
+        ]
+      },
+      "accessDataList": [
+        {
+          "inPortalDisabled": true
+        }
+      ]
+    }
+  },
+  "streamDefs": {
+    "Call": {
+      "followingUsersField": "users",
+      "subscribersCleanup": {
+        "enabled": true,
+        "dateField": "dateStart",
+        "statusList": [
+          "Held",
+          "Not Held"
+        ]
+      }
+    },
+    "Case": {
+      "allowInternalNotes": true
+    },
+    "Meeting": {
+      "followingUsersField": "users",
+      "subscribersCleanup": {
+        "enabled": true,
+        "dateField": "dateStart",
+        "statusList": [
+          "Held",
+          "Not Held"
+        ]
+      }
+    },
+    "Task": {
+      "subscribersCleanup": {
+        "enabled": true,
+        "statusList": [
+          "Completed",
+          "Canceled"
+        ]
+      }
+    }
+  },
+  "app": {
+    "clientRecord": {
+      "panels": {
+        "activities": {
+          "name": "activities",
+          "label": "Activities",
+          "view": "crm:views/record/panels/activities",
+          "aclScope": "Activities"
+        },
+        "history": {
+          "name": "history",
+          "label": "History",
+          "view": "crm:views/record/panels/history",
+          "aclScope": "Activities"
+        },
+        "tasks": {
+          "name": "tasks",
+          "label": "Tasks",
+          "view": "crm:views/record/panels/tasks",
+          "aclScope": "Task"
+        }
+      }
+    },
+    "reactions": {
+      "list": [
+        {
+          "type": "Smile",
+          "iconClass": "far fa-face-smile"
+        },
+        {
+          "type": "Surprise",
+          "iconClass": "far fa-face-surprise"
+        },
+        {
+          "type": "Laugh",
+          "iconClass": "far fa-face-laugh"
+        },
+        {
+          "type": "Meh",
+          "iconClass": "far fa-face-meh"
+        },
+        {
+          "type": "Sad",
+          "iconClass": "far fa-face-frown"
+        },
+        {
+          "type": "Love",
+          "iconClass": "far fa-heart"
+        },
+        {
+          "type": "Like",
+          "iconClass": "far fa-thumbs-up"
+        },
+        {
+          "type": "Dislike",
+          "iconClass": "far fa-thumbs-down"
+        }
+      ]
+    },
+    "popupNotifications": {
+      "event": {
+        "grouped": true,
+        "providerClassName": "Espo\\Modules\\Crm\\Tools\\Activities\\PopupNotificationsProvider",
+        "useWebSocket": true,
+        "portalDisabled": true,
+        "view": "crm:views/meeting/popup-notification"
+      }
+    },
+    "export": {
+      "formatList": [
+        "xlsx",
+        "csv"
+      ]
+    }
+  }
+}

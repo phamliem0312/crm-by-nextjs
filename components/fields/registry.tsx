@@ -37,6 +37,7 @@ import {
   rangeField,
   urlMultipleField,
 } from "./extra";
+import { attendeesField, isOverdueField, remindersField } from "./event";
 import { linkField, linkMultipleField, linkParentField } from "./link";
 import type { FieldDefs } from "@/lib/espo/entity";
 import type { FieldDisplayProps, FieldType, Values } from "./types";
@@ -116,16 +117,45 @@ function UnsupportedDisplay({ ctx, scope, name, values, mode }: FieldDisplayProp
 
 const unsupportedField: FieldType = { Display: UnsupportedDisplay, hasValue: () => true };
 
-export function getFieldType(type: string | undefined): FieldType {
-  return (type && FIELD_TYPES[type]) || unsupportedField;
+/**
+ * Field có view riêng của classic mà UI mới làm lại (thay cho `views` tuỳ biến trong entityDefs).
+ * Key là `defs.view` đã bỏ tiền tố `crm:`/`modules/crm/`.
+ */
+const VIEW_TYPES: Record<string, FieldType> = {
+  "views/meeting/fields/reminders": remindersField,
+  "views/task/fields/is-overdue": isOverdueField,
+};
+
+function viewKey(view: string): string {
+  return view.replace(/^crm:/, "").replace(/^modules\/crm\//, "");
+}
+
+/** Loại field theo defs: view riêng (nếu có) rồi tới `type`. Truyền chuỗi = chỉ theo type. */
+export function getFieldType(defs: FieldDefs | string | undefined): FieldType {
+  if (defs && typeof defs === "object") {
+    const byView = defs.view ? VIEW_TYPES[viewKey(defs.view)] : undefined;
+
+    if (byView) {
+      return byView;
+    }
+
+    // linkMultiple có cột trạng thái (người tham dự Meeting/Call): hiện kèm trạng thái chấp nhận.
+    if (defs.type === "linkMultiple" && (defs.columns as Record<string, string> | undefined)?.status) {
+      return attendeesField;
+    }
+
+    return FIELD_TYPES[defs.type] || unsupportedField;
+  }
+
+  return (defs && FIELD_TYPES[defs]) || unsupportedField;
 }
 
 export function isFieldTypeSupported(type: string | undefined): boolean {
   return !!type && type in FIELD_TYPES;
 }
 
-export function fieldHasValue(type: string | undefined, name: string, values: Values): boolean {
-  const fieldType = getFieldType(type);
+export function fieldHasValue(defs: FieldDefs | string | undefined, name: string, values: Values): boolean {
+  const fieldType = getFieldType(defs);
 
   if (fieldType.hasValue) {
     return fieldType.hasValue(name, values);
@@ -138,9 +168,9 @@ export function fieldHasValue(type: string | undefined, name: string, values: Va
 
 /** Hiển thị một field (list/detail). Detail rỗng → "None" mờ như classic. */
 export function FieldValue(props: FieldDisplayProps) {
-  const fieldType = getFieldType(props.defs.type);
+  const fieldType = getFieldType(props.defs);
 
-  if (!fieldHasValue(props.defs.type, props.name, props.values)) {
+  if (!fieldHasValue(props.defs, props.name, props.values)) {
     return props.mode === "detail" ? <span className="text-slate-400">{props.ctx.t("None")}</span> : null;
   }
 
@@ -158,7 +188,7 @@ export function applyFormChange(
   let result = next;
 
   for (const field of fields) {
-    const hook = getFieldType(field.defs.type).onFormChange;
+    const hook = getFieldType(field.defs).onFormChange;
 
     if (hook) {
       result = { ...result, ...hook(field.name, field.defs, previous, result) };
@@ -168,17 +198,32 @@ export function applyFormChange(
   return result;
 }
 
+/** Giá trị bổ sung khi mở form tạo mới (`onInit` của mọi field trong entity). */
+export function initNewValues(fields: Record<string, FieldDefs>, values: Values): Values {
+  let result = values;
+
+  for (const [name, defs] of Object.entries(fields)) {
+    const hook = getFieldType(defs).onInit;
+
+    if (hook) {
+      result = { ...result, ...hook(name, defs, result) };
+    }
+  }
+
+  return result;
+}
+
 /** Attribute cần gửi khi lưu một field: attribute thật + attribute của field khác mà nó điều khiển. */
 export function extraSaveAttributes(name: string, defs: FieldDefs): string[] {
-  return getFieldType(defs.type).saveAttributes?.(name, defs) ?? [];
+  return getFieldType(defs).saveAttributes?.(name, defs) ?? [];
 }
 
 /** Attribute gửi lên server của các field (qua `prepareSave` nếu có). */
-export function prepareValuesForSave(fields: { name: string; type: string }[], values: Values): Values {
+export function prepareValuesForSave(fields: { name: string; defs: FieldDefs }[], values: Values): Values {
   const result = { ...values };
 
   for (const field of fields) {
-    const prepare = getFieldType(field.type).prepareSave;
+    const prepare = getFieldType(field.defs).prepareSave;
 
     if (prepare) {
       Object.assign(result, prepare(field.name, values));

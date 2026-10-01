@@ -1,33 +1,27 @@
 "use client";
 
-// Form sửa/tạo dùng chung: layout `detail`, giá trị mặc định (entityDefs + createAttributeMap), dynamic logic,
-// validate (required, pattern, min/max…), lưu bằng POST/PATCH, xử lý 409 trùng bản ghi.
+// Form sửa/tạo dùng chung: layout `detail` + cột bên (người phụ trách, team, người tham dự), giá trị mặc định
+// (entityDefs + createAttributeMap), dynamic logic, validate, lưu bằng POST/PATCH, xử lý 409 trùng bản ghi.
 // Tương đương `views/edit` + `views/record/edit` của classic.
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useId, useMemo, useState } from "react";
-import {
-  applyFormChange,
-  extraSaveAttributes,
-  FieldValue,
-  getFieldType,
-  prepareValuesForSave,
-} from "@/components/fields/registry";
+import { getFieldType, initNewValues } from "@/components/fields/registry";
 import type { FieldContext, Values } from "@/components/fields/types";
 import { useFieldContext } from "@/components/fields/use-field-context";
 import { Button, Dialog } from "@/components/ui/dialog";
 import { toast } from "@/components/ui/toaster";
 import { resolveDefaultValue } from "@/lib/espo/defaults";
-import { evaluateLogic, type LogicDefs } from "@/lib/espo/dynamic-logic";
-import { getEntityDefs, getFieldActualAttributeList, getFieldDefs, isFieldAvailable } from "@/lib/espo/entity";
+import { getEntityDefs, getFieldDefs, isFieldAvailable } from "@/lib/espo/entity";
 import { EspoApiError } from "@/lib/espo/errors";
-import { buildDetailPanels, detailFieldNames, type DetailLayoutPanel } from "@/lib/espo/layout";
+import { buildDefaultSideFields, buildDetailPanels, detailFieldNames, type DetailLayoutPanel } from "@/lib/espo/layout";
 import { changedAttributes, createRecord, getRecord, linkRecords, updateRecord, type EspoRecord } from "@/lib/espo/records";
 import { recordViewHref, scopeListHref } from "@/lib/espo/routes";
-import { validateFields } from "@/lib/espo/validation";
+import { buildExtraPanels } from "@/lib/espo/side-panels";
+import { FormFieldCell, useFormFields } from "./form-fields";
 import { useLayout } from "./hooks";
-import { FieldCell, PanelGrid } from "./panels";
+import { PanelGrid } from "./panels";
 import { LoadingBlock, PageMessage } from "./scope-gate";
 
 type Relate = { scope: string; id: string; link: string; name?: string };
@@ -78,6 +72,7 @@ function parseJsonParam<T>(value: string | null): T | null {
 export function RecordForm({ scope, id }: { scope: string; id?: string }) {
   const ctx = useFieldContext();
   const layout = useLayout<DetailLayoutPanel[]>(scope, "detail");
+  const sideLayout = useLayout<{ name: string }[]>(scope, "defaultSidePanel", { optional: true });
   const record = useQuery({
     queryKey: ["record", scope, id],
     queryFn: ({ signal }) => getRecord(scope, id!, signal),
@@ -90,19 +85,34 @@ export function RecordForm({ scope, id }: { scope: string; id?: string }) {
     return <PageMessage icon="fas fa-exclamation-triangle" title={ctx?.t(record.error.status === 404 ? "Not found" : "Access denied") ?? ""} />;
   }
 
-  if (!ctx || !layout.data || (id && !record.data)) {
+  if (!ctx || !layout.data || sideLayout.isLoading || (id && !record.data)) {
     return <LoadingBlock />;
   }
 
-  return <FormContent key={id ?? "new"} ctx={ctx} scope={scope} layout={layout.data} saved={record.data ?? null} />;
+  return (
+    <FormContent
+      key={id ?? "new"}
+      ctx={ctx}
+      scope={scope}
+      layout={layout.data}
+      sideLayout={sideLayout.data ?? null}
+      saved={record.data ?? null}
+    />
+  );
 }
 
-/** Giá trị mặc định khi tạo mới: `default` của field, người phụ trách = người dùng hiện tại. */
-function defaultValues(ctx: FieldContext, scope: string): Values {
+/** Giá trị mặc định khi tạo mới: `default` của field, nhắc nhở theo Preferences, người phụ trách = người dùng hiện tại. */
+export function defaultValues(ctx: FieldContext, scope: string): Values {
   const values: Values = {};
   const fields = getEntityDefs(ctx.metadata, scope).fields ?? {};
 
   for (const [name, defs] of Object.entries(fields)) {
+    const getDefault = getFieldType(defs).getDefault;
+
+    if (getDefault && !defs.readOnly && isFieldAvailable(ctx.metadata, scope, name)) {
+      Object.assign(values, getDefault(ctx, scope, name));
+    }
+
     if (defs.default === undefined || defs.default === null || defs.readOnly || !isFieldAvailable(ctx.metadata, scope, name)) {
       continue;
     }
@@ -127,15 +137,85 @@ function defaultValues(ctx: FieldContext, scope: string): Values {
   return values;
 }
 
+/** Hộp thoại "có bản ghi trùng" (409): xem các bản ghi trùng hoặc vẫn lưu. */
+export function DuplicatesDialog({
+  ctx,
+  scope,
+  duplicates,
+  busy,
+  onCancel,
+  onConfirm,
+}: {
+  ctx: FieldContext;
+  scope: string;
+  duplicates: Record<string, unknown>[] | null;
+  busy: boolean;
+  onCancel: () => void;
+  onConfirm: () => void;
+}) {
+  const { t, metadata } = ctx;
+
+  return (
+    <Dialog
+      open={!!duplicates}
+      onClose={onCancel}
+      title={t("duplicate", "messages")}
+      footer={
+        <>
+          <Button onClick={onCancel} disabled={busy}>
+            {t("Cancel")}
+          </Button>
+          <Button variant="primary" disabled={busy} onClick={onConfirm}>
+            {t("Save")}
+          </Button>
+        </>
+      }
+    >
+      <ul className="flex flex-col gap-1.5">
+        {(duplicates ?? []).map((item) => (
+          <li key={String(item.id)}>
+            <a
+              href={recordViewHref(String(item._entityType ?? scope), String(item.id), metadata)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline"
+            >
+              {String(item.name ?? item.id)}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </Dialog>
+  );
+}
+
+export function ErrorSummary({ errors }: { errors: Record<string, string> }) {
+  if (!Object.keys(errors).length) {
+    return null;
+  }
+
+  return (
+    <div role="alert" className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+      <ul className="list-disc pl-4">
+        {Object.entries(errors).map(([field, message]) => (
+          <li key={field}>{message}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 function FormContent({
   ctx,
   scope,
   layout,
+  sideLayout,
   saved,
 }: {
   ctx: FieldContext;
   scope: string;
   layout: DetailLayoutPanel[];
+  sideLayout: { name: string }[] | null;
   saved: EspoRecord | null;
 }) {
   const { t, metadata, acl } = ctx;
@@ -148,56 +228,40 @@ function FormContent({
   const [values, setValues] = useState<Values>(() =>
     saved
       ? { ...saved }
-      : {
+      : initNewValues(getEntityDefs(metadata, scope).fields ?? {}, {
           ...defaultValues(ctx, scope),
           ...(relate ? relateValues(ctx, scope, relate) : {}),
           ...(parseJsonParam<Values>(searchParams.get("attributes")) ?? {}),
-        },
+        }),
   );
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [saving, setSaving] = useState(false);
   const [duplicates, setDuplicates] = useState<Record<string, unknown>[] | null>(null);
 
   const panels = useMemo(() => buildDetailPanels(layout, { scope, metadata, acl, t }), [layout, scope, metadata, acl, t]);
-  const fields = useMemo(() => detailFieldNames(panels), [panels]);
-  const formFields = useMemo(
-    () => fields.map((name) => ({ name, defs: getFieldDefs(metadata, scope, name)! })).filter((field) => !!field.defs),
-    [fields, metadata, scope],
-  );
-  const logic = useMemo(
-    () =>
-      evaluateLogic(
-        (metadata.logicDefs as Record<string, LogicDefs> | undefined)?.[scope],
-        values,
-        { userId: ctx.user.id, teamsIds: ctx.user.teamsIds ?? [], dateTime: ctx.dateTime },
-        saved,
-      ),
-    [metadata, scope, values, ctx.user, ctx.dateTime, saved],
-  );
+  const mainFields = useMemo(() => detailFieldNames(panels), [panels]);
+  // Cột bên như classic: panel mặc định (người phụ trách, team) + panel người tham dự (Meeting/Call).
+  const sideGroups = useMemo(() => {
+    const defaults = buildDefaultSideFields(sideLayout, { scope, metadata, acl }).filter((field) => !mainFields.includes(field));
+    const extra = buildExtraPanels("side", { scope, type: "edit", metadata, acl, t }, null)
+      .filter((panel) => panel.kind === "attendees")
+      .map((panel) => ({
+        name: panel.name,
+        label: panel.label as string | null,
+        fields: (panel.fields ?? []).filter((field) => getFieldDefs(metadata, scope, field) && !mainFields.includes(field)),
+      }));
+
+    return [{ name: "default", label: null as string | null, fields: defaults }, ...extra].filter((group) => group.fields.length);
+  }, [sideLayout, scope, metadata, acl, t, mainFields]);
+  const fields = useMemo(() => [...mainFields, ...sideGroups.flatMap((group) => group.fields)], [mainFields, sideGroups]);
+  const form = useFormFields({ ctx, scope, fields, values, saved });
 
   useEffect(() => {
     document.title = `${isNew ? t("Create") : String(saved?.name ?? "")} · ${t(scope, "scopeNames")}`;
   }, [isNew, saved, scope, t]);
 
-  const isVisible = (field: string) => logic.fields[field]?.visible !== false;
-  const isRequired = (field: string) => logic.fields[field]?.required ?? !!getFieldDefs(metadata, scope, field)?.required;
-  const isReadOnly = (field: string) => {
-    const defs = getFieldDefs(metadata, scope, field);
-
-    return (
-      !defs ||
-      !!defs.readOnly ||
-      (!isNew && !!defs.readOnlyAfterCreate) ||
-      logic.fields[field]?.readOnly === true ||
-      !acl.checkField(scope, field, "edit") ||
-      !getFieldType(defs.type).Edit
-    );
-  };
-
-  const editableFields = fields.filter((field) => isVisible(field) && !isReadOnly(field));
-
   async function save(skipDuplicateCheck = false) {
-    const found = validateFields(editableFields, values, { scope, metadata, t, isRequired: (field) => isRequired(field) });
+    const found = form.validate();
 
     setErrors(found);
 
@@ -207,29 +271,7 @@ function FormContent({
       return;
     }
 
-    const prepared = prepareValuesForSave(
-      editableFields.map((name) => ({ name, type: getFieldDefs(metadata, scope, name)!.type })),
-      values,
-    );
-    const data: Values = {};
-
-    // Chỉ gửi attribute "thật" của field sửa được (và attribute field đó điều khiển, ví dụ duration → dateEnd),
-    // cộng các attribute nhận từ createAttributeMap khi tạo mới.
-    for (const field of editableFields) {
-      const defs = getFieldDefs(metadata, scope, field)!;
-
-      for (const attribute of [...getFieldActualAttributeList(metadata, scope, field), ...extraSaveAttributes(field, defs)]) {
-        data[attribute] = prepared[attribute] ?? null;
-      }
-    }
-
-    if (isNew) {
-      for (const [key, value] of Object.entries(values)) {
-        if (!(key in data) && value !== undefined) {
-          data[key] = value;
-        }
-      }
-    }
+    const data = form.collectData();
 
     setSaving(true);
 
@@ -263,6 +305,8 @@ function FormContent({
       toast.success(t("Saved"));
       queryClient.setQueryData(["record", scope, result.id], result);
       await queryClient.invalidateQueries({ queryKey: ["recordList", scope] });
+      // Stream/hoạt động của bản ghi (và bản ghi cha) có mục mới.
+      await queryClient.invalidateQueries({ queryKey: ["stream"] });
 
       if (relate) {
         await queryClient.invalidateQueries({ queryKey: ["related", relate.scope, relate.id] });
@@ -280,6 +324,21 @@ function FormContent({
     }
   }
 
+  const renderFieldCell = (name: string, label: string, noLabel: boolean) => (
+    <FormFieldCell
+      ctx={ctx}
+      scope={scope}
+      name={name}
+      label={label}
+      noLabel={noLabel}
+      values={values}
+      setValues={setValues}
+      errors={errors}
+      form={form}
+      inputId={`${baseId}-${name}`}
+    />
+  );
+
   const cancelHref = relate
     ? recordViewHref(relate.scope, relate.id, metadata)
     : saved
@@ -289,7 +348,7 @@ function FormContent({
   return (
     <form
       noValidate
-      className="mx-auto flex max-w-5xl flex-col gap-5"
+      className="mx-auto flex max-w-7xl flex-col gap-5"
       onSubmit={(event) => {
         event.preventDefault();
         void save();
@@ -328,100 +387,43 @@ function FormContent({
         </div>
       </div>
 
-      {Object.keys(errors).length > 0 && (
-        <div role="alert" className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
-          <ul className="list-disc pl-4">
-            {Object.entries(errors).map(([field, message]) => (
-              <li key={field}>{message}</li>
+      <ErrorSummary errors={errors} />
+
+      <div className={sideGroups.length ? "grid gap-5 lg:grid-cols-[minmax(0,1fr)_18rem]" : ""}>
+        <PanelGrid
+          panels={panels}
+          t={t}
+          isFieldVisible={form.isVisible}
+          isPanelVisible={(panel) => form.logic.panels[panel.name]?.visible !== false}
+          renderCell={(cell) => renderFieldCell(cell.name, cell.label, cell.noLabel)}
+        />
+        {sideGroups.length > 0 && (
+          <aside className="flex flex-col gap-4">
+            {sideGroups.map((group) => (
+              <section key={group.name} className="rounded-xl border border-slate-200 bg-white shadow-xs">
+                {group.label && <h2 className="border-b border-slate-100 px-5 py-3 text-sm font-semibold text-slate-800">{group.label}</h2>}
+                <div className="flex flex-col gap-4 px-5 py-4">
+                  {group.fields.filter(form.isVisible).map((field) => (
+                    <div key={field}>{renderFieldCell(field, t(field, "fields", scope), false)}</div>
+                  ))}
+                </div>
+              </section>
             ))}
-          </ul>
-        </div>
-      )}
+          </aside>
+        )}
+      </div>
 
-      <PanelGrid
-        panels={panels}
-        t={t}
-        isFieldVisible={isVisible}
-        isPanelVisible={(panel) => logic.panels[panel.name]?.visible !== false}
-        renderCell={(cell) => {
-          const defs = getFieldDefs(metadata, scope, cell.name)!;
-          const inputId = `${baseId}-${cell.name}`;
-          const error = errors[cell.name];
-
-          if (isReadOnly(cell.name)) {
-            return (
-              <FieldCell label={cell.label} noLabel={cell.noLabel}>
-                <FieldValue ctx={ctx} scope={scope} name={cell.name} defs={defs} values={values} mode="detail" />
-              </FieldCell>
-            );
-          }
-
-          const Edit = getFieldType(defs.type).Edit!;
-
-          return (
-            <FieldCell
-              label={cell.label}
-              htmlFor={inputId}
-              noLabel={cell.noLabel}
-              required={isRequired(cell.name)}
-              error={error}
-              errorId={`${inputId}-error`}
-            >
-              <Edit
-                ctx={ctx}
-                scope={scope}
-                name={cell.name}
-                defs={defs}
-                values={values}
-                onChange={(patch) => setValues((current) => applyFormChange(formFields, current, { ...current, ...patch }))}
-                inputId={inputId}
-                invalid={!!error}
-                required={isRequired(cell.name)}
-                optionList={logic.options[cell.name]}
-                describedBy={error ? `${inputId}-error` : undefined}
-              />
-            </FieldCell>
-          );
+      <DuplicatesDialog
+        ctx={ctx}
+        scope={scope}
+        duplicates={duplicates}
+        busy={saving}
+        onCancel={() => setDuplicates(null)}
+        onConfirm={() => {
+          setDuplicates(null);
+          void save(true);
         }}
       />
-
-      <Dialog
-        open={!!duplicates}
-        onClose={() => setDuplicates(null)}
-        title={t("duplicate", "messages")}
-        footer={
-          <>
-            <Button onClick={() => setDuplicates(null)} disabled={saving}>
-              {t("Cancel")}
-            </Button>
-            <Button
-              variant="primary"
-              disabled={saving}
-              onClick={() => {
-                setDuplicates(null);
-                void save(true);
-              }}
-            >
-              {t("Save")}
-            </Button>
-          </>
-        }
-      >
-        <ul className="flex flex-col gap-1.5">
-          {(duplicates ?? []).map((item) => (
-            <li key={String(item.id)}>
-              <a
-                href={recordViewHref(scope, String(item.id), metadata)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 hover:underline"
-              >
-                {String(item.name ?? item.id)}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </Dialog>
     </form>
   );
 }

@@ -448,7 +448,8 @@
       "KnowledgeBaseArticle": "Knowledge Base Article",
       "KnowledgeBaseCategory": "Knowledge Base Category",
       "CampaignLogRecord": "Campaign Log Record",
-      "TargetListCategory": "Target List Category"
+      "TargetListCategory": "Target List Category",
+      "CNextTestProject": "Test Project"
     },
     "scopeNamesPlural": {
       "Note": "Notes",
@@ -533,7 +534,8 @@
       "KnowledgeBaseArticle": "Knowledge Base",
       "KnowledgeBaseCategory": "Knowledge Base Categories",
       "CampaignLogRecord": "Campaign Log Records",
-      "TargetListCategory": "Target List Categories"
+      "TargetListCategory": "Target List Categories",
+      "CNextTestProject": "Test Projects"
     },
     "navbarTabs": {
       "Business": "Business",
@@ -772,6 +774,135 @@
         "Popup": "Popup",
         "Email": "Email"
       }
+    },
+    "streamMessages": {
+      "post": "{user} posted on {entityType} {entity}",
+      "attach": "{user} attached on {entityType} {entity}",
+      "status": "{user} updated {field} of {entityType} {entity}",
+      "update": "{user} updated {entityType} {entity}",
+      "postTargetTeam": "{user} posted to team {target}",
+      "postTargetTeams": "{user} posted to teams {target}",
+      "postTargetPortal": "{user} posted to portal {target}",
+      "postTargetPortals": "{user} posted to portals {target}",
+      "postTarget": "{user} posted to {target}",
+      "postTargetYou": "{user} posted to you",
+      "postTargetYouAndOthers": "{user} posted to {target} and you",
+      "postTargetAll": "{user} posted to all",
+      "postTargetSelf": "{user} self-posted",
+      "postTargetSelfAndOthers": "{user} posted to {target} and themself",
+      "mentionInPost": "{user} mentioned {mentioned} in {entityType} {entity}",
+      "mentionYouInPost": "{user} mentioned you in {entityType} {entity}",
+      "mentionInPostTarget": "{user} mentioned {mentioned} in post",
+      "mentionYouInPostTarget": "{user} mentioned you in post to {target}",
+      "mentionYouInPostTargetAll": "{user} mentioned you in post to all",
+      "mentionYouInPostTargetNoTarget": "{user} mentioned you in post",
+      "create": "{user} created {entityType} {entity}",
+      "createThis": "{user} created this {entityType}",
+      "createAssignedThis": "{user} created this {entityType} assigned to {assignee}",
+      "createAssigned": "{user} created {entityType} {entity} assigned to {assignee}",
+      "createAssignedYou": "{user} created {entityType} {entity} assigned to you",
+      "createAssignedThisSelf": "{user} created this {entityType} self-assigned",
+      "createAssignedSelf": "{user} created {entityType} {entity} self-assigned",
+      "assign": "{user} assigned {entityType} {entity} to {assignee}",
+      "assignThis": "{user} assigned this {entityType} to {assignee}",
+      "assignYou": "{user} assigned {entityType} {entity} to you",
+      "assignThisVoid": "{user} unassigned this {entityType}",
+      "assignVoid": "{user} unassigned {entityType} {entity}",
+      "assignThisSelf": "{user} self-assigned this {entityType}",
+      "assignSelf": "{user} self-assigned {entityType} {entity}",
+      "assignMultiAdd": "{user} assigned {entity} to {assignee}",
+      "assignMultiRemove": "{user} unassigned {entity} from {removedAssignee}",
+      "assignMultiAddRemove": "{user} assigned {entity} to {assignee} and unassigned from {removedAssignee}",
+      "assignMultiAddThis": "{user} assigned this {entityType} to {assignee}",
+      "assignMultiRemoveThis": "{user} unassigned this {entityType} from {removedAssignee}",
+      "assignMultiAddRemoveThis": "{user} assigned this {entityType} to {assignee} and unassigned from {removedAssignee}",
+      "postThis": "{user} posted",
+      "attachThis": "{user} attached",
+      "statusThis": "{user} updated {field}",
+      "updateThis": "{user} updated this {entityType}",
+      "createRelatedThis": "{user} created {relatedEntityType} {relatedEntity} related to this {entityType}",
+      "createRelated": "{user} created {relatedEntityType} {relatedEntity} related to {entityType} {entity}",
+      "relate": "{user} linked {relatedEntityType} {relatedEntity} with {entityType} {entity}",
+      "relateThis": "{user} linked {relatedEntityType} {relatedEntity} with this {entityType}",
+      "unrelate": "{user} unlinked {relatedEntityType} {relatedEntity} from {entityType} {entity}",
+      "unrelateThis": "{user} unlinked {relatedEntityType} {relatedEntity} from this {entityType}",
+      "emailReceivedFromThis": "Email received from {from}",
+      "emailReceivedInitialFromThis": "Email received from {from}, this {entityType} created",
+      "emailReceivedThis": "Email received",
+      "emailReceivedInitialThis": "Email received, this {entityType} created",
+      "emailReceivedFrom": "Email received from {from}, related to {entityType} {entity}",
+      "emailReceivedFromInitial": "Email received from {from}, {entityType} {entity} created",
+      "emailReceived": "Email received related to {entityType} {entity}",
+      "emailReceivedInitial": "Email received: {entityType} {entity} created",
+      "emailReceivedInitialFrom": "Email received from {from}, {entityType} {entity} created",
+      "emailSent": "{by} sent email related to {entityType} {entity}",
+      "emailSentThis": "{by} sent email",
+      "eventConfirmationAccepted": "{invitee} accepted participation in {entityType} {entity}",
+      "eventConfirmationDeclined": "{invitee} declined participation in {entityType} {entity}",
+      "eventConfirmationTentative": "{invitee} is tentative about participation in {entityType} {entity}",
+      "eventConfirmationAcceptedThis": "{invitee} accepted participation",
+      "eventConfirmationDeclinedThis": "{invitee} declined participation",
+      "eventConfirmationTentativeThis": "{invitee} is tentative about participation"
+    },
+    "streamMessagesMale": {
+      "postTargetSelfAndOthers": "{user} posted to {target} and himself"
+    },
+    "streamMessagesFemale": {
+      "postTargetSelfAndOthers": "{user} posted to {target} and herself"
+    },
+    "notificationMessages": {
+      "assign": "{entityType} {entity} has been assigned to you",
+      "emailReceived": "Email received from {from}",
+      "entityRemoved": "{user} removed {entityType} {entity}",
+      "emailInbox": "{user} added email {entity} to your inbox",
+      "userPostReaction": "{user} reacted to your {post}",
+      "addedToCollaborators": "{user} added you as a collaborator to {entityType} {entity}",
+      "userPostInParentReaction": "{user} reacted to your {post} in {entityType} {entity}",
+      "groupUpdatesMultiple": "{entityType} {entity} – {number} new activities",
+      "groupUpdatesOne": "{entityType} {entity} – new activity",
+      "groupUpdates": "{entityType} {entity}",
+      "groupEmailsReceivedNew": "Emails received – {number} new",
+      "groupEmailsReceived": "Emails received",
+      "eventAttendee": "{user} added you to {entityType} {entity}"
+    },
+    "reactions": {
+      "Smile": "Smile",
+      "Surprise": "Surprise",
+      "Laugh": "Laugh",
+      "Meh": "Meh",
+      "Sad": "Sad",
+      "Love": "Love",
+      "Like": "Like",
+      "Dislike": "Dislike"
+    },
+    "listViewModes": {
+      "list": "List",
+      "kanban": "Kanban"
+    },
+    "durationUnits": {
+      "d": "d",
+      "h": "h",
+      "m": "m",
+      "s": "s"
+    },
+    "dashlets": {
+      "Stream": "Stream",
+      "Emails": "My Inbox",
+      "Iframe": "Iframe",
+      "Records": "Record List",
+      "Memo": "Memo",
+      "Leads": "My Leads",
+      "Opportunities": "My Opportunities",
+      "Tasks": "My Tasks",
+      "Cases": "My Cases",
+      "Calendar": "Calendar",
+      "Calls": "My Calls",
+      "Meetings": "My Meetings",
+      "OpportunitiesByStage": "Opportunities by Stage",
+      "OpportunitiesByLeadSource": "Opportunities by Lead Source",
+      "SalesByMonth": "Sales by Month",
+      "SalesPipeline": "Sales Pipeline",
+      "Activities": "My Activities"
     }
   },
   "User": {
@@ -1255,6 +1386,237 @@
     },
     "nameOptions": {
       "replyToEmail": "Reply to email"
+    }
+  },
+  "Meeting": {
+    "fields": {
+      "name": "Name",
+      "parent": "Parent",
+      "status": "Status",
+      "dateStart": "Date Start",
+      "dateEnd": "Date End",
+      "duration": "Duration",
+      "description": "Description",
+      "users": "Users",
+      "contacts": "Contacts",
+      "leads": "Leads",
+      "reminders": "Reminders",
+      "account": "Account",
+      "acceptanceStatus": "Acceptance Status",
+      "dateStartDate": "Date Start (all day)",
+      "dateEndDate": "Date End (all day)",
+      "isAllDay": "Is All-Day",
+      "sourceEmail": "Source Email",
+      "uid": "UID",
+      "joinUrl": "Join URL",
+      "externalService": "Online Location"
+    },
+    "links": [],
+    "options": {
+      "status": {
+        "Planned": "Planned",
+        "Held": "Held",
+        "Not Held": "Not Held"
+      },
+      "acceptanceStatus": {
+        "None": "None",
+        "Accepted": "Accepted",
+        "Declined": "Declined",
+        "Tentative": "Tentative"
+      }
+    },
+    "massActions": {
+      "setHeld": "Set Held",
+      "setNotHeld": "Set Not Held"
+    },
+    "labels": {
+      "Create Meeting": "Create Meeting",
+      "Set Held": "Set Held",
+      "Set Not Held": "Set Not Held",
+      "Send Invitations": "Send Invitations",
+      "Send Cancellation": "Send Cancellation",
+      "on time": "on time",
+      "before": "before",
+      "All-Day": "All-Day",
+      "Acceptance": "Acceptance"
+    },
+    "presetFilters": {
+      "planned": "Planned",
+      "held": "Held",
+      "todays": "Today's"
+    },
+    "messages": {
+      "sendInvitationsToSelectedAttendees": "Invitation emails will be sent to the selected attendees.",
+      "sendCancellationsToSelectedAttendees": "Cancellation emails will be sent to the selected attendees.",
+      "selectAcceptanceStatus": "Set your acceptance status.",
+      "nothingHasBeenSent": "Nothing were sent",
+      "invitationsSentTo": "Invitation emails has been sent to: {recipients}.\n\nCould not sent to: {failedRecipients}."
+    }
+  },
+  "Call": {
+    "fields": {
+      "name": "Name",
+      "parent": "Parent",
+      "status": "Status",
+      "dateStart": "Date Start",
+      "dateEnd": "Date End",
+      "direction": "Direction",
+      "duration": "Duration",
+      "description": "Description",
+      "users": "Users",
+      "contacts": "Contacts",
+      "leads": "Leads",
+      "reminders": "Reminders",
+      "account": "Account",
+      "acceptanceStatus": "Acceptance Status",
+      "uid": "UID"
+    },
+    "links": [],
+    "options": {
+      "status": {
+        "Planned": "Planned",
+        "Held": "Held",
+        "Not Held": "Not Held"
+      },
+      "direction": {
+        "Outbound": "Outbound",
+        "Inbound": "Inbound"
+      },
+      "acceptanceStatus": {
+        "None": "None",
+        "Accepted": "Accepted",
+        "Declined": "Declined",
+        "Tentative": "Tentative"
+      }
+    },
+    "massActions": {
+      "setHeld": "Set Held",
+      "setNotHeld": "Set Not Held"
+    },
+    "labels": {
+      "Create Call": "Create Call",
+      "Set Held": "Set Held",
+      "Set Not Held": "Set Not Held",
+      "Send Invitations": "Send Invitations"
+    },
+    "presetFilters": {
+      "planned": "Planned",
+      "held": "Held",
+      "todays": "Today's"
+    }
+  },
+  "Note": {
+    "fields": {
+      "post": "Post",
+      "attachments": "Attachments",
+      "targetType": "Target",
+      "teams": "Teams",
+      "users": "Users",
+      "portals": "Portals",
+      "type": "Type",
+      "isGlobal": "Is Global",
+      "isInternal": "Is Internal (for internal users)",
+      "isPinned": "Is Pinned",
+      "related": "Related",
+      "createdByGender": "Created By Gender",
+      "data": "Data",
+      "number": "Number"
+    },
+    "filters": {
+      "all": "All",
+      "posts": "Posts",
+      "updates": "Updates",
+      "activity": "Activity"
+    },
+    "options": {
+      "targetType": {
+        "self": "Self",
+        "users": "Users",
+        "teams": "Teams",
+        "all": "All Internal Users",
+        "portals": "Portal Users"
+      },
+      "type": {
+        "Post": "Post",
+        "Create": "Create",
+        "CreateRelated": "Create Related",
+        "Update": "Update",
+        "Status": "Status",
+        "Assign": "Assign",
+        "Relate": "Relate",
+        "Unrelate": "Unrelate",
+        "EmailReceived": "Email Received",
+        "EmailSent": "Email Sent"
+      }
+    },
+    "labels": {
+      "View Posts": "View Posts",
+      "View Attachments": "View Attachments",
+      "View Activity": "View Activity",
+      "Pin": "Pin",
+      "Unpin": "Unpin",
+      "Pinned": "Pinned",
+      "Quote Reply": "Quote Reply"
+    },
+    "messages": {
+      "writeMessage": "Write your message here",
+      "pinnedMaxCountExceeded": "Cannot pin more notes. Max allowed number is {count}."
+    },
+    "links": {
+      "portals": "Portals",
+      "attachments": "Attachments",
+      "superParent": "Super Parent",
+      "related": "Related"
+    },
+    "otherFields": {
+      "to": "To"
+    }
+  },
+  "Export": {
+    "fields": {
+      "exportAllFields": "Export all fields",
+      "fieldList": "Field List",
+      "format": "Format",
+      "status": "Status",
+      "xlsxLite": "Lite",
+      "xlsxRecordLinks": "Record Links",
+      "xlsxTitle": "Title"
+    },
+    "options": {
+      "format": {
+        "csv": "CSV",
+        "xlsx": "XLSX · Spreadsheet"
+      },
+      "status": {
+        "Pending": "Pending",
+        "Running": "Running",
+        "Success": "Success",
+        "Failed": "Failed"
+      }
+    },
+    "tooltips": {
+      "xlsxLite": "Consumes much less memory. Recommended if a big number of records is exported.",
+      "xlsxTitle": "Print a title and current date in the header."
+    },
+    "messages": {
+      "exportProcessed": "Export has been processed. Download the [file]({url}).",
+      "infoText": "The export is being processed in idle by cron. It can take some time to finish. Closing this modal dialog won't affect the execution process."
+    }
+  },
+  "Stream": {
+    "messages": {
+      "infoMention": "Type **@username** to mention user in the post.",
+      "infoSyntax": "Available markdown syntax",
+      "couldNotAddFollowerUserHasNoAccessToStream": "Could not add the user '{userName}' to the followers. The user does not have 'stream' access to the record."
+    },
+    "syntaxItems": {
+      "code": "code",
+      "multilineCode": "multiline code",
+      "strongText": "strong text",
+      "emphasizedText": "emphasized text",
+      "deletedText": "deleted text",
+      "blockquote": "blockquote",
+      "link": "link text"
     }
   }
 }

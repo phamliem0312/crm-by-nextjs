@@ -14,13 +14,13 @@ import { IconButton, Select, TextInput, XIcon } from "./ui";
 
 const str = (value: unknown) => (value === null || value === undefined ? "" : String(value));
 
-type Option = { id: string; name: string };
+export type Option = { id: string; name: string };
 
 function foreignScopeOf(ctx: FieldContext, scope: string, name: string): string | undefined {
   return getLinkEntity(ctx.metadata, scope, name);
 }
 
-function RecordLink({ ctx, scope, id, name }: { ctx: FieldContext; scope: string | undefined; id: string; name: string }) {
+export function RecordLink({ ctx, scope, id, name }: { ctx: FieldContext; scope: string | undefined; id: string; name: string }) {
   if (!scope) {
     return <span>{name || id}</span>;
   }
@@ -201,7 +201,7 @@ function LinkEdit({ ctx, scope, name, values, onChange, inputId, invalid, descri
 }
 
 /** Chọn nhiều bản ghi (dạng chip). */
-function MultiPicker({
+export function MultiPicker({
   ctx,
   foreignScope,
   selected,
@@ -335,7 +335,7 @@ export const linkField: FieldType = {
 
 // ——— linkMultiple ———
 
-function selectedOptions(name: string, values: Record<string, unknown>): Option[] {
+export function selectedOptions(name: string, values: Record<string, unknown>): Option[] {
   const ids = Array.isArray(values[`${name}Ids`]) ? (values[`${name}Ids`] as string[]) : [];
   const names = (values[`${name}Names`] ?? {}) as Record<string, string>;
 

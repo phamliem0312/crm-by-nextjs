@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import metadataPhase3 from "./__fixtures__/metadata-phase3.json";
 import metadataFixture from "./__fixtures__/metadata-records.json";
 import {
   classicHref,
@@ -23,6 +24,14 @@ describe("routes", () => {
     expect(recordViewHref("Account", "a b", metadata)).toBe("/Account/a%20b");
     expect(recordEditHref("Account", "1", metadata)).toBe("/Account/1/edit");
     expect(recordCreateHref("Account", metadata)).toBe("/Account/create");
+  });
+
+  it("opens Meeting/Call and the Stream page in the new UI (phase 3)", () => {
+    const withEvents = metadataPhase3 as unknown as Metadata;
+
+    expect(isNewUiScope("Meeting", withEvents)).toBe(true);
+    expect(recordViewHref("Call", "c1", withEvents)).toBe("/Call/c1");
+    expect(scopeListHref("Stream", metadata)).toBe("/stream");
   });
 
   it("opens custom entities in the new UI", () => {

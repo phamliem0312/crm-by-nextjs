@@ -23,6 +23,7 @@
     "dayjs": "^1.11.23",
     "dompurify": "^3.4.16",
     "iron-session": "^9.0.1",
+    "marked": "^18.0.14",
     "next": "16.3.6",
     "react": "19.2.8",
     "react-dom": "19.2.8",

@@ -480,6 +480,19 @@ export const durationField: FieldType = {
     return { [endAttribute]: dayjs.utc(str(next[startAttribute]), DATE_TIME).add(seconds, "second").format(DATE_TIME) };
   },
   saveAttributes: (_name, defs) => (defs.end ? [str(defs.end)] : []),
+  // Tạo mới: có `start` mà chưa có `end` → `end` = `start` + duration mặc định (classic tính khi mở form).
+  onInit: (name, defs, values) => {
+    const start = str(values[str(defs.start)]);
+    const endAttribute = str(defs.end);
+
+    if (!start || !endAttribute || values[endAttribute]) {
+      return {};
+    }
+
+    const seconds = typeof values[name] === "number" ? (values[name] as number) : typeof defs.default === "number" ? defs.default : 3600;
+
+    return { [endAttribute]: dayjs.utc(start, DATE_TIME).add(seconds, "second").format(DATE_TIME) };
+  },
 };
 
 // ——— file / image / attachmentMultiple ———

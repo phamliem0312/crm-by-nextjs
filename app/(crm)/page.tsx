@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { HomeLaunchpad } from "./home-launchpad";
+import { Dashboard } from "@/components/dashboard/dashboard";
 
 export const metadata: Metadata = {
   title: "EspoCRM",
 };
 
-// Trang chủ tạm: lối tắt tới các mục trong menu. Dashboard (preferences.dashboardLayout) làm ở giai đoạn 3.
+// Trang chủ: Dashboard của người dùng (preferences.dashboardLayout).
 export default function HomePage() {
-  return <HomeLaunchpad />;
+  return <Dashboard />;
 }

@@ -148,6 +148,67 @@
         "name": "billingAddressCountry",
         "width": 50
       }
+    ],
+    "sidePanelsDetail": {},
+    "kanban": [
+      {
+        "name": "name",
+        "link": true
+      }
+    ],
+    "detailConvert": [
+      {
+        "label": "Overview",
+        "rows": [
+          [
+            {
+              "name": "name"
+            },
+            false
+          ],
+          [
+            {
+              "name": "website"
+            },
+            {
+              "name": "phoneNumber"
+            }
+          ],
+          [
+            {
+              "name": "emailAddress"
+            },
+            false
+          ],
+          [
+            {
+              "name": "billingAddress"
+            },
+            {
+              "name": "shippingAddress"
+            }
+          ]
+        ]
+      },
+      {
+        "label": "Details",
+        "rows": [
+          [
+            {
+              "name": "type"
+            },
+            {
+              "name": "industry"
+            }
+          ],
+          [
+            {
+              "name": "description",
+              "fullWidth": true
+            }
+          ]
+        ]
+      }
     ]
   },
   "Contact": {
@@ -268,6 +329,53 @@
         "name": "emailAddress",
         "notSortable": true,
         "width": 30
+      }
+    ],
+    "sidePanelsDetail": {},
+    "kanban": [
+      {
+        "name": "name",
+        "link": true
+      }
+    ],
+    "detailConvert": [
+      {
+        "rows": [
+          [
+            {
+              "name": "name"
+            },
+            {
+              "name": "account"
+            }
+          ],
+          [
+            {
+              "name": "emailAddress"
+            },
+            {
+              "name": "phoneNumber"
+            }
+          ],
+          [
+            {
+              "name": "title"
+            },
+            false
+          ],
+          [
+            {
+              "name": "address"
+            },
+            false
+          ],
+          [
+            {
+              "name": "description",
+              "fullWidth": true
+            }
+          ]
+        ]
       }
     ]
   },
@@ -432,6 +540,13 @@
         "notSortable": true,
         "width": 30
       }
+    ],
+    "sidePanelsDetail": {},
+    "kanban": [
+      {
+        "name": "name",
+        "link": true
+      }
     ]
   },
   "Opportunity": {
@@ -564,6 +679,69 @@
         "name": "amount",
         "width": 20,
         "align": "right"
+      }
+    ],
+    "sidePanelsDetail": {},
+    "kanban": [
+      {
+        "name": "name",
+        "link": true
+      },
+      {
+        "name": "amount",
+        "align": "right",
+        "isLarge": true
+      },
+      {
+        "name": "account"
+      },
+      {
+        "name": "closeDate",
+        "align": "right",
+        "isMuted": true
+      },
+      {
+        "name": "assignedUser",
+        "hidden": true
+      }
+    ],
+    "detailConvert": [
+      {
+        "label": "",
+        "rows": [
+          [
+            {
+              "name": "name"
+            },
+            false
+          ],
+          [
+            {
+              "name": "stage"
+            },
+            {
+              "name": "amount"
+            }
+          ],
+          [
+            {
+              "name": "probability"
+            },
+            false
+          ],
+          [
+            {
+              "name": "closeDate"
+            },
+            false
+          ],
+          [
+            {
+              "name": "description",
+              "fullWidth": true
+            }
+          ]
+        ]
       }
     ]
   },
@@ -707,6 +885,13 @@
         "name": "account",
         "width": 22
       }
+    ],
+    "sidePanelsDetail": {},
+    "kanban": [
+      {
+        "name": "name",
+        "link": true
+      }
     ]
   },
   "Task": {
@@ -836,6 +1021,25 @@
       {
         "name": "dateEnd",
         "width": 20
+      }
+    ],
+    "sidePanelsDetail": {},
+    "kanban": [
+      {
+        "name": "name",
+        "link": true
+      },
+      {
+        "name": "priority",
+        "isMuted": true
+      },
+      {
+        "name": "parent"
+      },
+      {
+        "name": "dateEnd",
+        "align": "right",
+        "isMuted": true
       }
     ]
   }

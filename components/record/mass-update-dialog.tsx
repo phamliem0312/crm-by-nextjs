@@ -45,7 +45,7 @@ export function MassUpdateDialog({
       !defs.readOnly &&
       isFieldAvailable(ctx.metadata, scope, field) &&
       ctx.acl.checkField(scope, field, "edit") &&
-      !!getFieldType(defs.type).Edit
+      !!getFieldType(defs).Edit
     );
   });
 
@@ -59,7 +59,7 @@ export function MassUpdateDialog({
     }
 
     const prepared = prepareValuesForSave(
-      selected.map((name) => ({ name, type: getFieldDefs(ctx.metadata, scope, name)?.type ?? "" })),
+      selected.map((name) => ({ name, defs: getFieldDefs(ctx.metadata, scope, name) ?? { type: "" } })),
       values,
     );
     const data: Values = {};
@@ -118,7 +118,7 @@ export function MassUpdateDialog({
 
         {selected.map((field) => {
           const defs = getFieldDefs(ctx.metadata, scope, field);
-          const Edit = defs ? getFieldType(defs.type).Edit : undefined;
+          const Edit = defs ? getFieldType(defs).Edit : undefined;
           const inputId = `${baseId}-${field}`;
 
           if (!defs || !Edit) {

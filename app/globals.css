@@ -59,6 +59,28 @@ body {
   border-radius: 0.25rem;
 }
 
+.rich-text :where(code) {
+  padding: 0.1em 0.3em;
+}
+
+.rich-text :where(pre) {
+  padding: 0.5em 0.75em;
+  overflow-x: auto;
+}
+
+.rich-text :where(pre code) {
+  padding: 0;
+}
+
+/* Markdown (text, post): không dư khoảng trên/dưới trong ô field. */
+.markdown > :first-child {
+  margin-top: 0;
+}
+
+.markdown > :last-child {
+  margin-bottom: 0;
+}
+
 .rich-text :where(img) {
   max-width: 100%;
   height: auto;

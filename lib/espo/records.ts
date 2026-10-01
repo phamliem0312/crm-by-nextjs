@@ -82,6 +82,21 @@ export function massAction(
   return send("POST", "MassAction", { entityType: scope, action, params: { ids }, data: data ?? {} });
 }
 
+/** `POST <Scope>/action/<action>` (hành động riêng của controller, ví dụ `Lead/action/convert`). */
+export function postAction<T = unknown>(
+  scope: string,
+  action: string,
+  data: Record<string, unknown>,
+  options: SaveOptions = {},
+): Promise<T> {
+  return send<T>("POST", `${path(scope)}/action/${encodeURIComponent(action)}`, data, saveHeaders(options));
+}
+
+/** Gọi API bất kỳ (đường dẫn đã mã hoá sẵn), ví dụ `Note/<id>/pin`. */
+export function sendRequest<T = unknown>(method: "POST" | "PUT" | "PATCH" | "DELETE", url: string, body?: unknown): Promise<T> {
+  return send<T>(method, url, body);
+}
+
 export function linkRecords(scope: string, id: string, link: string, ids: string[]): Promise<unknown> {
   return send("POST", path(scope, id, link), { ids });
 }

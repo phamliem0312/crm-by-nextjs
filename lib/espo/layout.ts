@@ -272,27 +272,69 @@ export function buildRelationshipPanels(
   layout: BottomPanelsLayout | null | undefined,
   ctx: { scope: string; metadata: Metadata; acl: Acl; t: Translator },
 ): RelationshipPanel[] {
+  return buildBottomPanels(layout, ctx).flatMap((panel) => (panel.kind === "relationship" ? [panel.panel] : []));
+}
+
+/** Một panel dưới của trang chi tiết: relationship, Stream, hoặc panel phụ (activities/history bật ở bottom). */
+export type BottomPanel =
+  | { kind: "relationship"; name: string; tabNumber: number; tabLabel: string | null; panel: RelationshipPanel }
+  | { kind: "stream"; name: "stream"; tabNumber: number; tabLabel: string | null }
+  | { kind: "extra"; name: string; tabNumber: number; tabLabel: string | null };
+
+/**
+ * Thứ tự và tab của các panel dưới theo layout `bottomPanelsDetail` (port `detail-bottom` + `panels-container`).
+ * Stream (nếu scope có stream) mặc định ở vị trí 2 khi layout không nhắc tới; `extra` là tên panel phụ đã bật.
+ */
+export function buildBottomPanels(
+  layout: BottomPanelsLayout | null | undefined,
+  ctx: { scope: string; metadata: Metadata; acl: Acl; t: Translator },
+  options: { stream?: boolean; extra?: { name: string; index: number }[] } = {},
+): BottomPanel[] {
   const links = getEntityDefs(ctx.metadata, ctx.scope).links ?? {};
   const clientDefs = (ctx.metadata.clientDefs?.[ctx.scope] ?? {}) as { relationshipPanels?: Record<string, RelationshipPanelDefs> };
   const panelDefs = clientDefs.relationshipPanels ?? {};
+  const extraNames = new Set((options.extra ?? []).map((item) => item.name));
 
   let entries = Object.entries(layout ?? {});
 
   if (!entries.length) {
-    // Không có layout: dùng thứ tự của clientDefs.relationshipPanels.
-    entries = Object.keys(panelDefs).map((name, index) => [name, { index }]);
+    // Không có layout: dùng thứ tự của clientDefs.relationshipPanels (sau Stream, như `order: 5` của classic).
+    entries = Object.keys(panelDefs).map((name, index) => [name, { index: 5 + index }]);
+  }
+
+  if (options.stream && !entries.some(([name]) => name === "stream")) {
+    entries.push(["stream", { index: 2 }]);
+  }
+
+  for (const item of options.extra ?? []) {
+    if (!entries.some(([name]) => name === item.name)) {
+      entries.push([item.name, { index: item.index }]);
+    }
   }
 
   entries.sort((a, b) => (a[1]?.index ?? 0) - (b[1]?.index ?? 0));
 
   let tabNumber = 0;
   let tabLabel: string | null = null;
-  const result: RelationshipPanel[] = [];
+  const result: BottomPanel[] = [];
 
   for (const [name, item] of entries) {
     if (item?.tabBreak) {
       tabNumber++;
       tabLabel = translateTabLabel(item.tabLabel, ctx.scope, ctx.t);
+      continue;
+    }
+
+    if (name === "stream") {
+      if (options.stream && !item?.disabled) {
+        result.push({ kind: "stream", name: "stream", tabNumber, tabLabel });
+      }
+
+      continue;
+    }
+
+    if (extraNames.has(name)) {
+      result.push({ kind: "extra", name, tabNumber, tabLabel });
       continue;
     }
 
@@ -310,7 +352,7 @@ export function buildRelationshipPanels(
 
     const defs = panelDefs[name] ?? {};
 
-    result.push({
+    const panel: RelationshipPanel = {
       link: name,
       label: ctx.t(name, "links", ctx.scope),
       foreignScope,
@@ -320,7 +362,9 @@ export function buildRelationshipPanels(
       canCreate: defs.create !== false && ctx.acl.checkScope(foreignScope, "create"),
       canSelect: defs.select !== false && ctx.acl.checkScope(ctx.scope, "edit"),
       canUnlink: !defs.unlinkDisabled && ctx.acl.checkScope(ctx.scope, "edit"),
-    });
+    };
+
+    result.push({ kind: "relationship", name, tabNumber, tabLabel, panel });
   }
 
   return result;
