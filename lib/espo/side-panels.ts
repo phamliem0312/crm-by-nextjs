@@ -14,6 +14,8 @@ export type PanelDef = {
   index: number;
   /** Field hiển thị (attendees: users/contacts/leads; convertedTo: createdAccount…). */
   fields?: string[];
+  /** View của classic (để nhận biết panel riêng như `crm:views/opportunity/record/panels/activities`). */
+  view?: string;
 };
 
 type RawPanel = {
@@ -25,6 +27,7 @@ type RawPanel = {
   index?: number;
   order?: number;
   options?: { fieldList?: string[] };
+  view?: string;
   [key: string]: unknown;
 };
 
@@ -105,6 +108,7 @@ export function buildExtraPanels(
       label: ctx.t(item.label ?? name, "labels", ctx.scope),
       index: typeof layoutItem?.index === "number" ? layoutItem.index : (item.index ?? item.order ?? position + 1),
       fields,
+      ...(typeof item.view === "string" ? { view: item.view } : {}),
     });
   });
 

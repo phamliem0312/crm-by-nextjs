@@ -35,12 +35,17 @@ const PREFERENCES_KEYS = [
   "dateFormat", "timeFormat", "timeZone", "weekStart", "language", "thousandSeparator", "decimalMark",
   "useCustomTabList", "addCustomTabs", "tabList",
   "dashboardLayout", "dashletsOptions", "defaultReminders", "defaultRemindersTask", "followEntityOnStreamPost",
+  // Giai đoạn 4: soạn email, lịch.
+  "emailReplyToAllByDefault", "emailReplyForceHtml", "calendarSlotDuration", "calendarScrollHour",
 ];
 
 const RECORD_SCOPES = ["Account", "Contact", "Lead", "Opportunity", "Case", "Task"];
 
 /** Entity của giai đoạn 3 (sự kiện, stream, thông báo). */
 const EXTRA_SCOPES = ["Meeting", "Call", "Note", "Notification", "Reminder"];
+
+/** Module của giai đoạn 4. */
+const PHASE4_SCOPES = ["Email", "EmailFolder", "EmailTemplate", "Calendar", "Import"];
 
 const LAYOUT_TYPES = ["list", "detail", "filters", "massUpdate", "bottomPanelsDetail", "defaultSidePanel", "listSmall", "sidePanelsDetail", "kanban", "detailConvert"];
 
@@ -117,10 +122,19 @@ for (const [kind, credentials] of Object.entries(accounts)) {
       Global: pick(language.Global, [
         "labels", "messages", "scopeNames", "scopeNamesPlural", "navbarTabs", "lists", "options",
         "streamMessages", "streamMessagesMale", "streamMessagesFemale", "notificationMessages", "reactions",
-        "listViewModes", "durationUnits", "dashlets",
+        "listViewModes", "durationUnits", "dashlets", "presetFilters", "fields",
       ]),
       User: pick(language.User, ["labels", "messages"]),
-      ...Object.fromEntries([...RECORD_SCOPES, "Meeting", "Call", "Note", "Notification", "Export", "Stream"].map((scope) => [scope, language[scope]])),
+      ...Object.fromEntries(
+        [...RECORD_SCOPES, "Meeting", "Call", "Note", "Notification", "Export", "Stream", ...PHASE4_SCOPES].map((scope) => [scope, language[scope]]),
+      ),
+    });
+
+    // Giai đoạn 4: Email, Calendar, Import.
+    write("metadata-phase4.json", {
+      scopes: pick(metadata.scopes, [...PHASE4_SCOPES, "Meeting", "Call", "Task"]),
+      entityDefs: pick(metadata.entityDefs, ["Email", "EmailFolder", "Import", "EmailTemplate"]),
+      clientDefs: pick(metadata.clientDefs, [...PHASE4_SCOPES, "Meeting", "Call", "Task"]),
     });
 
     // Giai đoạn 3: dashlet, panel phụ, reaction, nhắc nhở, export, entity sự kiện/stream.

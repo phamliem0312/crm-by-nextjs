@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import metadataPhase3 from "./__fixtures__/metadata-phase3.json";
+import metadataPhase4 from "./__fixtures__/metadata-phase4.json";
 import metadataFixture from "./__fixtures__/metadata-records.json";
 import {
   classicHref,
@@ -34,6 +35,18 @@ describe("routes", () => {
     expect(scopeListHref("Stream", metadata)).toBe("/stream");
   });
 
+  it("opens Email, Calendar and Import in the new UI (phase 4)", () => {
+    const withEmail = metadataPhase4 as unknown as Metadata;
+
+    expect(isNewUiScope("Email", withEmail)).toBe(true);
+    expect(recordViewHref("Email", "e1", withEmail)).toBe("/Email/e1");
+    expect(recordCreateHref("Email", withEmail)).toBe("/Email/create");
+    expect(scopeListHref("Calendar", metadata)).toBe("/Calendar");
+    expect(scopeListHref("Import", metadata)).toBe("/Import");
+    expect(recordViewHref("Import", "i1", metadata)).toBe("/Import/i1");
+    expect(isNewUiScope("EmailTemplate", withEmail)).toBe(false);
+  });
+
   it("opens custom entities in the new UI", () => {
     const withCustom = {
       ...metadata,
@@ -44,7 +57,7 @@ describe("routes", () => {
   });
 
   it("keeps special, disabled and non-entity scopes in classic", () => {
-    expect(isNewUiScope("Email", metadata)).toBe(false);
+    expect(isNewUiScope("Campaign", metadata)).toBe(false);
     expect(isNewUiScope("Calendar", metadata)).toBe(false);
     expect(isNewUiScope("NoSuchScope", metadata)).toBe(false);
     expect(isNewUiScope("../x", metadata)).toBe(false);
@@ -54,7 +67,7 @@ describe("routes", () => {
 
   it("sends other scopes to classic", () => {
     expect(scopeListHref("Account")).toBe("/classic?to=%23Account");
-    expect(recordViewHref("Email", "x", metadata)).toBe("/classic?to=%23Email%2Fview%2Fx");
+    expect(recordViewHref("Campaign", "x", metadata)).toBe("/classic?to=%23Campaign%2Fview%2Fx");
     expect(classicHref("Admin")).toBe("/classic?to=%23Admin");
   });
 

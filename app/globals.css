@@ -94,3 +94,28 @@ body {
   border: 1px solid #e2e8f0;
   padding: 0.25em 0.5em;
 }
+
+/* Lịch (FullCalendar): cùng font/màu với giao diện, sự kiện huỷ gạch ngang như classic. */
+.espo-calendar {
+  --fc-border-color: #e2e8f0;
+  --fc-today-bg-color: rgb(37 99 235 / 0.06);
+  --fc-now-indicator-color: #dc2626;
+  --fc-neutral-bg-color: #f8fafc;
+  --fc-page-bg-color: #fff;
+  --fc-non-business-color: rgb(148 163 184 / 0.12);
+  font-size: 0.8125rem;
+}
+
+.espo-calendar .fc-col-header-cell-cushion,
+.espo-calendar .fc-daygrid-day-number {
+  color: #334155;
+  font-weight: 500;
+}
+
+.espo-calendar .fc-event {
+  cursor: pointer;
+}
+
+.espo-calendar .event-canceled .fc-event-title {
+  text-decoration: line-through;
+}

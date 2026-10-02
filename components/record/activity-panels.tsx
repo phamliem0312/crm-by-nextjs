@@ -5,7 +5,9 @@
 // `crm:views/lead/record/panels/converted-to` của classic.
 import { keepPreviousData, useQuery, useQueryClient } from "@tanstack/react-query";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { useState, type ReactNode } from "react";
+import { teamAssignChecker } from "@/components/email/hooks";
 import { translateOption } from "@/components/fields/basic";
 import { FieldValue } from "@/components/fields/registry";
 import type { FieldContext } from "@/components/fields/types";
@@ -21,6 +23,7 @@ import {
   tasksLink,
   type ActivityPanelType,
 } from "@/lib/espo/activities";
+import { archiveEmailAttributes, composeAddressSource, composeEmailAttributes, loadComposeAddresses } from "@/lib/espo/email";
 import { getFieldDefs } from "@/lib/espo/entity";
 import { listLinked, updateRecord, type EspoRecord } from "@/lib/espo/records";
 import { recordCreateHref, recordViewHref } from "@/lib/espo/routes";
@@ -210,7 +213,9 @@ export function ActivitiesPanel({
     <PanelCard
       id={`panel-${panel.name}`}
       title={panel.label}
-      actions={options.map((option) => {
+      actions={[
+        <EmailPanelButton key="email" ctx={ctx} scope={scope} record={record} panel={panel} type={type} />,
+        ...options.map((option) => {
         const label = ctx.t(`${type === "history" ? "Log" : "Schedule"} ${option.scope}`, "labels", option.scope);
         const attributes = activityCreateAttributes(scope, record, option.scope, option.status, {
           metadata: ctx.metadata,
@@ -225,7 +230,8 @@ export function ActivitiesPanel({
             icon={ctx.metadata.clientDefs?.[option.scope]?.iconClass ?? "fas fa-plus"}
           />
         );
-      })}
+        }),
+      ]}
     >
       {items.length ? (
         <ul className="divide-y divide-slate-100">
@@ -267,6 +273,76 @@ export function ActivitiesPanel({
       )}
       {total > items.length && <ShowMore ctx={ctx} onClick={() => setMaxSize(maxSize + pageSize(ctx) * 2)} />}
     </PanelCard>
+  );
+}
+
+/**
+ * Nút soạn email (panel Activities) hoặc lưu email đã có (panel History), điền sẵn người nhận/parent như
+ * `actionComposeEmail` / `actionArchiveEmail` của classic; xong thì quay lại bản ghi.
+ */
+function EmailPanelButton({
+  ctx,
+  scope,
+  record,
+  panel,
+  type,
+}: {
+  ctx: FieldContext;
+  scope: string;
+  record: EspoRecord;
+  panel: PanelDef;
+  type: ActivityPanelType;
+}) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const [busy, setBusy] = useState(false);
+
+  if (!ctx.acl.checkScope("Email", "create")) {
+    return null;
+  }
+
+  const parentCtx = { metadata: ctx.metadata, settings: ctx.settings, user: ctx.user, canAssignTeam: teamAssignChecker(ctx) };
+  const label = type === "history" ? ctx.t("Archive Email", "labels", "Email") : ctx.t("Compose Email", "labels");
+
+  async function open() {
+    const go = (path: string, attributes: Record<string, unknown>) =>
+      router.push(`${path}?${new URLSearchParams({ attributes: JSON.stringify(attributes), returnTo: pathname }).toString()}`);
+
+    if (type === "history") {
+      go("/Email/create", archiveEmailAttributes(scope, record, { ...parentCtx, now: `${ctx.dateTime.getNow(15)}:00` }));
+
+      return;
+    }
+
+    let attributes = composeEmailAttributes(scope, record, parentCtx);
+    const source = composeAddressSource(scope, record, ctx.metadata, panel.view);
+
+    if (source) {
+      setBusy(true);
+
+      try {
+        attributes = await loadComposeAddresses(source, scope, record, attributes);
+      } catch (error) {
+        toast.error(error);
+      } finally {
+        setBusy(false);
+      }
+    }
+
+    go("/Email/compose", attributes);
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={() => void open()}
+      disabled={busy}
+      aria-label={label}
+      title={label}
+      className="inline-flex size-8 items-center justify-center rounded-md text-slate-500 hover:bg-slate-100 hover:text-slate-800 disabled:opacity-40"
+    >
+      <i className={`${ctx.metadata.clientDefs?.Email?.iconClass ?? "fas fa-envelope"} text-xs`} aria-hidden />
+    </button>
   );
 }
 

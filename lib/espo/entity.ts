@@ -18,6 +18,8 @@ export type FieldDefs = {
   type: string;
   required?: boolean;
   readOnly?: boolean;
+  /** Chỉ đọc trên UI (server vẫn ghi được, ví dụ `Email.status`). */
+  clientReadOnly?: boolean;
   readOnlyAfterCreate?: boolean;
   disabled?: boolean;
   utility?: boolean;

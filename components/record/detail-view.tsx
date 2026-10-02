@@ -313,7 +313,7 @@ function DetailContent({
 }
 
 /** Ngày tạo/sửa kèm người tạo/sửa (giống "complexCreated" của classic). */
-function CreatedModified({ ctx, scope, record }: { ctx: FieldContext; scope: string; record: EspoRecord }) {
+export function CreatedModified({ ctx, scope, record }: { ctx: FieldContext; scope: string; record: EspoRecord }) {
   const { t } = ctx;
   const rows = [
     { label: t("Created"), at: record.createdAt, by: record.createdByName, field: "createdAt" },
@@ -339,7 +339,7 @@ function CreatedModified({ ctx, scope, record }: { ctx: FieldContext; scope: str
 }
 
 /** Một field ở trang chi tiết, có nút sửa nhanh (PATCH chỉ field này). */
-function DetailField({
+export function DetailField({
   ctx,
   scope,
   record,
@@ -379,6 +379,7 @@ function DetailField({
     canEdit &&
     !!Edit &&
     !defs.readOnly &&
+    !defs.clientReadOnly &&
     !defs.readOnlyAfterCreate &&
     !defs.inlineEditDisabled &&
     acl.checkField(scope, field, "edit");

@@ -139,8 +139,9 @@ export function getFieldType(defs: FieldDefs | string | undefined): FieldType {
       return byView;
     }
 
-    // linkMultiple có cột trạng thái (người tham dự Meeting/Call): hiện kèm trạng thái chấp nhận.
-    if (defs.type === "linkMultiple" && (defs.columns as Record<string, string> | undefined)?.status) {
+    // linkMultiple có cột trạng thái tham dự (người tham dự Meeting/Call): hiện kèm trạng thái chấp nhận.
+    // (Cột `status` khác, ví dụ `Email.replies`, vẫn là linkMultiple thường.)
+    if (defs.type === "linkMultiple" && (defs.columns as Record<string, string> | undefined)?.status === "acceptanceStatus") {
       return attendeesField;
     }
 

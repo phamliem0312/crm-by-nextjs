@@ -1,0 +1,2034 @@
+{
+  "scopes": {
+    "Email": {
+      "entity": true,
+      "layouts": true,
+      "tab": true,
+      "acl": true,
+      "aclPortal": true,
+      "aclPortalLevelList": [
+        "account",
+        "contact",
+        "own",
+        "no"
+      ],
+      "aclPortalActionList": [
+        "read"
+      ],
+      "notifications": true,
+      "object": true,
+      "customizable": true,
+      "activity": true,
+      "activityStatusList": [
+        "Draft"
+      ],
+      "historyStatusList": [
+        "Archived",
+        "Sent"
+      ]
+    },
+    "EmailFolder": {
+      "entity": true
+    },
+    "EmailTemplate": {
+      "entity": true,
+      "layouts": false,
+      "tab": true,
+      "acl": true,
+      "aclFieldLevelDisabled": true,
+      "customizable": false,
+      "importable": true,
+      "lastViewed": true,
+      "stars": true
+    },
+    "Calendar": {
+      "entity": false,
+      "tab": true,
+      "acl": "boolean",
+      "module": "Crm"
+    },
+    "Import": {
+      "entity": true,
+      "layouts": false,
+      "tab": true,
+      "acl": "boolean",
+      "aclFieldLevelDisabled": true,
+      "customizable": false
+    },
+    "Meeting": {
+      "entity": true,
+      "layouts": true,
+      "tab": true,
+      "acl": true,
+      "aclPortal": true,
+      "aclPortalLevelList": [
+        "all",
+        "account",
+        "contact",
+        "own",
+        "no"
+      ],
+      "module": "Crm",
+      "customizable": true,
+      "importable": true,
+      "notifications": true,
+      "stream": true,
+      "calendar": true,
+      "activity": true,
+      "object": true,
+      "activityStatusList": [
+        "Planned"
+      ],
+      "historyStatusList": [
+        "Held",
+        "Not Held"
+      ],
+      "completedStatusList": [
+        "Held"
+      ],
+      "canceledStatusList": [
+        "Not Held"
+      ],
+      "statusField": "status",
+      "statusFieldLocked": true,
+      "attendeeLinkMap": {
+        "Contact": "contacts",
+        "Lead": "leads",
+        "User": "users"
+      }
+    },
+    "Call": {
+      "entity": true,
+      "layouts": true,
+      "tab": true,
+      "acl": true,
+      "aclPortal": true,
+      "aclPortalLevelList": [
+        "all",
+        "account",
+        "contact",
+        "own",
+        "no"
+      ],
+      "module": "Crm",
+      "customizable": true,
+      "importable": true,
+      "notifications": true,
+      "calendar": true,
+      "activity": true,
+      "object": true,
+      "activityStatusList": [
+        "Planned"
+      ],
+      "historyStatusList": [
+        "Held",
+        "Not Held"
+      ],
+      "completedStatusList": [
+        "Held"
+      ],
+      "canceledStatusList": [
+        "Not Held"
+      ],
+      "statusField": "status",
+      "statusFieldLocked": true,
+      "attendeeLinkMap": {
+        "Contact": "contacts",
+        "Lead": "leads",
+        "User": "users"
+      }
+    },
+    "Task": {
+      "entity": true,
+      "layouts": true,
+      "tab": true,
+      "acl": true,
+      "aclPortal": true,
+      "aclPortalLevelList": [
+        "all",
+        "account",
+        "contact",
+        "own",
+        "no"
+      ],
+      "activityStatusList": [
+        "Not Started",
+        "Started"
+      ],
+      "historyStatusList": [
+        "Completed"
+      ],
+      "completedStatusList": [
+        "Completed"
+      ],
+      "canceledStatusList": [
+        "Canceled"
+      ],
+      "module": "Crm",
+      "customizable": true,
+      "importable": true,
+      "notifications": true,
+      "calendar": true,
+      "calendarOneDay": true,
+      "object": true,
+      "statusField": "status",
+      "stream": true,
+      "kanbanStatusIgnoreList": [
+        "Canceled",
+        "Deferred"
+      ],
+      "statusFieldLocked": true,
+      "collaborators": true
+    }
+  },
+  "entityDefs": {
+    "Email": {
+      "fields": {
+        "name": {
+          "type": "varchar",
+          "required": true,
+          "layoutDefaultSidePanelDisabled": true,
+          "massUpdateDisabled": true
+        },
+        "subject": {
+          "type": "varchar",
+          "required": true,
+          "notStorable": true,
+          "orderDisabled": true,
+          "view": "views/email/fields/subject",
+          "layoutAvailabilityList": [
+            "list"
+          ],
+          "directAccessDisabled": true,
+          "directUpdateDisabled": true
+        },
+        "fromName": {
+          "type": "varchar",
+          "readOnly": true,
+          "notStorable": true,
+          "textFilterDisabled": true,
+          "layoutFiltersDisabled": true,
+          "customizationDisabled": true,
+          "layoutDefaultSidePanelDisabled": true,
+          "massUpdateDisabled": true
+        },
+        "fromAddress": {
+          "type": "varchar",
+          "readOnly": true,
+          "notStorable": true,
+          "orderDisabled": true,
+          "textFilterDisabled": true,
+          "layoutFiltersDisabled": true,
+          "customizationDisabled": true,
+          "layoutDefaultSidePanelDisabled": true,
+          "massUpdateDisabled": true
+        },
+        "fromString": {
+          "type": "varchar",
+          "customizationDisabled": true,
+          "layoutDefaultSidePanelDisabled": true,
+          "massUpdateDisabled": true,
+          "textFilterDisabled": true
+        },
+        "replyToString": {
+          "type": "varchar",
+          "customizationDisabled": true,
+          "layoutDefaultSidePanelDisabled": true,
+          "massUpdateDisabled": true,
+          "textFilterDisabled": true
+        },
+        "replyToName": {
+          "type": "varchar",
+          "readOnly": true,
+          "notStorable": true,
+          "orderDisabled": true,
+          "textFilterDisabled": true,
+          "layoutFiltersDisabled": true,
+          "customizationDisabled": true,
+          "layoutDefaultSidePanelDisabled": true,
+          "massUpdateDisabled": true
+        },
+        "replyToAddress": {
+          "type": "varchar",
+          "readOnly": true,
+          "notStorable": true,
+          "orderDisabled": true,
+          "textFilterDisabled": true,
+          "layoutFiltersDisabled": true,
+          "customizationDisabled": true,
+          "layoutDefaultSidePanelDisabled": true,
+          "massUpdateDisabled": true
+        },
+        "addressNameMap": {
+          "type": "jsonObject",
+          "utility": true,
+          "readOnly": true,
+          "customizationDisabled": true
+        },
+        "from": {
+          "type": "varchar",
+          "notStorable": true,
+          "orderDisabled": true,
+          "required": true,
+          "view": "views/email/fields/from-address-varchar",
+          "textFilterDisabled": true,
+          "customizationDisabled": true,
+          "layoutAvailabilityList": [
+            "detail",
+            "filters"
+          ],
+          "massUpdateDisabled": true,
+          "loaderClassName": "Espo\\Classes\\FieldProcessing\\Email\\AddressLoader"
+        },
+        "to": {
+          "type": "varchar",
+          "notStorable": true,
+          "orderDisabled": true,
+          "required": true,
+          "view": "views/email/fields/email-address-varchar",
+          "validatorClassName": "Espo\\Classes\\FieldValidators\\Email\\EmailAddresses",
+          "validatorClassNameList": [
+            "Espo\\Classes\\FieldValidators\\Email\\Addresses\\Valid",
+            "Espo\\Classes\\FieldValidators\\Email\\Addresses\\MaxCount"
+          ],
+          "textFilterDisabled": true,
+          "customizationDisabled": true,
+          "layoutAvailabilityList": [
+            "detail",
+            "filters"
+          ],
+          "massUpdateDisabled": true,
+          "loaderClassName": "Espo\\Classes\\FieldProcessing\\Email\\AddressLoader"
+        },
+        "cc": {
+          "type": "varchar",
+          "notStorable": true,
+          "orderDisabled": true,
+          "view": "views/email/fields/email-address-varchar",
+          "validatorClassNameList": [
+            "Espo\\Classes\\FieldValidators\\Email\\Addresses\\Valid",
+            "Espo\\Classes\\FieldValidators\\Email\\Addresses\\MaxCount"
+          ],
+          "customizationDisabled": true,
+          "textFilterDisabled": true,
+          "layoutAvailabilityList": [
+            "detail",
+            "filters"
+          ],
+          "massUpdateDisabled": true,
+          "loaderClassName": "Espo\\Classes\\FieldProcessing\\Email\\AddressLoader"
+        },
+        "bcc": {
+          "type": "varchar",
+          "notStorable": true,
+          "orderDisabled": true,
+          "view": "views/email/fields/email-address-varchar",
+          "validatorClassNameList": [
+            "Espo\\Classes\\FieldValidators\\Email\\Addresses\\Valid",
+            "Espo\\Classes\\FieldValidators\\Email\\Addresses\\MaxCount"
+          ],
+          "customizationDisabled": true,
+          "textFilterDisabled": true,
+          "layoutAvailabilityList": [
+            "detail"
+          ],
+          "massUpdateDisabled": true,
+          "loaderClassName": "Espo\\Classes\\FieldProcessing\\Email\\AddressLoader"
+        },
+        "replyTo": {
+          "type": "varchar",
+          "notStorable": true,
+          "orderDisabled": true,
+          "view": "views/email/fields/email-address-varchar",
+          "textFilterDisabled": true,
+          "customizationDisabled": true,
+          "layoutAvailabilityList": [
+            "detail"
+          ],
+          "massUpdateDisabled": true,
+          "loaderClassName": "Espo\\Classes\\FieldProcessing\\Email\\AddressLoader"
+        },
+        "personStringData": {
+          "type": "varchar",
+          "notStorable": true,
+          "orderDisabled": true,
+          "view": "views/email/fields/person-string-data",
+          "layoutAvailabilityList": [
+            "list"
+          ],
+          "directAccessDisabled": true,
+          "directUpdateDisabled": true,
+          "customizationDisabled": true,
+          "massUpdateDisabled": true
+        },
+        "isRead": {
+          "type": "bool",
+          "notStorable": true,
+          "default": true,
+          "readOnly": true,
+          "customizationDisabled": true
+        },
+        "isNotRead": {
+          "type": "bool",
+          "notStorable": true,
+          "layoutListDisabled": true,
+          "layoutDetailDisabled": true,
+          "layoutMassUpdateDisabled": true,
+          "readOnly": true,
+          "customizationDisabled": true
+        },
+        "isReplied": {
+          "type": "bool",
+          "readOnly": true,
+          "customizationDisabled": true
+        },
+        "isNotReplied": {
+          "type": "bool",
+          "notStorable": true,
+          "layoutListDisabled": true,
+          "layoutDetailDisabled": true,
+          "layoutMassUpdateDisabled": true,
+          "readOnly": true,
+          "customizationDisabled": true
+        },
+        "isImportant": {
+          "type": "bool",
+          "notStorable": true,
+          "default": false,
+          "customizationDisabled": true,
+          "readOnly": true
+        },
+        "inTrash": {
+          "type": "bool",
+          "notStorable": true,
+          "default": false,
+          "customizationDisabled": true,
+          "readOnly": true
+        },
+        "inArchive": {
+          "type": "bool",
+          "notStorable": true,
+          "default": false,
+          "customizationDisabled": true,
+          "readOnly": true
+        },
+        "folderId": {
+          "type": "varchar",
+          "notStorable": true,
+          "default": null,
+          "textFilterDisabled": true,
+          "customizationDisabled": true,
+          "layoutAvailabilityList": [],
+          "readOnly": true
+        },
+        "isUsers": {
+          "type": "bool",
+          "notStorable": true,
+          "default": false,
+          "customizationDisabled": true,
+          "readOnly": true
+        },
+        "isUsersSent": {
+          "type": "bool",
+          "notStorable": true,
+          "readOnly": true,
+          "utility": true
+        },
+        "folder": {
+          "type": "link",
+          "notStorable": true,
+          "orderDisabled": true,
+          "readOnly": true,
+          "entity": "EmailFolder",
+          "customizationDisabled": true,
+          "layoutAvailabilityList": []
+        },
+        "folderString": {
+          "type": "link",
+          "notStorable": true,
+          "orderDisabled": true,
+          "readOnly": true,
+          "entity": "EmailFolder",
+          "customizationDisabled": true,
+          "view": "views/email/fields/folder-string",
+          "layoutAvailabilityList": [
+            "defaultSidePanel"
+          ]
+        },
+        "nameHash": {
+          "type": "jsonObject",
+          "notStorable": true,
+          "orderDisabled": true,
+          "readOnly": true,
+          "utility": true,
+          "customizationDisabled": true
+        },
+        "typeHash": {
+          "type": "jsonObject",
+          "notStorable": true,
+          "readOnly": true,
+          "utility": true,
+          "customizationDisabled": true
+        },
+        "idHash": {
+          "type": "jsonObject",
+          "notStorable": true,
+          "orderDisabled": true,
+          "readOnly": true,
+          "utility": true,
+          "customizationDisabled": true
+        },
+        "messageId": {
+          "type": "varchar",
+          "maxLength": 500,
+          "readOnly": true,
+          "index": true,
+          "textFilterDisabled": true,
+          "customizationDisabled": true
+        },
+        "messageIdInternal": {
+          "type": "varchar",
+          "maxLength": 500,
+          "readOnly": true,
+          "textFilterDisabled": true,
+          "customizationDisabled": true,
+          "layoutAvailabilityList": []
+        },
+        "emailAddress": {
+          "type": "varchar",
+          "notStorable": true,
+          "view": "views/email/fields/email-address",
+          "customizationDisabled": true,
+          "layoutDefaultSidePanelDisabled": true,
+          "massUpdateDisabled": true
+        },
+        "fromEmailAddress": {
+          "type": "link",
+          "view": "views/email/fields/from-email-address",
+          "textFilterDisabled": true,
+          "customizationDisabled": true,
+          "layoutAvailabilityList": [],
+          "massUpdateDisabled": true,
+          "readOnly": true
+        },
+        "toEmailAddresses": {
+          "type": "linkMultiple",
+          "customizationDisabled": true,
+          "layoutAvailabilityList": [],
+          "massUpdateDisabled": true,
+          "readOnly": true
+        },
+        "ccEmailAddresses": {
+          "type": "linkMultiple",
+          "customizationDisabled": true,
+          "layoutAvailabilityList": [],
+          "massUpdateDisabled": true,
+          "readOnly": true
+        },
+        "bccEmailAddresses": {
+          "type": "linkMultiple",
+          "customizationDisabled": true,
+          "layoutAvailabilityList": [],
+          "massUpdateDisabled": true,
+          "readOnly": true
+        },
+        "replyToEmailAddresses": {
+          "type": "linkMultiple",
+          "customizationDisabled": true,
+          "layoutAvailabilityList": [],
+          "massUpdateDisabled": true,
+          "readOnly": true
+        },
+        "bodyPlain": {
+          "type": "text",
+          "seeMoreDisabled": true,
+          "customizationDisabled": true,
+          "layoutDefaultSidePanelDisabled": true,
+          "layoutMassUpdateDisabled": true,
+          "massUpdateDisabled": true,
+          "readOnly": true
+        },
+        "body": {
+          "type": "wysiwyg",
+          "view": "views/email/fields/body",
+          "attachmentField": "attachments",
+          "useIframe": true,
+          "customizationDisabled": true,
+          "layoutDefaultSidePanelDisabled": true,
+          "layoutMassUpdateDisabled": true,
+          "massUpdateDisabled": true
+        },
+        "isHtml": {
+          "type": "bool",
+          "default": true,
+          "fieldManagerParamList": [
+            "default",
+            "tooltipText"
+          ],
+          "inlineEditDisabled": true,
+          "layoutDefaultSidePanelDisabled": true,
+          "massUpdateDisabled": true
+        },
+        "status": {
+          "type": "enum",
+          "options": [
+            "Draft",
+            "Sending",
+            "Sent",
+            "Archived",
+            "Failed"
+          ],
+          "default": "Archived",
+          "clientReadOnly": true,
+          "style": {
+            "Draft": "warning",
+            "Failed": "danger",
+            "Sending": "warning"
+          },
+          "customizationDisabled": true,
+          "massUpdateDisabled": true
+        },
+        "attachments": {
+          "type": "attachmentMultiple",
+          "sourceList": [
+            "Document"
+          ],
+          "layoutDefaultSidePanelDisabled": true,
+          "massUpdateDisabled": true
+        },
+        "hasAttachment": {
+          "type": "bool",
+          "readOnly": true,
+          "customizationDisabled": true,
+          "layoutDefaultSidePanelDisabled": true,
+          "layoutDetailDisabled": true
+        },
+        "parent": {
+          "type": "linkParent",
+          "fieldManagerParamList": [
+            "required",
+            "entityList",
+            "autocompleteOnEmpty",
+            "audited",
+            "tooltipText"
+          ],
+          "entityList": [
+            "Account",
+            "Lead",
+            "Contact",
+            "Opportunity",
+            "Case"
+          ]
+        },
+        "dateSent": {
+          "type": "datetime",
+          "customizationDisabled": true,
+          "layoutDefaultSidePanelDisabled": true,
+          "massUpdateDisabled": true,
+          "view": "views/email/fields/date-sent"
+        },
+        "deliveryDate": {
+          "type": "datetime",
+          "readOnly": true,
+          "customizationDisabled": true
+        },
+        "sendAt": {
+          "type": "datetime",
+          "customizationDisabled": true,
+          "layoutAvailabilityList": [
+            "filters",
+            "list"
+          ],
+          "validatorClassNameList": [
+            "Espo\\Classes\\FieldValidators\\Email\\SendAt\\Future"
+          ]
+        },
+        "isAutoReply": {
+          "type": "bool",
+          "readOnly": true,
+          "fieldManagerParamList": [],
+          "layoutDefaultSidePanelDisabled": true,
+          "layoutDetailDisabled": true
+        },
+        "createdAt": {
+          "type": "datetime",
+          "readOnly": true,
+          "fieldManagerParamList": [
+            "useNumericFormat"
+          ]
+        },
+        "modifiedAt": {
+          "type": "datetime",
+          "readOnly": true,
+          "fieldManagerParamList": [
+            "useNumericFormat"
+          ]
+        },
+        "createdBy": {
+          "type": "link",
+          "readOnly": true,
+          "view": "views/fields/user",
+          "customizationDisabled": true
+        },
+        "sentBy": {
+          "type": "link",
+          "readOnly": true,
+          "noLoad": true,
+          "customizationDisabled": true
+        },
+        "modifiedBy": {
+          "type": "link",
+          "readOnly": true,
+          "view": "views/fields/user",
+          "customizationDisabled": true
+        },
+        "assignedUser": {
+          "type": "link",
+          "required": false,
+          "view": "views/fields/assigned-user",
+          "massUpdateDisabled": true
+        },
+        "replied": {
+          "type": "link",
+          "noJoin": true,
+          "view": "views/email/fields/replied",
+          "customizationDisabled": true,
+          "massUpdateDisabled": true
+        },
+        "replies": {
+          "type": "linkMultiple",
+          "readOnly": true,
+          "orderBy": "dateSent",
+          "view": "views/email/fields/replies",
+          "customizationDisabled": true,
+          "columns": {
+            "status": "status"
+          },
+          "massUpdateDisabled": true
+        },
+        "isSystem": {
+          "type": "bool",
+          "default": false,
+          "readOnly": true,
+          "customizationDisabled": true,
+          "massUpdateDisabled": true
+        },
+        "isJustSent": {
+          "type": "bool",
+          "default": false,
+          "readOnly": true,
+          "utility": true,
+          "notStorable": true,
+          "customizationDisabled": true,
+          "massUpdateDisabled": true
+        },
+        "isBeingImported": {
+          "type": "bool",
+          "readOnly": true,
+          "utility": true,
+          "notStorable": true,
+          "customizationDisabled": true,
+          "massUpdateDisabled": true
+        },
+        "skipNotificationMap": {
+          "type": "jsonObject",
+          "utility": true,
+          "readOnly": true,
+          "notStorable": true
+        },
+        "teams": {
+          "type": "linkMultiple",
+          "view": "views/fields/teams"
+        },
+        "users": {
+          "type": "linkMultiple",
+          "noLoad": true,
+          "layoutDetailDisabled": true,
+          "layoutListDisabled": true,
+          "readOnly": true,
+          "columns": {
+            "inTrash": "inTrash",
+            "folderId": "folderId",
+            "inArchive": "inArchive",
+            "isRead": "isRead"
+          },
+          "customizationDisabled": true,
+          "additionalAttributeList": [
+            "columns"
+          ]
+        },
+        "assignedUsers": {
+          "type": "linkMultiple",
+          "layoutListDisabled": true,
+          "readOnly": true,
+          "customizationDisabled": true,
+          "view": "views/fields/assigned-users"
+        },
+        "inboundEmails": {
+          "type": "linkMultiple",
+          "layoutDetailDisabled": true,
+          "layoutListDisabled": true,
+          "noLoad": true,
+          "readOnly": true,
+          "fieldManagerParamList": [
+            "default"
+          ]
+        },
+        "emailAccounts": {
+          "type": "linkMultiple",
+          "layoutDetailDisabled": true,
+          "layoutListDisabled": true,
+          "noLoad": true,
+          "readOnly": true,
+          "fieldManagerParamList": [
+            "default"
+          ]
+        },
+        "icsContents": {
+          "type": "text",
+          "readOnly": true,
+          "layoutDetailDisabled": true,
+          "layoutListDisabled": true,
+          "layoutMassUpdateDisabled": true,
+          "customizationDisabled": true,
+          "layoutAvailabilityList": []
+        },
+        "icsEventData": {
+          "type": "jsonObject",
+          "readOnly": true,
+          "directAccessDisabled": true,
+          "notStorable": true,
+          "customizationDisabled": true,
+          "layoutAvailabilityList": []
+        },
+        "icsEventUid": {
+          "type": "varchar",
+          "maxLength": 255,
+          "index": true,
+          "readOnly": true,
+          "customizationDisabled": true,
+          "layoutAvailabilityList": []
+        },
+        "icsEventDateStart": {
+          "type": "datetimeOptional",
+          "readOnly": true,
+          "notStorable": true,
+          "customizationDisabled": true,
+          "layoutAvailabilityList": []
+        },
+        "createEvent": {
+          "type": "base",
+          "utility": true,
+          "notStorable": true,
+          "view": "views/email/fields/create-event",
+          "customizationDisabled": true,
+          "massUpdateDisabled": true,
+          "layoutAvailabilityList": []
+        },
+        "createdEvent": {
+          "type": "linkParent",
+          "readOnly": true,
+          "view": "views/email/fields/created-event",
+          "fieldManagerParamList": [
+            "tooltipText"
+          ],
+          "layoutAvailabilityList": []
+        },
+        "groupFolder": {
+          "type": "link",
+          "massUpdateDisabled": true,
+          "readOnly": true,
+          "fieldManagerParamList": [
+            "audited"
+          ],
+          "audited": true
+        },
+        "groupStatusFolder": {
+          "type": "enum",
+          "options": [
+            "",
+            "Archive",
+            "Trash"
+          ],
+          "maxLength": 7,
+          "readOnly": true,
+          "customizationDisabled": true,
+          "index": true
+        },
+        "account": {
+          "type": "link",
+          "readOnly": true,
+          "customizationDisabled": true
+        },
+        "tasks": {
+          "type": "linkMultiple",
+          "readOnly": true,
+          "columns": {
+            "status": "status"
+          },
+          "view": "crm:views/task/fields/tasks",
+          "fieldManagerParamList": [
+            "tooltipText"
+          ],
+          "dynamicLogicDisabled": true
+        },
+        "icsEventDateStartDate": {
+          "readOnly": true,
+          "notStorable": true,
+          "customizationDisabled": true,
+          "type": "date",
+          "utility": true,
+          "detailLayoutIncompatibleFieldList": [
+            "icsEventDateStart"
+          ]
+        }
+      },
+      "links": {
+        "createdBy": {
+          "type": "belongsTo",
+          "entity": "User"
+        },
+        "modifiedBy": {
+          "type": "belongsTo",
+          "entity": "User"
+        },
+        "assignedUser": {
+          "type": "belongsTo",
+          "entity": "User"
+        },
+        "teams": {
+          "type": "hasMany",
+          "entity": "Team",
+          "relationName": "entityTeam"
+        },
+        "assignedUsers": {
+          "type": "hasMany",
+          "entity": "User",
+          "relationName": "entityUser"
+        },
+        "users": {
+          "type": "hasMany",
+          "entity": "User",
+          "foreign": "emails",
+          "additionalColumns": {
+            "isRead": {
+              "type": "bool",
+              "default": false
+            },
+            "isImportant": {
+              "type": "bool",
+              "default": false
+            },
+            "inTrash": {
+              "type": "bool",
+              "default": false
+            },
+            "inArchive": {
+              "type": "bool",
+              "default": false
+            },
+            "folderId": {
+              "type": "foreignId",
+              "default": null
+            }
+          }
+        },
+        "sentBy": {
+          "type": "belongsTo",
+          "entity": "User"
+        },
+        "attachments": {
+          "type": "hasChildren",
+          "entity": "Attachment",
+          "foreign": "parent",
+          "relationName": "attachments"
+        },
+        "parent": {
+          "type": "belongsToParent",
+          "entityList": [],
+          "foreign": "emails"
+        },
+        "replied": {
+          "type": "belongsTo",
+          "entity": "Email",
+          "foreign": "replies"
+        },
+        "replies": {
+          "type": "hasMany",
+          "entity": "Email",
+          "foreign": "replied"
+        },
+        "fromEmailAddress": {
+          "type": "belongsTo",
+          "entity": "EmailAddress"
+        },
+        "toEmailAddresses": {
+          "type": "hasMany",
+          "entity": "EmailAddress",
+          "relationName": "emailEmailAddress",
+          "conditions": {
+            "addressType": "to"
+          },
+          "additionalColumns": {
+            "addressType": {
+              "type": "varchar",
+              "len": "4"
+            }
+          }
+        },
+        "ccEmailAddresses": {
+          "type": "hasMany",
+          "entity": "EmailAddress",
+          "relationName": "emailEmailAddress",
+          "conditions": {
+            "addressType": "cc"
+          },
+          "additionalColumns": {
+            "addressType": {
+              "type": "varchar",
+              "len": "4"
+            }
+          },
+          "layoutDefaultSidePanelDisabled": true
+        },
+        "bccEmailAddresses": {
+          "type": "hasMany",
+          "entity": "EmailAddress",
+          "relationName": "emailEmailAddress",
+          "conditions": {
+            "addressType": "bcc"
+          },
+          "additionalColumns": {
+            "addressType": {
+              "type": "varchar",
+              "len": "4"
+            }
+          },
+          "layoutDefaultSidePanelDisabled": true
+        },
+        "replyToEmailAddresses": {
+          "type": "hasMany",
+          "entity": "EmailAddress",
+          "relationName": "emailEmailAddress",
+          "conditions": {
+            "addressType": "rto"
+          },
+          "additionalColumns": {
+            "addressType": {
+              "type": "varchar",
+              "len": "4"
+            }
+          }
+        },
+        "inboundEmails": {
+          "type": "hasMany",
+          "entity": "InboundEmail",
+          "foreign": "emails"
+        },
+        "emailAccounts": {
+          "type": "hasMany",
+          "entity": "EmailAccount",
+          "foreign": "emails"
+        },
+        "createdEvent": {
+          "type": "belongsToParent",
+          "entityList": [
+            "Meeting"
+          ]
+        },
+        "groupFolder": {
+          "type": "belongsTo",
+          "entity": "GroupEmailFolder",
+          "foreign": "emails"
+        },
+        "account": {
+          "type": "belongsTo",
+          "entity": "Account"
+        },
+        "tasks": {
+          "type": "hasMany",
+          "entity": "Task",
+          "foreign": "email"
+        }
+      },
+      "collection": {
+        "orderBy": "dateSent",
+        "order": "desc",
+        "textFilterFields": [
+          "name",
+          "bodyPlain",
+          "body"
+        ],
+        "countDisabled": true,
+        "fullTextSearch": true,
+        "fullTextSearchOrderType": "original",
+        "sortBy": "dateSent",
+        "asc": false
+      },
+      "indexes": {
+        "createdById": {
+          "columns": [
+            "createdById"
+          ]
+        },
+        "dateSent": {
+          "columns": [
+            "dateSent",
+            "deleted"
+          ]
+        },
+        "dateSentStatus": {
+          "columns": [
+            "dateSent",
+            "status",
+            "deleted"
+          ]
+        }
+      }
+    },
+    "EmailFolder": {
+      "fields": {
+        "name": {
+          "type": "varchar",
+          "required": true,
+          "maxLength": 64,
+          "pattern": "$noBadCharacters"
+        },
+        "order": {
+          "type": "int"
+        },
+        "assignedUser": {
+          "type": "link",
+          "readOnly": true
+        },
+        "skipNotifications": {
+          "type": "bool"
+        },
+        "createdAt": {
+          "type": "datetime",
+          "readOnly": true
+        },
+        "modifiedAt": {
+          "type": "datetime",
+          "readOnly": true
+        },
+        "createdBy": {
+          "type": "link",
+          "readOnly": true
+        },
+        "modifiedBy": {
+          "type": "link",
+          "readOnly": true
+        }
+      },
+      "links": {
+        "createdBy": {
+          "type": "belongsTo",
+          "entity": "User"
+        },
+        "modifiedBy": {
+          "type": "belongsTo",
+          "entity": "User"
+        },
+        "assignedUser": {
+          "type": "belongsTo",
+          "entity": "User"
+        }
+      },
+      "collection": {
+        "orderBy": "order",
+        "order": "asc",
+        "sortBy": "order",
+        "asc": true
+      }
+    },
+    "Import": {
+      "fields": {
+        "entityType": {
+          "type": "enum",
+          "translation": "Global.scopeNames",
+          "required": true,
+          "readOnly": true,
+          "view": "views/fields/entity-type"
+        },
+        "status": {
+          "type": "enum",
+          "options": [
+            "Standby",
+            "Pending",
+            "In Process",
+            "Complete",
+            "Failed"
+          ],
+          "readOnly": true,
+          "displayAsLabel": true,
+          "labelType": "state",
+          "style": {
+            "Complete": "success",
+            "Failed": "danger"
+          }
+        },
+        "file": {
+          "type": "file",
+          "required": true,
+          "readOnly": true
+        },
+        "importedCount": {
+          "type": "int",
+          "readOnly": true,
+          "notStorable": true
+        },
+        "duplicateCount": {
+          "type": "int",
+          "readOnly": true,
+          "notStorable": true
+        },
+        "updatedCount": {
+          "type": "int",
+          "readOnly": true,
+          "notStorable": true
+        },
+        "lastIndex": {
+          "type": "int",
+          "readOnly": true
+        },
+        "params": {
+          "type": "jsonObject",
+          "readOnly": true
+        },
+        "attributeList": {
+          "type": "jsonArray",
+          "readOnly": true
+        },
+        "createdAt": {
+          "type": "datetime",
+          "readOnly": true
+        },
+        "createdBy": {
+          "type": "link",
+          "readOnly": true,
+          "view": "views/fields/user"
+        }
+      },
+      "links": {
+        "createdBy": {
+          "type": "belongsTo",
+          "entity": "User"
+        },
+        "errors": {
+          "type": "hasMany",
+          "entity": "ImportError",
+          "foreign": "import",
+          "readOnly": true
+        }
+      },
+      "collection": {
+        "orderBy": "createdAt",
+        "order": "desc",
+        "sortBy": "createdAt",
+        "asc": false
+      }
+    },
+    "EmailTemplate": {
+      "fields": {
+        "name": {
+          "type": "varchar",
+          "required": true,
+          "audited": true
+        },
+        "subject": {
+          "type": "varchar",
+          "audited": true
+        },
+        "body": {
+          "type": "wysiwyg",
+          "view": "views/email-template/fields/body",
+          "useIframe": true,
+          "attachmentField": "attachments",
+          "audited": true
+        },
+        "isHtml": {
+          "type": "bool",
+          "default": true,
+          "inlineEditDisabled": true,
+          "audited": true
+        },
+        "status": {
+          "type": "enum",
+          "options": [
+            "Active",
+            "Inactive"
+          ],
+          "default": "Active",
+          "style": {
+            "Inactive": "info"
+          },
+          "maxLength": 8,
+          "audited": true
+        },
+        "oneOff": {
+          "type": "bool",
+          "default": false,
+          "tooltip": true
+        },
+        "attachments": {
+          "type": "attachmentMultiple",
+          "audited": true
+        },
+        "category": {
+          "type": "link",
+          "view": "views/fields/link-category-tree"
+        },
+        "assignedUser": {
+          "type": "link",
+          "view": "views/fields/assigned-user"
+        },
+        "teams": {
+          "type": "linkMultiple",
+          "audited": true
+        },
+        "description": {
+          "type": "text"
+        },
+        "createdAt": {
+          "type": "datetime",
+          "readOnly": true
+        },
+        "modifiedAt": {
+          "type": "datetime",
+          "readOnly": true
+        },
+        "createdBy": {
+          "type": "link",
+          "readOnly": true,
+          "view": "views/fields/user"
+        },
+        "modifiedBy": {
+          "type": "link",
+          "readOnly": true,
+          "view": "views/fields/user"
+        }
+      },
+      "links": {
+        "attachments": {
+          "type": "hasChildren",
+          "entity": "Attachment",
+          "foreign": "parent"
+        },
+        "category": {
+          "type": "belongsTo",
+          "foreign": "emailTemplates",
+          "entity": "EmailTemplateCategory"
+        },
+        "teams": {
+          "type": "hasMany",
+          "entity": "Team",
+          "relationName": "entityTeam"
+        },
+        "assignedUser": {
+          "type": "belongsTo",
+          "entity": "User"
+        },
+        "createdBy": {
+          "type": "belongsTo",
+          "entity": "User"
+        },
+        "modifiedBy": {
+          "type": "belongsTo",
+          "entity": "User"
+        }
+      },
+      "collection": {
+        "orderBy": "name",
+        "order": "asc",
+        "textFilterFields": [
+          "name"
+        ],
+        "sortBy": "name",
+        "asc": true
+      },
+      "optimisticConcurrencyControl": true
+    }
+  },
+  "clientDefs": {
+    "Email": {
+      "controller": "controllers/email",
+      "acl": "acl/email",
+      "views": {
+        "list": "views/email/list",
+        "detail": "views/email/detail"
+      },
+      "recordViews": {
+        "list": "views/email/record/list",
+        "detail": "views/email/record/detail",
+        "edit": "views/email/record/edit",
+        "editQuick": "views/email/record/edit-quick",
+        "detailQuick": "views/email/record/detail-quick",
+        "compose": "views/email/record/compose",
+        "listRelated": "views/email/record/list-related"
+      },
+      "modalViews": {
+        "detail": "views/email/modals/detail",
+        "compose": "views/modals/compose-email"
+      },
+      "quickCreateModalType": "compose",
+      "defaultSidePanelView": "views/email/record/panels/default-side",
+      "sidePanels": {
+        "detail": [
+          {
+            "name": "event",
+            "label": "Event",
+            "view": "views/email/record/panels/event",
+            "isForm": true,
+            "hidden": true
+          }
+        ]
+      },
+      "menu": {
+        "list": {
+          "buttons": [
+            {
+              "label": "Compose",
+              "action": "composeEmail",
+              "style": "danger",
+              "acl": "create",
+              "className": "btn-s-wide",
+              "title": "Ctrl+Space"
+            }
+          ],
+          "dropdown": [
+            {
+              "name": "archiveEmail",
+              "label": "Archive Email",
+              "link": "#Email/create",
+              "acl": "create",
+              "iconClass": "fas fa-plus"
+            },
+            {
+              "name": "importEml",
+              "label": "Import EML",
+              "handler": "handlers/email/list-actions",
+              "checkVisibilityFunction": "checkImportEml",
+              "actionFunction": "importEml",
+              "iconClass": "fas fa-upload"
+            },
+            false,
+            {
+              "label": "Email Templates",
+              "link": "#EmailTemplate",
+              "acl": "read",
+              "aclScope": "EmailTemplate"
+            },
+            {
+              "label": "Folders",
+              "link": "#EmailFolder",
+              "configCheck": "!emailFoldersDisabled",
+              "accessDataList": [
+                {
+                  "inPortalDisabled": true
+                }
+              ],
+              "iconClass": "far fa-folder"
+            },
+            {
+              "label": "Group Folders",
+              "link": "#GroupEmailFolder",
+              "configCheck": "!emailFoldersDisabled",
+              "accessDataList": [
+                {
+                  "inPortalDisabled": true
+                },
+                {
+                  "isAdminOnly": true
+                }
+              ],
+              "iconClass": "far fa-circle"
+            },
+            {
+              "label": "Filters",
+              "link": "#EmailFilter",
+              "accessDataList": [
+                {
+                  "inPortalDisabled": true
+                }
+              ]
+            }
+          ]
+        },
+        "detail": {
+          "dropdown": [
+            {
+              "label": "Reply",
+              "action": "reply",
+              "acl": "read",
+              "iconClass": "fas fa-reply"
+            },
+            {
+              "label": "Reply to All",
+              "action": "replyToAll",
+              "acl": "read",
+              "iconClass": "fas fa-reply-all"
+            },
+            {
+              "label": "Forward",
+              "action": "forward",
+              "acl": "read",
+              "iconClass": "fas fa-reply fa-flip-horizontal"
+            }
+          ]
+        }
+      },
+      "relationshipPanels": {
+        "users": {
+          "selectHandler": "handlers/email/select-user"
+        }
+      },
+      "filterList": [],
+      "defaultFilterData": {},
+      "boolFilterList": [],
+      "iconClass": "fas fa-envelope",
+      "layoutBottomPanelsDetailDisabled": true,
+      "layoutDetailDisabled": true,
+      "layoutDetailSmallDisabled": true,
+      "layoutSidePanelsDetailSmallDisabled": true,
+      "layoutSidePanelsEditSmallDisabled": true
+    },
+    "EmailFolder": {
+      "controller": "controllers/record",
+      "views": {
+        "list": "views/email-folder/list"
+      },
+      "recordViews": {
+        "list": "views/email-folder/record/list",
+        "editQuick": "views/email-folder/record/edit-small"
+      },
+      "menu": {
+        "list": {
+          "buttons": [
+            {
+              "label": "Emails",
+              "link": "#Email",
+              "style": "default",
+              "aclScope": "Email"
+            }
+          ]
+        }
+      },
+      "searchPanelDisabled": true
+    },
+    "EmailTemplate": {
+      "controller": "controllers/record",
+      "forceListViewSettings": true,
+      "views": {
+        "list": "views/email-template/list"
+      },
+      "recordViews": {
+        "edit": "views/email-template/record/edit",
+        "detail": "views/email-template/record/detail",
+        "editQuick": "views/email-template/record/edit-quick"
+      },
+      "modalViews": {
+        "select": "views/modals/select-records-with-categories"
+      },
+      "sidePanels": {
+        "detail": [
+          {
+            "name": "information",
+            "label": "Info",
+            "view": "views/email-template/record/panels/information"
+          }
+        ],
+        "edit": [
+          {
+            "name": "information",
+            "label": "Info",
+            "view": "views/email-template/record/panels/information"
+          }
+        ]
+      },
+      "boolFilterList": [
+        "onlyMy"
+      ],
+      "filterList": [
+        "actual"
+      ],
+      "placeholderList": [
+        "optOutUrl",
+        "optOutLink"
+      ],
+      "iconClass": "fas fa-envelope-square"
+    },
+    "Calendar": {
+      "colors": {
+        "Meeting": "#558BBD",
+        "Call": "#CF605D",
+        "Task": "#70c173"
+      },
+      "scopeList": [
+        "Meeting",
+        "Call",
+        "Task"
+      ],
+      "modeList": [
+        "month",
+        "agendaWeek",
+        "timeline",
+        "agendaDay"
+      ],
+      "sharedViewModeList": [
+        "basicWeek",
+        "month",
+        "basicDay"
+      ],
+      "additionalColorList": [
+        "#AB78AD",
+        "#CC9B45"
+      ],
+      "iconClass": "far fa-calendar-alt",
+      "slotDuration": 30,
+      "detailActionList": [],
+      "editActionList": [],
+      "modalDetailActionList": [],
+      "modalEditActionList": []
+    },
+    "Import": {
+      "controller": "controllers/import",
+      "acl": "acl/import",
+      "recordViews": {
+        "list": "views/import/record/list",
+        "detail": "views/import/record/detail"
+      },
+      "views": {
+        "list": "views/import/list",
+        "detail": "views/import/detail"
+      },
+      "bottomPanels": {
+        "detail": [
+          {
+            "name": "imported",
+            "label": "Imported",
+            "view": "views/import/record/panels/imported",
+            "createDisabled": true,
+            "selectDisabled": true,
+            "unlinkDisabled": true
+          },
+          {
+            "name": "duplicates",
+            "label": "Duplicates",
+            "view": "views/import/record/panels/duplicates",
+            "rowActionsView": "views/import/record/row-actions/duplicates",
+            "createDisabled": true,
+            "selectDisabled": true,
+            "unlinkDisabled": true
+          },
+          {
+            "name": "updated",
+            "label": "Updated",
+            "view": "views/import/record/panels/updated",
+            "createDisabled": true,
+            "selectDisabled": true,
+            "unlinkDisabled": true
+          }
+        ]
+      },
+      "textFilterDisabled": true,
+      "relationshipPanels": {
+        "errors": {
+          "unlinkDisabled": true,
+          "actionList": [
+            {
+              "name": "export",
+              "label": "Export",
+              "handler": "handlers/import",
+              "actionFunction": "errorExport"
+            }
+          ]
+        }
+      },
+      "iconClass": "fas fa-file-import",
+      "dateFormatList": [
+        "YYYY-MM-DD",
+        "DD-MM-YYYY",
+        "MM-DD-YYYY",
+        "MM/DD/YYYY",
+        "DD/MM/YYYY",
+        "DD.MM.YYYY",
+        "MM.DD.YYYY",
+        "YYYY.MM.DD",
+        "DD. MM. YYYY"
+      ],
+      "timeFormatList": [
+        "HH:mm:ss",
+        "HH:mm",
+        "hh:mm a",
+        "hh:mma",
+        "hh:mm A",
+        "hh:mmA",
+        "hh:mm:ss a",
+        "hh:mm:ssa",
+        "hh:mm:ss A",
+        "hh:mm:ssA"
+      ]
+    },
+    "Meeting": {
+      "controller": "controllers/record",
+      "acl": "crm:acl/meeting",
+      "views": {
+        "detail": "crm:views/meeting/detail"
+      },
+      "recordViews": {
+        "list": "crm:views/meeting/record/list",
+        "detail": "crm:views/meeting/record/detail",
+        "editSmall": "crm:views/meeting/record/edit-small"
+      },
+      "modalViews": {
+        "detail": "crm:views/meeting/modals/detail"
+      },
+      "viewSetupHandlers": {
+        "record/detail": [
+          "crm:handlers/event/reminders-handler",
+          "modules/crm/handlers/meeting/external-service"
+        ],
+        "record/edit": [
+          "crm:handlers/event/reminders-handler",
+          "modules/crm/handlers/meeting/external-service"
+        ]
+      },
+      "sidePanels": {
+        "detail": [
+          {
+            "name": "attendees",
+            "label": "Attendees",
+            "view": "crm:views/meeting/record/panels/attendees",
+            "options": {
+              "fieldList": [
+                "users",
+                "contacts",
+                "leads"
+              ]
+            },
+            "sticked": true,
+            "isForm": true,
+            "notRefreshable": true
+          }
+        ],
+        "detailSmall": [
+          {
+            "name": "attendees",
+            "label": "Attendees",
+            "view": "crm:views/meeting/record/panels/attendees",
+            "sticked": true,
+            "isForm": true,
+            "notRefreshable": true
+          }
+        ],
+        "edit": [
+          {
+            "name": "attendees",
+            "label": "Attendees",
+            "view": "crm:views/meeting/record/panels/attendees",
+            "sticked": true,
+            "isForm": true,
+            "notRefreshable": true
+          }
+        ],
+        "editSmall": [
+          {
+            "name": "attendees",
+            "label": "Attendees",
+            "view": "crm:views/meeting/record/panels/attendees",
+            "sticked": true,
+            "isForm": true,
+            "notRefreshable": true
+          }
+        ]
+      },
+      "bottomPanels": {
+        "detail": [
+          {
+            "name": "scheduler",
+            "label": "Scheduler",
+            "view": "crm:views/meeting/record/panels/scheduler",
+            "order": 3
+          }
+        ],
+        "edit": [
+          {
+            "name": "scheduler",
+            "label": "Scheduler",
+            "view": "crm:views/meeting/record/panels/scheduler",
+            "order": 1
+          }
+        ],
+        "editSmall": [
+          {
+            "name": "scheduler",
+            "label": "Scheduler",
+            "view": "crm:views/meeting/record/panels/scheduler",
+            "order": 1
+          }
+        ]
+      },
+      "filterList": [
+        {
+          "name": "planned"
+        },
+        {
+          "name": "held",
+          "style": "success"
+        },
+        {
+          "name": "todays"
+        }
+      ],
+      "boolFilterList": [
+        "onlyMy"
+      ],
+      "activityDefs": {
+        "link": "meetings",
+        "activitiesCreate": true,
+        "historyCreate": true
+      },
+      "forcePatchAttributeDependencyMap": {
+        "dateEnd": [
+          "dateStart"
+        ],
+        "dateEndDate": [
+          "dateStartDate"
+        ]
+      },
+      "relationshipPanels": {
+        "contacts": {
+          "selectHandler": "handlers/select-related/same-account-many"
+        }
+      },
+      "additionalLayouts": {
+        "bottomPanelsEditSmall": {
+          "type": "bottomPanelsEditSmall"
+        }
+      },
+      "iconClass": "fas fa-calendar-check",
+      "detailActionList": [],
+      "editActionList": [],
+      "modalDetailActionList": [],
+      "modalEditActionList": []
+    },
+    "Call": {
+      "controller": "controllers/record",
+      "acl": "crm:acl/call",
+      "views": {
+        "detail": "crm:views/call/detail"
+      },
+      "recordViews": {
+        "list": "crm:views/call/record/list",
+        "detail": "crm:views/call/record/detail",
+        "editSmall": "crm:views/call/record/edit-small"
+      },
+      "modalViews": {
+        "detail": "crm:views/meeting/modals/detail"
+      },
+      "viewSetupHandlers": {
+        "record/detail": [
+          "crm:handlers/event/reminders-handler"
+        ],
+        "record/edit": [
+          "crm:handlers/event/reminders-handler"
+        ]
+      },
+      "sidePanels": {
+        "detail": [
+          {
+            "name": "attendees",
+            "label": "Attendees",
+            "view": "crm:views/meeting/record/panels/attendees",
+            "sticked": true,
+            "isForm": true,
+            "notRefreshable": true
+          }
+        ],
+        "detailSmall": [
+          {
+            "name": "attendees",
+            "label": "Attendees",
+            "view": "crm:views/meeting/record/panels/attendees",
+            "sticked": true,
+            "isForm": true,
+            "notRefreshable": true
+          }
+        ],
+        "edit": [
+          {
+            "name": "attendees",
+            "label": "Attendees",
+            "view": "crm:views/meeting/record/panels/attendees",
+            "sticked": true,
+            "isForm": true,
+            "notRefreshable": true
+          }
+        ],
+        "editSmall": [
+          {
+            "name": "attendees",
+            "label": "Attendees",
+            "view": "crm:views/meeting/record/panels/attendees",
+            "sticked": true,
+            "isForm": true,
+            "notRefreshable": true
+          }
+        ]
+      },
+      "bottomPanels": {
+        "detail": [
+          {
+            "name": "scheduler",
+            "label": "Scheduler",
+            "view": "crm:views/meeting/record/panels/scheduler",
+            "disabled": false,
+            "order": 3
+          }
+        ],
+        "edit": [
+          {
+            "name": "scheduler",
+            "label": "Scheduler",
+            "view": "crm:views/meeting/record/panels/scheduler",
+            "disabled": false,
+            "order": 1
+          }
+        ],
+        "editSmall": [
+          {
+            "name": "scheduler",
+            "label": "Scheduler",
+            "view": "crm:views/meeting/record/panels/scheduler",
+            "disabled": false,
+            "order": 1
+          }
+        ]
+      },
+      "filterList": [
+        {
+          "name": "planned"
+        },
+        {
+          "name": "held",
+          "style": "success"
+        },
+        {
+          "name": "todays"
+        }
+      ],
+      "boolFilterList": [
+        "onlyMy"
+      ],
+      "activityDefs": {
+        "link": "calls",
+        "activitiesCreate": true,
+        "historyCreate": true
+      },
+      "forcePatchAttributeDependencyMap": {
+        "dateEnd": [
+          "dateStart"
+        ],
+        "dateEndDate": [
+          "dateStartDate"
+        ]
+      },
+      "relationshipPanels": {
+        "contacts": {
+          "selectHandler": "handlers/select-related/same-account-many"
+        }
+      },
+      "additionalLayouts": {
+        "bottomPanelsEditSmall": {
+          "type": "bottomPanelsEditSmall"
+        }
+      },
+      "iconClass": "fas fa-phone",
+      "detailActionList": [],
+      "editActionList": [],
+      "modalDetailActionList": [],
+      "modalEditActionList": []
+    },
+    "Task": {
+      "controller": "crm:controllers/task",
+      "recordViews": {
+        "list": "crm:views/task/record/list",
+        "detail": "crm:views/task/record/detail"
+      },
+      "views": {
+        "list": "crm:views/task/list",
+        "detail": "crm:views/task/detail"
+      },
+      "viewSetupHandlers": {
+        "record/detail": [
+          "crm:handlers/task/reminders-handler"
+        ],
+        "record/edit": [
+          "crm:handlers/task/reminders-handler"
+        ]
+      },
+      "menu": {
+        "detail": {
+          "buttons": [
+            {
+              "label": "Complete",
+              "name": "setCompletedMain",
+              "iconHtml": "<span class=\"fas fa-check fa-sm\"></span>",
+              "acl": "edit",
+              "handler": "modules/crm/handlers/task/menu",
+              "actionFunction": "complete",
+              "checkVisibilityFunction": "isCompleteAvailable"
+            }
+          ]
+        }
+      },
+      "detailActionList": [
+        {
+          "name": "complete",
+          "labelTranslation": "Task.labels.Complete",
+          "acl": "edit",
+          "handler": "modules/crm/handlers/task/detail-actions",
+          "actionFunction": "complete",
+          "checkVisibilityFunction": "isCompleteAvailable",
+          "iconClass": "fas fa-check"
+        }
+      ],
+      "modalDetailActionList": [
+        {
+          "name": "complete",
+          "labelTranslation": "Task.labels.Complete",
+          "acl": "edit",
+          "handler": "modules/crm/handlers/task/detail-actions",
+          "actionFunction": "complete",
+          "checkVisibilityFunction": "isCompleteAvailable",
+          "iconClass": "fas fa-check"
+        }
+      ],
+      "filterList": [
+        "actual",
+        {
+          "name": "completed",
+          "style": "success"
+        },
+        {
+          "name": "todays"
+        },
+        {
+          "name": "overdue",
+          "style": "danger"
+        },
+        {
+          "name": "deferred"
+        }
+      ],
+      "boolFilterList": [
+        "onlyMy"
+      ],
+      "iconClass": "fas fa-tasks",
+      "kanbanViewMode": true,
+      "editActionList": [],
+      "modalEditActionList": []
+    }
+  }
+}

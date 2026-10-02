@@ -2,10 +2,10 @@
 import type { Metadata } from "./types";
 
 /**
- * Entity vẫn mở ở classic: có giao diện riêng (Email, Campaign…), là phần quản trị (User, Team),
+ * Entity vẫn mở ở classic: có giao diện riêng chưa làm (Campaign, TargetList, MassEmail) hoặc thuộc phần quản trị
+ * (User, Team, Role, Portal, mẫu/thư mục/tài khoản email).
  */
 const CLASSIC_SCOPES = new Set([
-  "Email",
   "EmailTemplate",
   "EmailFolder",
   "EmailAccount",
@@ -15,7 +15,6 @@ const CLASSIC_SCOPES = new Set([
   "Role",
   "Portal",
   "PortalUser",
-  "Import",
   "Campaign",
   "TargetList",
   "MassEmail",
@@ -45,6 +44,13 @@ export function classicHref(hash = "#"): string {
 /** Tab không phải entity nhưng đã có trang trên UI mới. */
 const NEW_UI_PAGES: Record<string, string> = {
   Stream: "/stream",
+  Calendar: "/Calendar",
+  Import: "/Import",
+};
+
+/** Entity không theo engine bản ghi nhưng có trang chi tiết riêng trên UI mới. */
+const NEW_UI_RECORD_PAGES: Record<string, string> = {
+  Import: "/Import",
 };
 
 export function scopeListHref(scope: string, metadata?: Metadata | null): string {
@@ -56,6 +62,10 @@ export function scopeListHref(scope: string, metadata?: Metadata | null): string
 }
 
 export function recordViewHref(scope: string, id: string, metadata?: Metadata | null): string {
+  if (Object.hasOwn(NEW_UI_RECORD_PAGES, scope)) {
+    return `${NEW_UI_RECORD_PAGES[scope]}/${encodeURIComponent(id)}`;
+  }
+
   return isNewUiScope(scope, metadata)
     ? `/${scope}/${encodeURIComponent(id)}`
     : classicHref(`#${scope}/view/${encodeURIComponent(id)}`);

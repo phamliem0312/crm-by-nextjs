@@ -2439,7 +2439,11 @@
     "dashletsOptions": {},
     "defaultReminders": [],
     "defaultRemindersTask": [],
-    "followEntityOnStreamPost": true
+    "followEntityOnStreamPost": true,
+    "emailReplyToAllByDefault": true,
+    "emailReplyForceHtml": true,
+    "calendarSlotDuration": null,
+    "calendarScrollHour": null
   },
   "settings": {
     "applicationName": "EspoCRM",
@@ -2540,7 +2544,7 @@
     ],
     "tabColorsDisabled": false,
     "aclAllowDeleteCreated": false,
-    "cacheTimestamp": 1790758775,
+    "cacheTimestamp": 1790844221,
     "appTimestamp": 1790668147,
     "recordsPerPage": 20,
     "recordsPerPageSmall": 5,

@@ -50,6 +50,7 @@ export function useFormFields({
     return (
       !defs ||
       !!defs.readOnly ||
+      !!defs.clientReadOnly ||
       (!isNew && !!defs.readOnlyAfterCreate) ||
       logic.fields[field]?.readOnly === true ||
       !acl.checkField(scope, field, "edit") ||
